@@ -348,7 +348,7 @@
       {
         title: 'Math City 2.0',
         description: 'A digital mathematical environment for geometry, reasoning, and inquiry.',
-        path: 'math-city-2/index.html',
+        path: 'index.html#math-city-2',
         keywords: 'math city 2 mathematics geometry computational nexus',
         sentences: [
           'Math City 2.0 is the evolution of digital geometric synthesis.',
@@ -361,7 +361,7 @@
       {
         title: 'Math City 1.0',
         description: 'A city-based virtual learning environment for mathematical reasoning and problem solving.',
-        path: 'math-city/index.html',
+        path: 'index.html#math-city-1',
         keywords: 'math city 1 mathematics problem solving geometry',
         sentences: [
           'Math City 1.0 is a virtual, city-based learning environment designed to foster mathematical reasoning and problem-solving through contextualized, inquiry-driven experiences.',
@@ -375,7 +375,7 @@
       {
         title: 'The Cardium',
         description: 'Interactive inquiry into human biology, health systems, and cardiology concepts.',
-        path: 'cardium/index.html',
+        path: 'index.html#cardium',
         keywords: 'cardium biology health heart cardiology medical human systems',
         sentences: [
           'The Cardium is a virtual learning platform designed to support inquiry into human biology and health systems through interactive simulations and case-based exploration.',
@@ -388,7 +388,7 @@
       {
         title: 'Atomic Shadows',
         description: 'Narrative inquiry around atomic structure, radiation, and scientific ethics.',
-        path: 'atomic-shadows/index.html',
+        path: 'index.html#atomic-shadows',
         keywords: 'atomic shadows atom radiation science ethics simulation',
         sentences: [
           'Atomic Shadows is an inquiry-based virtual platform focused on atomic structure, radiation, and scientific ethics through immersive, narrative-driven exploration.',
@@ -401,7 +401,7 @@
       {
         title: 'Virtual Teaching Training School',
         description: 'Teacher education simulations for instructional design and classroom decision-making.',
-        path: 'vtts/index.html',
+        path: 'index.html#vtts',
         keywords: 'virtual teaching training school teacher education pedagogy classroom',
         sentences: [
           'The Virtual Teaching Training School provides a simulated environment for teacher education, allowing pre-service teachers to practice instructional design, inquiry facilitation, and classroom decision-making.',
@@ -850,6 +850,15 @@
   }
 
   // ─── Init Everything ───
+  function initMobilePlatformMenus() {
+    document.querySelectorAll('.mobile-platform-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        const menu = link.closest('details.mobile-platform-menu');
+        if (menu) menu.open = false;
+      });
+    });
+  }
+
   // Research focus card expansion animation
   function initResearchFocusAccordions() {
     const cards = document.querySelectorAll('details.research-focus-card');
@@ -997,6 +1006,7 @@
     initSidebarEntrance();
     initECGBars();
     initSiteSearch();
+    initMobilePlatformMenus();
     initResearchFocusAccordions();
   });
 
