@@ -197,6 +197,8 @@
 
   // ─── Particle Field ───
   function initParticles() {
+    if (document.body.classList.contains('google-sites-mode')) return;
+
     const hero = document.querySelector('section.relative') || document.querySelector('main > section:first-child');
     if (!hero) return;
     // Only if hero has position relative or we make it
@@ -307,110 +309,187 @@
 
     const searchItems = [
       {
-        title: '5E Labs Showcase',
-        description: 'Main overview of the 5E Labs virtual learning platforms.',
+        title: '5E Labs',
+        description: 'Home page overview of the 5E Labs virtual learning platform collection.',
         path: 'index.html#top',
-        keywords: 'home explore showcase virtual learning inquiry framework',
+        keywords: 'home 5e labs virtual platforms inquiry learning google sites',
         sentences: [
-          '5E Labs showcases a series of research-driven virtual learning platforms developed to support inquiry-based learning across mathematics, science, and teacher education.',
-          'Grounded in the 5E Inquiry Framework, these virtual platforms emphasize engagement, conceptual understanding, reflection, and pedagogical transformation.',
-          'The showcase introduces the research protocol and methodology behind the 5E Labs platform collection.',
-          'Virtual simulations and immersive environments bring abstract concepts to life in a risk-free digital space.',
-          'STEM education innovation bridges theory and practice with tools for modern science and mathematics education.',
-          'Teacher professional development empowers educators with digital resources for transformative learning experiences.',
-          'Learning analytics and reflective practice help monitor progress, self-reflection, and instructional outcomes.'
+          '5E Labs is a collection of virtual platforms for learning science and mathematics through immersive, gamified virtual labs.',
+          'Built on the 5E inquiry-based learning framework, 5E Labs guide students through pedagogical stages for exploring abstract concepts in immersive virtual collaborative gaming environments.',
+          '5E Labs showcases research-driven virtual learning platforms developed to support inquiry-based learning across mathematics, science, and teacher education.'
         ]
       },
       {
-        title: 'Research Focus Areas',
-        description: 'Inquiry pedagogy, simulation design, STEM integration, teacher training, and learning analytics.',
-        path: 'index.html#focus-areas',
-        keywords: 'research focus areas pedagogy simulation stem teacher analytics',
+        title: 'About 5E Labs',
+        description: 'Overview of the research-driven virtual learning platforms.',
+        path: 'index.html#about',
+        keywords: 'about virtual learning inquiry mathematics science teacher education',
         sentences: [
-          'Inquiry-based learning design crafts pedagogical frameworks that empower students to explore, question, and discover through the 5E instructional model.',
-          'Virtual simulations and immersive environments develop high-fidelity virtual labs and interactive scenarios that bring abstract concepts to life in a risk-free digital space.',
-          'STEM education innovation bridges the gap between theory and practice with tools for modern science and mathematics education.',
-          'Teacher professional development empowers educators with the skills and digital resources needed to facilitate transformative learning experiences.',
-          'Learning analytics and reflective practice use data-driven insights to monitor progress, foster self-reflection, and optimize instructional outcomes.'
+          '5E Labs showcases research-driven virtual learning platforms developed to support inquiry-based learning across mathematics, science, and teacher education.',
+          'The platforms are grounded in the 5E Inquiry Framework: Engage, Explore, Explain, Elaborate, and Evaluate.',
+          'Each environment gives learners space to investigate ideas, discuss evidence, test assumptions, and reflect on what they have learned.'
         ]
       },
       {
-        title: 'Downloads',
-        description: 'Project archives, datasets, resources, and downloadable files.',
-        path: 'downloads.html',
-        keywords: 'downloads archive resources files datasets zip',
+        title: 'Objectives',
+        description: 'Conceptual understanding, inquiry practice, and teacher transformation goals.',
+        path: 'index.html#objectives',
+        keywords: 'objectives conceptual understanding inquiry teacher transformation',
         sentences: [
-          'Project Downloads provides access to the latest archives, datasets, and resources.',
-          'Users can download project archives and related files from the downloads page.',
-          'The downloads page lists available project files and downloadable archive materials.'
+          'The project helps learners move from abstract concepts to visible, testable, and discussable learning experiences.',
+          'The project guides students through questioning, exploration, explanation, application, and reflection.',
+          'The project gives educators a practical way to model inquiry-based pedagogy using digital learning spaces.'
         ]
       },
       {
-        title: 'Math City 2.0',
-        description: 'A digital mathematical environment for geometry, reasoning, and inquiry.',
-        path: 'index.html#math-city-2',
-        keywords: 'math city 2 mathematics geometry computational nexus',
+        title: 'Impact',
+        description: 'Impact of virtual learning environments for science, mathematics, and teacher education.',
+        path: 'index.html#impact',
+        keywords: 'impact virtual learning science mathematics teacher education',
         sentences: [
-          'Math City 2.0 is the evolution of digital geometric synthesis.',
-          'The platform uses high-fidelity spectral analysis to curate the next generation of mathematical architecture.',
-          'Neural topology mapping supports advanced visualization of high-dimensional datasets using manifold learning.',
-          'Math City 2.0 treats data as a physical asset and verifies each byte against consensus protocols.',
-          'The archive remains a source of truth through asymmetric encryption, geometric proof verification, and quantum-safe data structures.'
+          'The 5E Labs collection connects curriculum goals with interactive learning experiences.',
+          'It supports students who need concrete visual models and teachers who need safe spaces to practice inquiry-based facilitation.',
+          'The project emphasizes engagement, conceptual understanding, reflective learning, collaboration, and research-informed classroom practice.'
+        ]
+      },
+      {
+        title: '5E Inquiry Framework',
+        description: 'The Engage, Explore, Explain, Elaborate, and Evaluate learning cycle.',
+        path: 'index.html#framework',
+        keywords: '5e inquiry framework engage explore explain elaborate evaluate',
+        sentences: [
+          'Engage introduces a meaningful challenge or scenario.',
+          'Explore lets learners investigate through interaction and evidence.',
+          'Explain supports learners as they describe patterns and concepts.',
+          'Elaborate extends ideas into new situations and problems.',
+          'Evaluate encourages reflection, feedback, and evidence of understanding.'
+        ]
+      },
+      {
+        title: '21st Century Skills',
+        description: 'Problem solving, collaboration, communication, digital literacy, and reflection.',
+        path: 'index.html#skills',
+        keywords: '21st century skills problem solving collaboration communication digital literacy reflection',
+        sentences: [
+          'Learners practice problem solving, collaboration, communication, digital literacy, evidence-based reasoning, and self-reflection while working through immersive scenarios.',
+          'The platforms connect disciplinary knowledge with practical decision-making in science, mathematics, and teaching contexts.'
+        ]
+      },
+      {
+        title: 'Philosophy behind 5E Labs',
+        description: 'The learning philosophy behind virtual inquiry environments.',
+        path: 'index.html#philosophy',
+        keywords: 'philosophy learning doing explaining reflecting inquiry',
+        sentences: [
+          '5E Labs treats virtual environments as learning laboratories.',
+          'Instead of only presenting content, each platform asks learners to act, test, discuss, and revise their understanding.',
+          'Students learn deeply when they can experience a concept, talk about it, connect it to evidence, and apply it beyond the first task.'
         ]
       },
       {
         title: 'Math City 1.0',
-        description: 'A city-based virtual learning environment for mathematical reasoning and problem solving.',
+        description: 'A virtual city for learning about properties of 3D shapes.',
         path: 'index.html#math-city-1',
-        keywords: 'math city 1 mathematics problem solving geometry',
+        keywords: 'math city 1 mathematics 3d shapes virtual city geometry',
         sentences: [
-          'Math City 1.0 is a virtual, city-based learning environment designed to foster mathematical reasoning and problem-solving through contextualized, inquiry-driven experiences.',
-          'Students develop conceptual understanding of mathematics and apply mathematical reasoning to real-world contexts.',
-          'The platform promotes exploratory and collaborative problem solving.',
-          'The 5E alignment uses authentic challenges, multiple pathways, articulated reasoning, concept extension, and reflective prompts.',
-          'Math City 1.0 examines inquiry-driven mathematics learning in immersive contexts.',
-          'The initiative investigates learner engagement and conceptual transfer.'
+          'Math City 1.0 is a virtual city for learning about properties of 3D shapes through contextualized mathematical inquiry and problem solving.',
+          'Students develop mathematical reasoning through immersive city-based learning scenarios.',
+          'The platform promotes exploratory and collaborative problem solving.'
+        ]
+      },
+      {
+        title: 'Math City 2.0',
+        description: 'A next-stage mathematics learning environment for geometric reasoning.',
+        path: 'index.html#math-city-2',
+        keywords: 'math city 2 mathematics geometric reasoning collaborative inquiry',
+        sentences: [
+          'Math City 2.0 is a next-stage mathematics learning environment that extends digital geometric reasoning, collaborative exploration, and inquiry-based problem solving.',
+          'The platform supports mathematical exploration through virtual learning activities.',
+          'Math City 2.0 builds on the virtual city learning model for deeper mathematics inquiry.'
         ]
       },
       {
         title: 'The Cardium',
-        description: 'Interactive inquiry into human biology, health systems, and cardiology concepts.',
+        description: 'A high-immersion virtual museum for studying the human heart.',
         path: 'index.html#cardium',
-        keywords: 'cardium biology health heart cardiology medical human systems',
+        keywords: 'cardium heart human heart virtual museum biology science virtual reality',
         sentences: [
-          'The Cardium is a virtual learning platform designed to support inquiry into human biology and health systems through interactive simulations and case-based exploration.',
-          'Learners understand complex biological systems and connect concepts to real-world health.',
-          'The platform develops scientific inquiry for secondary learners, undergraduate science learners, and future health science educators.',
-          'The Cardium supports model-based reasoning through hypothesis testing and simulations.',
-          'Research significance focuses on interdisciplinary STEM inquiry.'
+          'The Cardium is a high-immersion virtual museum for studying the structure of the human heart using virtual reality devices and inquiry-based scientific exploration.',
+          'Learners explore human biology through immersive scientific investigation.',
+          'The Cardium supports model-based reasoning and scientific inquiry around the human heart.'
         ]
       },
       {
         title: 'Atomic Shadows',
-        description: 'Narrative inquiry around atomic structure, radiation, and scientific ethics.',
+        description: 'Atomic Shadows: Unstable Realms science learning environment.',
         path: 'index.html#atomic-shadows',
-        keywords: 'atomic shadows atom radiation science ethics simulation',
+        keywords: 'atomic shadows unstable realms atomic structure radiation science ethics',
         sentences: [
-          'Atomic Shadows is an inquiry-based virtual platform focused on atomic structure, radiation, and scientific ethics through immersive, narrative-driven exploration.',
-          'The platform develops conceptual understanding of atomic phenomena.',
-          'Learners examine ethical and societal dimensions of science through evidence-based inquiry.',
-          'Narrative-based scenarios create immersive environments driven by storytelling.',
-          'Decision-making models generate dynamic outcomes based on learner choices.'
+          'Atomic Shadows: Unstable Realms is an immersive science learning environment for atomic structure, radiation, scientific ethics, and narrative-driven inquiry.',
+          'Learners examine atomic phenomena through story-based scientific exploration.',
+          'The platform connects evidence-based inquiry with ethical and societal dimensions of science.'
         ]
       },
       {
-        title: 'Virtual Teaching Training School',
-        description: 'Teacher education simulations for instructional design and classroom decision-making.',
+        title: "Virtual School of Teacher's Training",
+        description: 'Teacher education simulations for professional conduct, ethics, and classroom decision-making.',
         path: 'index.html#vtts',
-        keywords: 'virtual teaching training school teacher education pedagogy classroom',
+        keywords: 'virtual school teacher training teachers professional conduct code ethics classroom education',
         sentences: [
-          'The Virtual Teaching Training School provides a simulated environment for teacher education, allowing pre-service teachers to practice instructional design, inquiry facilitation, and classroom decision-making.',
+          "Virtual School of Teacher's Training explores teachers' professional conduct and code of ethics through simulated teaching situations, reflection, and classroom decision-making.",
           'Teachers develop inquiry-oriented pedagogical skills and reflect on teaching decisions in safe simulated contexts.',
-          'Teachers experience the 5E model from the learner perspective.',
-          'The platform supports design-reflect-redesign cycles.',
-          'The target audience includes pre-service and in-service teachers, along with teacher educators.',
-          'Research significance investigates virtual simulations and supports pedagogical growth.',
-          'The Virtual Teaching Training School connects technological excellence with educational practice.'
+          'The platform supports teacher education through virtual practice and reflective learning.'
+        ]
+      },
+      {
+        title: 'Environment Warriors',
+        description: 'A coming-soon environmental learning platform.',
+        path: 'index.html#environment-warriors',
+        keywords: 'environment warriors environmental learning coming soon',
+        sentences: [
+          'Environment Warriors is listed as a coming-soon platform in the 5E Labs collection.',
+          'The section is prepared for future environmental learning content.'
+        ]
+      },
+      {
+        title: 'Peer Reviewed Evidence',
+        description: 'Research evidence and scholarly grounding for 5E Labs.',
+        path: 'index.html#evidence',
+        keywords: 'peer reviewed evidence research scholarly publications citations',
+        sentences: [
+          '5E Labs is positioned around research-informed design, inquiry pedagogy, and evidence-based evaluation of virtual learning environments.',
+          'Peer reviewed evidence can be presented as the client provides publication links, citations, or downloadable research materials.'
+        ]
+      },
+      {
+        title: 'Dissemination',
+        description: 'Workshops, classroom trials, presentations, publications, and updates.',
+        path: 'index.html#dissemination',
+        keywords: 'dissemination workshops classroom trials presentations publications resources',
+        sentences: [
+          'Dissemination activities may include workshops, classroom trials, conference presentations, journal publications, and resource sharing for educators.',
+          'This section can be expanded with events, media, project announcements, and partner updates.'
+        ]
+      },
+      {
+        title: 'Contact us',
+        description: 'Public contact section for 5E Labs.',
+        path: 'index.html#contact',
+        keywords: 'contact email organization information 5e labs',
+        sentences: [
+          'Contact details can be added once the client confirms the preferred email, organization information, and public-facing contact method.',
+          'The contact section is prepared without exposing private details.'
+        ]
+      },
+      {
+        title: 'Downloads',
+        description: 'Project archives, resources, and downloadable files.',
+        path: 'downloads.html',
+        keywords: 'downloads archive resources files datasets zip embedded files',
+        sentences: [
+          'Project archives, resources, and downloadable files are available for the 5E Labs platform collection.',
+          'Users can download project archives and related files from the downloads page.',
+          'The downloads page lists available project files and downloadable archive materials.'
         ]
       }
     ];
@@ -541,7 +620,7 @@
         <div class="site-search-panel">
           <form class="site-search-form" role="search">
             <label id="site-search-title" class="site-search-label" for="site-search-input">Search site</label>
-            <input id="site-search-input" class="site-search-input" type="text" inputmode="search" autocomplete="off" placeholder="Search platforms, downloads, or focus areas" aria-label="Search site" />
+            <input id="site-search-input" class="site-search-input" type="text" inputmode="search" autocomplete="off" placeholder="Search this site" aria-label="Search site" />
           </form>
           <div class="site-search-results" aria-live="polite"></div>
         </div>
@@ -851,9 +930,9 @@
 
   // ─── Init Everything ───
   function initMobilePlatformMenus() {
-    document.querySelectorAll('.mobile-platform-menu a').forEach(link => {
+    document.querySelectorAll('.mobile-platform-menu a, .google-more-menu a').forEach(link => {
       link.addEventListener('click', () => {
-        const menu = link.closest('details.mobile-platform-menu');
+        const menu = link.closest('details.mobile-platform-menu, details.google-more-menu');
         if (menu) menu.open = false;
       });
     });

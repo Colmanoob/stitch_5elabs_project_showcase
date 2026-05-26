@@ -1,296 +1,317 @@
 <!DOCTYPE html>
 <html class="light" lang="en">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Downloads | 5ELABS</title>
-    <link href="https://lh3.googleusercontent.com/aida-public/AB6AXuBc95dqb9fPjnkpIy-AM90G3DXjU0UEj59CBjodFoRnYh6Bibr1reYRvTv4zez0CsYrd3Juy7xS_v_LlZEdtIPYF4Vdqb3HgmeqfZN8TBggRhu7TrASymYUOVuyR_yF1FU1omIqj5aSPRh8LoSMNPohTt8CniB6Qeykld2OdY8D7Ual8gg5_1M8C8K0Q4K6Js4p8ta8ZFdBHz_phnl__QRbueoqRhOZzNlCLtIxbOjEXd9e7AkBqs6vAKTqNXWIkAiPY3JI1wGPdaI" rel="icon" type="image/png"/>
-    <link href="https://fonts.googleapis.com" rel="preconnect"/>
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Public+Sans:wght@300;400;500;600&family=Inter:wght@300;400;500;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-              "primary": "#24609d",
-              "on-primary": "#f6f7ff",
-              "primary-container": "#d2e4ff",
-              "on-primary-container": "#0e548f",
-              "secondary": "#4b6175",
-              "on-secondary": "#f6f9ff",
-              "secondary-container": "#cee5fc",
-              "on-secondary-container": "#3e5467",
-              "background": "#f8f9fa",
-              "on-background": "#2b3437",
-              "surface": "#f8f9fa",
-              "on-surface": "#2b3437",
-              "surface-variant": "#dbe4e7",
-              "on-surface-variant": "#586064",
-              "outline": "#737c7f",
-              "outline-variant": "#abb3b7",
-              "surface-container-low": "#f1f4f6",
-              "surface-container-lowest": "#ffffff"
-            },
-            "fontFamily": {
-              "headline": ["Manrope"],
-              "body": ["Public Sans"],
-              "label": ["Inter"]
-            }
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Downloads | 5E Labs</title>
+  <link href="https://lh3.googleusercontent.com/aida-public/AB6AXuBc95dqb9fPjnkpIy-AM90G3DXjU0UEj59CBjodFoRnYh6Bibr1reYRvTv4zez0CsYrd3Juy7xS_v_LlZEdtIPYF4Vdqb3HgmeqfZN8TBggRhu7TrASymYUOVuyR_yF1FU1omIqj5aSPRh8LoSMNPohTt8CniB6Qeykld2OdY8D7Ual8gg5_1M8C8K0Q4K6Js4p8ta8ZFdBHz_phnl__QRbueoqRhOZzNlCLtIxbOjEXd9e7AkBqs6vAKTqNXWIkAiPY3JI1wGPdaI" rel="icon" type="image/png" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&family=Open+Sans:wght@400;600;700&family=Oswald:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#212121",
+            "on-primary": "#ffffff",
+            "primary-container": "#f1f676",
+            "on-primary-container": "#212121",
+            secondary: "#5f6368",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#f4f4f4",
+            "on-secondary-container": "#212121",
+            background: "#ffffff",
+            "on-background": "#212121",
+            surface: "#ffffff",
+            "on-surface": "#212121",
+            "surface-variant": "#f4f4f4",
+            "on-surface-variant": "#5f6368",
+            outline: "#dadce0",
+            "outline-variant": "#e8eaed",
+            "surface-container-low": "#f8f9fa",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#f4f4f4",
+            error: "#b3261e",
+            "error-container": "#fce8e6"
+          },
+          borderRadius: {
+            DEFAULT: "0.125rem",
+            lg: "0.25rem",
+            xl: "0.5rem"
+          },
+          fontFamily: {
+            headline: ["Oswald", "Arial", "sans-serif"],
+            body: ["Open Sans", "Arial", "sans-serif"],
+            label: ["Lora", "Georgia", "serif"]
           }
         }
       }
-    </script>
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-            display: inline-block;
-            vertical-align: middle;
-        }
-        body { min-height: max(884px, 100dvh); display: flex; flex-direction: column; }
-    </style>
-    <link rel="stylesheet" href="animations.css" />
-</head>
-<body class="bg-background text-on-surface font-body overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
-
-<header class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm dark:shadow-none">
-    <nav class="flex justify-between items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16">
-        <a href="index.html" class="flex items-center gap-3">
-            <img alt="5ELABS Logo" class="h-8 w-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc95dqb9fPjnkpIy-AM90G3DXjU0UEj59CBjodFoRnYh6Bibr1reYRvTv4zez0CsYrd3Juy7xS_v_LlZEdtIPYF4Vdqb3HgmeqfZN8TBggRhu7TrASymYUOVuyR_yF1FU1omIqj5aSPRh8LoSMNPohTt8CniB6Qeykld2OdY8D7Ual8gg5_1M8C8K0Q4K6Js4p8ta8ZFdBHz_phnl__QRbueoqRhOZzNlCLtIxbOjEXd9e7AkBqs6vAKTqNXWIkAiPY3JI1wGPdaI"/>
-            <span class="text-xl sm:text-2xl font-extrabold tracking-tighter text-slate-900 dark:text-slate-50 font-['Manrope']">5ELABS</span>
-        </a>
-        <div class="site-desktop-nav hidden lg:flex gap-8 items-center">
-            <a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-['Manrope'] transition-colors duration-200 ease-in-out" href="index.html#top">Explore</a>
-        </div>
-        <div class="flex items-center gap-4">
-            <span class="material-symbols-outlined text-outline" data-icon="search">search</span>
-        </div>
-    </nav>
-    <div class="site-mobile-header lg:hidden border-t border-outline-variant/20 bg-slate-50/95 dark:bg-slate-900/95">
-        <div class="site-mobile-page-links flex lg:hidden items-center gap-2 overflow-x-auto px-4 py-2">
-            <a class="shrink-0 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-['Manrope'] text-sm px-1 py-1 transition-colors duration-200 ease-in-out" href="index.html#top">Explore</a>
-        </div>
-        <details class="mobile-platform-menu border-t border-outline-variant/20">
-            <summary class="flex items-center justify-between gap-3 px-4 py-3 text-slate-800 dark:text-slate-100 cursor-pointer">
-                <span class="flex items-center gap-2 font-headline font-bold text-sm">
-                    <span class="material-symbols-outlined text-primary text-[20px]" data-icon="apps">apps</span>
-                    Platforms
-                </span>
-                <span class="material-symbols-outlined mobile-platform-chevron text-primary" data-icon="expand_more" aria-hidden="true">expand_more</span>
-            </summary>
-            <nav class="grid grid-cols-1 gap-1 px-4 pb-3">
-                <a class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 font-['Public_Sans'] text-sm transition-colors" href="index.html#math-city-2"><span class="material-symbols-outlined text-[20px]" data-icon="calculate">calculate</span>Math City 2.0</a>
-                <a class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 font-['Public_Sans'] text-sm transition-colors" href="index.html#math-city-1"><span class="material-symbols-outlined text-[20px]" data-icon="functions">functions</span>Math City 1.0</a>
-                <a class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 font-['Public_Sans'] text-sm transition-colors" href="index.html#cardium"><span class="material-symbols-outlined text-[20px]" data-icon="monitor_heart">monitor_heart</span>The Cardium</a>
-                <a class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 font-['Public_Sans'] text-sm transition-colors" href="index.html#atomic-shadows"><span class="material-symbols-outlined text-[20px]" data-icon="precision_manufacturing">precision_manufacturing</span>Atomic Shadows</a>
-                <a class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 font-['Public_Sans'] text-sm transition-colors" href="index.html#vtts"><span class="material-symbols-outlined text-[20px]" data-icon="school">school</span>Virtual Teaching Training School</a>
-                <a class="flex items-center gap-3 rounded-lg px-3 py-2.5 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 font-medium font-['Public_Sans'] text-sm transition-colors" href="downloads.html"><span class="material-symbols-outlined text-[20px]" data-icon="download">download</span>Downloads</a>
-            </nav>
-        </details>
-    </div>
-</header>
-
-<div class="flex pt-40 lg:pt-16 min-h-screen min-w-0 flex-grow">
-    <aside class="hidden lg:flex sticky top-16 self-start w-64 h-[calc(100vh-4rem)] flex-col overflow-y-auto bg-slate-50 dark:bg-slate-900 rounded-r-lg shadow-2xl border-r border-outline-variant/10">
-        <div class="p-6">
-            <h2 class="text-xl font-bold text-slate-900 font-headline mb-6">Platforms</h2>
-            <nav class="space-y-1">
-                <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg ease-in-out duration-200 font-['Public_Sans'] text-sm" href="index.html#math-city-2">
-                    <span class="material-symbols-outlined" data-icon="calculate">calculate</span>
-                    Math City 2.0
-                </a>
-                <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg ease-in-out duration-200 font-['Public_Sans'] text-sm" href="index.html#math-city-1">
-                    <span class="material-symbols-outlined" data-icon="functions">functions</span>
-                    Math City 1.0
-                </a>
-                <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg ease-in-out duration-200 font-['Public_Sans'] text-sm" href="index.html#cardium">
-                    <span class="material-symbols-outlined" data-icon="monitor_heart">monitor_heart</span>
-                    The Cardium
-                </a>
-                <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg ease-in-out duration-200 font-['Public_Sans'] text-sm" href="index.html#atomic-shadows">
-                    <span class="material-symbols-outlined" data-icon="precision_manufacturing">precision_manufacturing</span>
-                    Atomic Shadows
-                </a>
-                <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg ease-in-out duration-200 font-['Public_Sans'] text-sm" href="index.html#vtts">
-                    <span class="material-symbols-outlined" data-icon="school">school</span>
-                    Virtual Teaching Training School
-                </a>
-                <a class="flex items-center gap-3 px-4 py-3 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 font-medium rounded-lg ease-in-out duration-200 font-['Public_Sans'] text-sm" href="downloads.html">
-                    <span class="material-symbols-outlined" data-icon="download">download</span>
-                    Downloads
-                </a>
-            </nav>
-        </div>
-        <div class="mt-auto p-6 border-t border-outline-variant/10">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary text-xs font-bold">DL</div>
-                <div class="flex flex-col">
-                    <span class="text-xs font-bold text-on-surface">Archive Desk</span>
-                    <span class="text-[10px] text-on-surface-variant">Downloads</span>
-                </div>
-            </div>
-        </div>
-    </aside>
-
-    <main class="flex-1 min-w-0 py-10 lg:py-12 flex flex-col items-center">
-        <section class="max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-            <h1 class="text-4xl md:text-5xl font-headline font-extrabold text-on-surface mb-4">Project <span class="text-primary">Downloads</span></h1>
-            <p class="text-lg text-on-surface-variant">Access our latest archives, datasets, and resources here.</p>
-        </section>
-
-        <section class="max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 mb-24">
-            <div id="downloads-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Loading state -->
-                <div class="p-6 bg-surface-container-lowest rounded-xl shadow border border-outline-variant/10 text-center col-span-full py-12">
-                    <span class="material-symbols-outlined text-4xl text-primary animate-spin mb-4" data-icon="sync">sync</span>
-                    <p class="text-on-surface-variant">Fetching archives...</p>
-                </div>
-            </div>
-        </section>
-    </main>
-</div>
-
-<footer class="bg-slate-100 dark:bg-slate-950 w-full mt-auto tonal-shift">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto px-8 py-12">
-        <div>
-            <div class="flex items-center gap-2 mb-6">
-                <span class="material-symbols-outlined text-teal-700 dark:text-teal-400" data-icon="biotech">biotech</span>
-                <span class="font-bold text-slate-900 font-headline">5ELABS</span>
-            </div>
-            <p class="text-slate-500 dark:text-slate-500 font-['Inter'] text-xs uppercase tracking-widest leading-loose max-w-xs">
-                © 2026 5elabs. All rights reserved. Analytical Precision in Digital Curation.
-            </p>
-        </div>
-        <div class="grid grid-cols-2 gap-4">
-            <div class="space-y-4">
-                <a class="block text-slate-500 dark:text-slate-500 font-['Inter'] text-xs uppercase tracking-widest hover:text-teal-600 underline-offset-4 hover:underline transition-all opacity-80 hover:opacity-100" href="#">Contact</a>
-                <a class="block text-teal-600 dark:text-teal-400 font-['Inter'] text-xs uppercase tracking-widest underline-offset-4 hover:underline transition-all opacity-100" href="downloads.html">Downloads</a>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<script>
-function openPreview(url, ext, title) {
-    document.getElementById('previewTitle').textContent = title;
-    const container = document.getElementById('previewContainer');
-    container.innerHTML = '<div class="absolute inset-0 flex p-6 overflow-auto items-center justify-center w-full h-full text-center" id="innerPreview"></div>';
-    const inner = document.getElementById('innerPreview');
-    
-    if(['jpg','jpeg','png','gif','svg','webp'].includes(ext)) {
-        inner.innerHTML = `<img src="${url}" class="max-w-full max-h-full object-contain shadow-lg">`;
-    } else if(['mp4','mov','avi'].includes(ext)) {
-        inner.innerHTML = `<video controls autoplay class="max-w-full max-h-full shadow-lg"><source src="${url}"></video>`;
-    } else if(['mp3','wav'].includes(ext)) {
-        inner.innerHTML = `<audio controls autoplay class="w-full max-w-md"><source src="${url}"></audio>`;
-    } else if(ext === 'pdf') {
-        inner.innerHTML = `<iframe src="${url}#toolbar=0" class="w-full h-full border-0"></iframe>`;
-    } else if(['txt','rtf','md', 'csv', 'json'].includes(ext)) {
-        inner.innerHTML = '<span class="material-symbols-outlined animate-spin text-primary text-4xl">sync</span>';
-        fetch(url).then(r=>r.text()).then(txt => {
-            inner.innerHTML = `<pre class="w-full h-full text-left p-6 font-mono text-sm whitespace-pre-wrap overflow-auto bg-slate-50 text-slate-800">${txt.replace(/</g, "&lt;")}</pre>`;
-        }).catch(err => {
-            inner.innerHTML = 'Failed to load text content.';
-        });
     }
-    
-    document.getElementById('previewModal').classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-}
+  </script>
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      vertical-align: middle;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+  <link rel="stylesheet" href="animations.css" />
+</head>
 
-function closePreview() {
-    document.getElementById('previewModal').classList.add('hidden');
-    document.getElementById('previewContainer').innerHTML = ''; // Kill media
-    document.body.style.overflow = '';
-}
+<body class="google-sites-mode bg-background text-on-surface font-body overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+  <header class="google-header fixed top-0 w-full z-50 bg-white">
+    <nav class="google-header-nav mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <a class="google-brand flex items-center gap-3" href="index.html#top" aria-label="5E Labs home">
+        <img alt="5E Labs logo" class="h-9 w-9 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc95dqb9fPjnkpIy-AM90G3DXjU0UEj59CBjodFoRnYh6Bibr1reYRvTv4zez0CsYrd3Juy7xS_v_LlZEdtIPYF4Vdqb3HgmeqfZN8TBggRhu7TrASymYUOVuyR_yF1FU1omIqj5aSPRh8LoSMNPohTt8CniB6Qeykld2OdY8D7Ual8gg5_1M8C8K0Q4K6Js4p8ta8ZFdBHz_phnl__QRbueoqRhOZzNlCLtIxbOjEXd9e7AkBqs6vAKTqNXWIkAiPY3JI1wGPdaI" />
+        <span class="font-headline text-2xl font-medium text-on-surface">5E Labs</span>
+      </a>
 
-document.addEventListener('DOMContentLoaded', function() {
-    fetch('api_list_archives.php')
+      <div class="site-desktop-nav google-desktop-nav hidden items-center gap-6 lg:flex" aria-label="Primary">
+        <a href="index.html#top">Home</a>
+        <a href="index.html#about">About 5E Labs</a>
+        <a href="index.html#objectives">Objectives</a>
+        <a href="index.html#impact">Impact</a>
+        <a href="index.html#framework">5E Inquiry Framework</a>
+        <a class="is-active" href="downloads.html">Downloads</a>
+        <details class="google-more-menu">
+          <summary>
+            <span>More</span>
+            <span class="material-symbols-outlined text-[18px]" data-icon="expand_more" aria-hidden="true">expand_more</span>
+          </summary>
+          <nav aria-label="More pages">
+            <a href="index.html#skills">21st Century Skills</a>
+            <a href="index.html#philosophy">Philosophy behind 5E Labs</a>
+            <a href="index.html#math-city-1">Math City 1.0</a>
+            <a href="index.html#math-city-2">Math City 2.0</a>
+            <a href="index.html#cardium">The Cardium</a>
+            <a href="index.html#atomic-shadows">Atomic Shadows</a>
+            <a href="index.html#vtts">Virtual School of Teacher's Training</a>
+            <a href="index.html#environment-warriors">Environment Warriors</a>
+            <a href="index.html#evidence">Peer Reviewed Evidence</a>
+            <a href="index.html#dissemination">Dissemination</a>
+            <a href="index.html#contact">Contact us</a>
+          </nav>
+        </details>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+      </div>
+    </nav>
+
+    <div class="site-mobile-header border-t border-outline-variant bg-white lg:hidden">
+      <div class="site-mobile-page-links flex items-center gap-5 overflow-x-auto px-4 py-2">
+        <a class="shrink-0" href="index.html#top">Home</a>
+        <a class="shrink-0" href="index.html#about">About 5E Labs</a>
+        <a class="shrink-0" href="index.html#objectives">Objectives</a>
+        <a class="shrink-0" href="index.html#framework">5E Inquiry Framework</a>
+        <a class="shrink-0 border-b-2 border-blue-700 text-blue-700" href="downloads.html">Downloads</a>
+      </div>
+      <details class="mobile-platform-menu border-t border-outline-variant">
+        <summary class="flex cursor-pointer items-center justify-between gap-3 px-4 py-3">
+          <span class="flex items-center gap-2 font-headline text-sm font-medium">
+            <span class="material-symbols-outlined text-[20px]" data-icon="apps">apps</span>
+            More
+          </span>
+          <span class="material-symbols-outlined mobile-platform-chevron text-[20px]" data-icon="expand_more" aria-hidden="true">expand_more</span>
+        </summary>
+        <nav class="google-mobile-menu grid grid-cols-1 gap-1 px-4 pb-3">
+          <a href="index.html#skills">21st Century Skills</a>
+          <a href="index.html#philosophy">Philosophy behind 5E Labs</a>
+          <a href="index.html#math-city-1">Math City 1.0</a>
+          <a href="index.html#math-city-2">Math City 2.0</a>
+          <a href="index.html#cardium">The Cardium</a>
+          <a href="index.html#atomic-shadows">Atomic Shadows</a>
+          <a href="index.html#vtts">Virtual School of Teacher's Training</a>
+          <a href="index.html#environment-warriors">Environment Warriors</a>
+          <a href="index.html#evidence">Peer Reviewed Evidence</a>
+          <a href="index.html#dissemination">Dissemination</a>
+          <a href="index.html#contact">Contact us</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+
+  <main class="google-main">
+    <section class="google-hero google-hero-small">
+      <div class="google-hero-inner">
+        <p class="google-hero-kicker">Embedded Files</p>
+        <h1>Downloads</h1>
+        <p class="google-hero-copy">
+          Project archives, resources, and downloadable files for the 5E Labs platform collection.
+        </p>
+      </div>
+    </section>
+
+    <section class="google-section">
+      <div class="google-section-inner">
+        <p class="google-section-label">Project Downloads</p>
+        <h2>Available files</h2>
+        <div id="downloads-container" class="google-downloads-grid">
+          <div class="google-download-empty">
+            <span class="material-symbols-outlined animate-spin text-[32px]" data-icon="sync">sync</span>
+            <p>Fetching archives...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="google-footer">
+    <div class="google-section-inner">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <p class="font-headline text-xl">5E Labs</p>
+        <nav class="flex flex-wrap gap-4 text-sm" aria-label="Footer">
+          <a href="index.html#about">About</a>
+          <a href="index.html#platforms">Platforms</a>
+          <a href="downloads.html">Downloads</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function openPreview(url, ext, title) {
+      document.getElementById('previewTitle').textContent = title;
+      const container = document.getElementById('previewContainer');
+      container.innerHTML = '<div class="absolute inset-0 flex h-full w-full items-center justify-center overflow-auto p-6 text-center" id="innerPreview"></div>';
+      const inner = document.getElementById('innerPreview');
+      const safePreviewUrl = escapeHtml(url);
+      const safePreviewTitle = escapeHtml(title);
+
+      if (['jpg', 'jpeg', 'png', 'gif', 'svg', 'webp'].includes(ext)) {
+        inner.innerHTML = `<img src="${safePreviewUrl}" class="max-h-full max-w-full object-contain shadow-lg" alt="">`;
+      } else if (['mp4', 'mov', 'avi'].includes(ext)) {
+        inner.innerHTML = `<video controls autoplay class="max-h-full max-w-full shadow-lg"><source src="${safePreviewUrl}"></video>`;
+      } else if (['mp3', 'wav'].includes(ext)) {
+        inner.innerHTML = `<audio controls autoplay class="w-full max-w-md"><source src="${safePreviewUrl}"></audio>`;
+      } else if (ext === 'pdf') {
+        inner.innerHTML = `<iframe src="${safePreviewUrl}#toolbar=0" class="h-full w-full border-0" title="${safePreviewTitle}"></iframe>`;
+      } else if (['txt', 'rtf', 'md', 'csv', 'json'].includes(ext)) {
+        inner.innerHTML = '<span class="material-symbols-outlined animate-spin text-[32px]">sync</span>';
+        fetch(url)
+          .then(response => response.text())
+          .then(text => {
+            inner.innerHTML = `<pre class="h-full w-full overflow-auto bg-white p-6 text-left font-mono text-sm text-slate-800">${text.replace(/</g, "&lt;")}</pre>`;
+          })
+          .catch(() => {
+            inner.innerHTML = 'Failed to load text content.';
+          });
+      }
+
+      document.getElementById('previewModal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePreview() {
+      document.getElementById('previewModal').classList.add('hidden');
+      document.getElementById('previewContainer').innerHTML = '';
+      document.body.style.overflow = '';
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, char => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      })[char]);
+    }
+
+    function escapeJsString(value) {
+      return String(value)
+        .replace(/\\/g, '\\\\')
+        .replace(/'/g, "\\'")
+        .replace(/\r?\n/g, ' ');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      fetch('api_list_archives.php')
         .then(response => {
-            if (!response.ok) throw new Error('Network response was not ok');
-            return response.json();
+          if (!response.ok) throw new Error('Network response was not ok');
+          return response.json();
         })
         .then(data => {
-            const container = document.getElementById('downloads-container');
-            container.innerHTML = '';
-            
-            if (data.length === 0) {
-                container.innerHTML = '<div class="col-span-full text-center py-12 text-on-surface-variant bg-surface-container-lowest rounded-xl border border-outline-variant/10">No archives currently available. Check back soon.</div>';
-                return;
-            }
-            
-            data.forEach(file => {
-                const card = document.createElement('div');
-                card.className = 'p-6 bg-surface-container-lowest rounded-xl shadow hover:shadow-lg transition-all border border-outline-variant/10 flex flex-col justify-between';
-                
-                // Get a nice icon based on extension
-                let iconName = 'description';
-                if(file.ext === 'zip' || file.ext === 'rar' || file.ext === '7z') iconName = 'folder_zip';
-                if(file.ext === 'pdf') iconName = 'picture_as_pdf';
-                if(['jpg','jpeg','png','gif','svg','webp'].includes(file.ext)) iconName = 'image';
-                if(['mp4','mov','avi'].includes(file.ext)) iconName = 'movie';
-                if(['mp3','wav'].includes(file.ext)) iconName = 'audio_file';
-                
-                const descHtml = file.description ? `<p class="mt-4 text-sm text-on-surface-variant line-clamp-3 leading-relaxed border-t border-outline-variant/20 pt-4">${file.description}</p>` : '';
-                
-                const previewExts = ['jpg','jpeg','png','gif','svg','webp','mp3','wav','mp4','mov','avi','pdf','txt','rtf','md','csv','json'];
-                let previewBtn = '';
-                if(previewExts.includes(file.ext)) {
-                    previewBtn = `
-                        <button onclick="openPreview('${file.url}', '${file.ext}', '${file.name.replace(/'/g, "\\'")}')" class="flex-1 bg-surface-container-highest text-on-surface hover:bg-surface-variant transition-colors py-2.5 rounded font-label font-bold text-sm tracking-wide border border-transparent hover:border-outline-variant/30 flex justify-center items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-primary/50">
-                            <span class="material-symbols-outlined text-[18px]">visibility</span> Preview
-                        </button>
-                    `;
-                }
+          const container = document.getElementById('downloads-container');
+          container.innerHTML = '';
 
-                card.innerHTML = `
-                    <div class="flex flex-col h-full">    
-                        <div class="flex items-start gap-4 mb-2">
-                            <div class="bg-primary-container text-on-primary-container p-3 rounded-lg flex-shrink-0 shadow-sm">
-                                <span class="material-symbols-outlined">${iconName}</span>
-                            </div>
-                            <div class="overflow-hidden pt-0.5">
-                                <h3 class="font-headline font-bold text-on-surface truncate" title="${file.name}">${file.name}</h3>
-                                <p class="text-[11px] text-on-surface-variant font-label uppercase tracking-widest mt-1 opacity-80">${file.size_formatted} • ${file.ext.toUpperCase()}</p>
-                            </div>
-                        </div>
-                        <div class="flex-grow mb-6">
-                            ${descHtml}
-                        </div>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            ${previewBtn}
-                            <a href="${file.url}" download class="flex-1 text-center bg-primary text-on-primary py-2.5 rounded font-label font-bold text-sm tracking-wide shadow-md hover:bg-primary/90 transition-colors flex justify-center items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-primary/50">
-                                <span class="material-symbols-outlined text-[18px]">download</span> ${previewBtn ? '' : 'Download'}
-                            </a>
-                        </div>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
+          if (!data.length) {
+            container.innerHTML = '<div class="google-download-empty">No archives currently available. Check back soon.</div>';
+            return;
+          }
+
+          data.forEach(file => {
+            const card = document.createElement('article');
+            card.className = 'google-download-card';
+            const ext = String(file.ext || '').toLowerCase();
+
+            let iconName = 'description';
+            if (ext === 'zip' || ext === 'rar' || ext === '7z') iconName = 'folder_zip';
+            if (ext === 'pdf') iconName = 'picture_as_pdf';
+            if (['jpg', 'jpeg', 'png', 'gif', 'svg', 'webp'].includes(ext)) iconName = 'image';
+            if (['mp4', 'mov', 'avi'].includes(ext)) iconName = 'movie';
+            if (['mp3', 'wav'].includes(ext)) iconName = 'audio_file';
+
+            const description = file.description
+              ? `<p class="google-download-description">${escapeHtml(file.description)}</p>`
+              : '';
+
+            const previewExts = ['jpg', 'jpeg', 'png', 'gif', 'svg', 'webp', 'mp3', 'wav', 'mp4', 'mov', 'avi', 'pdf', 'txt', 'rtf', 'md', 'csv', 'json'];
+            const safeName = escapeJsString(file.name);
+            const safeUrl = escapeJsString(file.url);
+            const safeExt = escapeJsString(ext);
+            const escapedName = escapeHtml(file.name);
+            const escapedUrl = escapeHtml(file.url);
+            const escapedExt = escapeHtml(ext);
+            const previewButton = previewExts.includes(ext)
+              ? `<button onclick="openPreview('${safeUrl}', '${safeExt}', '${safeName}')" class="google-download-action google-download-action-secondary" type="button"><span class="material-symbols-outlined text-[18px]">visibility</span>Preview</button>`
+              : '';
+
+            card.innerHTML = `
+              <div class="google-download-card-main">
+                <div class="google-download-icon">
+                  <span class="material-symbols-outlined">${iconName}</span>
+                </div>
+                <div>
+                  <h3 title="${escapedName}">${escapedName}</h3>
+                  <p class="google-download-meta">${escapeHtml(file.size_formatted)} | ${escapedExt.toUpperCase()}</p>
+                </div>
+              </div>
+              ${description}
+              <div class="google-download-actions">
+                ${previewButton}
+                <a href="${escapedUrl}" download class="google-download-action google-download-action-primary"><span class="material-symbols-outlined text-[18px]">download</span>Download</a>
+              </div>
+            `;
+
+            container.appendChild(card);
+          });
         })
-        .catch(err => {
-            const container = document.getElementById('downloads-container');
-            container.innerHTML = '<div class="col-span-full text-center py-12 text-error bg-error-container/20 rounded-xl border border-error/20">Unable to load files. Please try again later.</div>';
-            console.error('Error fetching archives:', err);
+        .catch(error => {
+          const container = document.getElementById('downloads-container');
+          container.innerHTML = '<div class="google-download-empty google-download-error">Unable to load files. Please try again later.</div>';
+          console.error('Error fetching archives:', error);
         });
-});
-</script>
+    });
+  </script>
 
-<!-- Preview Modal -->
-<div id="previewModal" class="fixed inset-0 z-[100] bg-black/90 hidden flex flex-col pt-16 px-4 pb-4 transition-opacity" style="backdrop-filter: blur(8px);">
-    <div class="flex justify-between items-center mb-4 text-white max-w-7xl mx-auto w-full z-10">
-        <h3 id="previewTitle" class="text-2xl font-body font-bold truncate pr-4 text-slate-100 shadow-sm tracking-tight drop-shadow-md"></h3>
-        <button onclick="closePreview()" class="bg-white/10 hover:bg-white/25 rounded-full p-2.5 transition-colors focus:outline-none focus:ring-2 focus:ring-white">
-            <span class="material-symbols-outlined text-white">close</span>
-        </button>
+  <div id="previewModal" class="fixed inset-0 z-[100] hidden flex flex-col bg-black/90 px-4 pb-4 pt-16" style="backdrop-filter: blur(8px);">
+    <div class="z-10 mx-auto mb-4 flex w-full max-w-7xl items-center justify-between text-white">
+      <h3 id="previewTitle" class="truncate pr-4 font-body text-2xl font-bold text-white"></h3>
+      <button onclick="closePreview()" class="rounded-full bg-white/10 p-2.5 transition-colors hover:bg-white/25 focus:outline-none focus:ring-2 focus:ring-white" type="button">
+        <span class="material-symbols-outlined text-white">close</span>
+      </button>
     </div>
-    <div class="bg-slate-100/5 rounded-2xl overflow-hidden shadow-2xl flex-grow flex items-center justify-center max-w-7xl mx-auto w-full relative z-10 outline outline-1 outline-white/10" id="previewContainer">
-        <!-- Content injected dynamically -->
-    </div>
-</div>
+    <div class="relative z-10 mx-auto flex w-full max-w-7xl flex-grow items-center justify-center overflow-hidden rounded-lg bg-white/5 shadow-2xl outline outline-1 outline-white/10" id="previewContainer"></div>
+  </div>
 
-<script src="animations.js"></script>
+  <script src="animations.js"></script>
 </body>
+
 </html>

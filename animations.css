@@ -629,3 +629,619 @@ html {
     overflow-x: hidden;
   }
 }
+
+/* Google Sites reference styling */
+html {
+  scroll-behavior: smooth;
+}
+
+.google-sites-mode {
+  color: #212121;
+  background: #ffffff;
+  font-family: "Open Sans", Arial, sans-serif;
+}
+
+.google-sites-mode *,
+.google-sites-mode *::before,
+.google-sites-mode *::after {
+  letter-spacing: 0;
+}
+
+.google-sites-mode .page-curtain {
+  background: #ffffff;
+}
+
+.google-header {
+  border-bottom: 1px solid #e8eaed;
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.12);
+}
+
+.google-header-nav {
+  min-width: 0;
+}
+
+.google-brand {
+  min-width: 0;
+  text-decoration: none;
+}
+
+.google-brand span {
+  white-space: nowrap;
+}
+
+.google-desktop-nav {
+  color: #3c4043;
+  font: 600 0.88rem/1.2 "Open Sans", Arial, sans-serif;
+}
+
+.google-desktop-nav > a,
+.google-more-menu > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  min-height: 4rem;
+  border-bottom: 3px solid transparent;
+  color: #3c4043;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.google-desktop-nav > a:hover,
+.google-desktop-nav > a:focus-visible,
+.google-more-menu > summary:hover,
+.google-more-menu > summary:focus-visible,
+.google-desktop-nav > a.is-active {
+  color: #212121;
+  border-bottom-color: #212121;
+  outline: none;
+}
+
+.google-more-menu {
+  position: relative;
+}
+
+.google-more-menu > summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.google-more-menu > summary::-webkit-details-marker {
+  display: none;
+}
+
+.google-more-menu nav {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  right: 0;
+  z-index: 80;
+  display: none;
+  min-width: 18rem;
+  padding: 0.5rem 0;
+  background: #ffffff;
+  border: 1px solid #e8eaed;
+  box-shadow: 0 12px 28px rgba(60, 64, 67, 0.18);
+}
+
+.google-more-menu[open] nav {
+  display: grid;
+}
+
+.google-more-menu nav a,
+.google-mobile-menu a {
+  color: #3c4043;
+  text-decoration: none;
+  font: 600 0.9rem/1.25 "Open Sans", Arial, sans-serif;
+}
+
+.google-more-menu nav a {
+  padding: 0.75rem 1rem;
+}
+
+.google-more-menu nav a:hover,
+.google-more-menu nav a:focus-visible,
+.google-mobile-menu a:hover,
+.google-mobile-menu a:focus-visible {
+  color: #212121;
+  background: #f4f4f4;
+  outline: none;
+}
+
+.site-mobile-header {
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.08);
+}
+
+.site-mobile-page-links {
+  color: #3c4043;
+  font: 600 0.82rem/1.25 "Open Sans", Arial, sans-serif;
+  scrollbar-width: none;
+}
+
+.site-mobile-page-links::-webkit-scrollbar {
+  display: none;
+}
+
+.google-sites-mode .site-mobile-page-links a {
+  color: #3c4043;
+  text-decoration: none;
+  white-space: nowrap;
+  border-color: transparent;
+}
+
+.google-sites-mode .site-mobile-page-links a.text-blue-700 {
+  color: #212121;
+  border-color: #212121;
+}
+
+.google-sites-mode .mobile-platform-menu summary {
+  color: #212121;
+  background: #ffffff;
+}
+
+.google-mobile-menu a {
+  padding: 0.72rem 0.85rem;
+}
+
+.google-main {
+  padding-top: 9.25rem;
+}
+
+@media (min-width: 1024px) {
+  .google-main {
+    padding-top: 4rem;
+  }
+}
+
+.google-hero {
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.52)),
+    url("https://ssl.gstatic.com/atari/images/impression-header.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.google-hero-small {
+  min-height: 260px;
+}
+
+.google-hero-inner,
+.google-section-inner {
+  width: min(100% - 2rem, 1080px);
+  margin: 0 auto;
+}
+
+.google-hero-inner {
+  padding: 4.5rem 0;
+}
+
+.google-hero-kicker,
+.google-section-label {
+  margin: 0 0 0.85rem;
+  color: inherit;
+  font: 700 0.78rem/1.35 "Open Sans", Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.google-section-label {
+  color: #5f6368;
+}
+
+.google-hero h1 {
+  max-width: 760px;
+  margin: 0;
+  font: 600 clamp(3rem, 9vw, 5.7rem)/1 "Oswald", Arial, sans-serif;
+}
+
+.google-hero-copy {
+  max-width: 760px;
+  margin: 1.5rem 0 0;
+  color: rgba(255, 255, 255, 0.94);
+  font: 400 clamp(1rem, 2vw, 1.28rem)/1.75 "Open Sans", Arial, sans-serif;
+}
+
+.google-section {
+  scroll-margin-top: 10rem;
+  padding: clamp(3rem, 7vw, 5.25rem) 0;
+  background: #ffffff;
+}
+
+.google-section-muted {
+  background: #f4f4f4;
+}
+
+.google-section h2 {
+  max-width: 760px;
+  margin: 0;
+  color: #212121;
+  font: 500 clamp(2rem, 5vw, 3.5rem)/1.12 "Oswald", Arial, sans-serif;
+}
+
+.google-section h3 {
+  margin: 0 0 0.65rem;
+  color: #212121;
+  font: 600 1.35rem/1.2 "Oswald", Arial, sans-serif;
+}
+
+.google-copy-stack {
+  display: grid;
+  gap: 1rem;
+  color: #3c4043;
+  font: 400 1rem/1.8 "Open Sans", Arial, sans-serif;
+}
+
+.google-copy-stack p,
+.google-card p,
+.google-platform-row p {
+  margin: 0;
+}
+
+.google-two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 6vw, 4.5rem);
+  align-items: start;
+}
+
+.google-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.google-card {
+  min-height: 13rem;
+  padding: 1.5rem;
+  background: #ffffff;
+  border: 1px solid #e8eaed;
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.12);
+}
+
+.google-card p {
+  color: #5f6368;
+  font: 400 0.98rem/1.7 "Open Sans", Arial, sans-serif;
+}
+
+.google-framework-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 2.5rem;
+}
+
+.google-framework-grid div {
+  min-height: 9rem;
+  padding: 1.1rem;
+  background: #ffffff;
+  border-left: 5px solid #f1f676;
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.12);
+}
+
+.google-framework-grid strong {
+  display: block;
+  margin-bottom: 0.65rem;
+  color: #212121;
+  font: 600 1.15rem/1.2 "Oswald", Arial, sans-serif;
+}
+
+.google-framework-grid span {
+  display: block;
+  color: #5f6368;
+  font: 400 0.9rem/1.55 "Open Sans", Arial, sans-serif;
+}
+
+.google-platform-list {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.google-platform-row {
+  display: grid;
+  grid-template-columns: minmax(11rem, 18rem) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+  padding: 1.25rem 0;
+  border-top: 1px solid #e8eaed;
+  scroll-margin-top: 10rem;
+}
+
+.google-platform-row:last-child {
+  border-bottom: 1px solid #e8eaed;
+}
+
+.google-platform-media {
+  aspect-ratio: 16 / 10;
+  display: grid;
+  place-items: center;
+  color: #212121;
+  background: #f1f676;
+  border: 1px solid #e2e75d;
+}
+
+.google-platform-media .material-symbols-outlined {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 48;
+}
+
+.google-platform-row p {
+  max-width: 680px;
+  color: #5f6368;
+  font: 400 1rem/1.75 "Open Sans", Arial, sans-serif;
+}
+
+.google-footer {
+  padding: 2.25rem 0;
+  color: #3c4043;
+  background: #f4f4f4;
+  border-top: 1px solid #e8eaed;
+}
+
+.google-footer a {
+  color: #3c4043;
+  text-decoration: none;
+}
+
+.google-footer a:hover,
+.google-footer a:focus-visible {
+  color: #212121;
+  text-decoration: underline;
+  outline: none;
+}
+
+.google-downloads-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.google-download-card,
+.google-download-empty {
+  background: #ffffff;
+  border: 1px solid #e8eaed;
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.12);
+}
+
+.google-download-card {
+  display: grid;
+  gap: 1.2rem;
+  align-content: space-between;
+  min-height: 15rem;
+  padding: 1.35rem;
+}
+
+.google-download-card-main {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.google-download-icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  color: #212121;
+  background: #f1f676;
+}
+
+.google-download-card h3 {
+  overflow: hidden;
+  margin: 0;
+  color: #212121;
+  font: 600 1.18rem/1.25 "Oswald", Arial, sans-serif;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.google-download-meta {
+  margin: 0.35rem 0 0;
+  color: #5f6368;
+  font: 600 0.78rem/1.4 "Open Sans", Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.google-download-description {
+  margin: 0;
+  color: #5f6368;
+  font: 400 0.92rem/1.65 "Open Sans", Arial, sans-serif;
+}
+
+.google-download-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.google-download-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 2.5rem;
+  padding: 0.55rem 0.95rem;
+  color: #212121;
+  border: 1px solid #dadce0;
+  background: #ffffff;
+  font: 700 0.9rem/1.2 "Open Sans", Arial, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.google-download-action-primary {
+  color: #212121;
+  background: #f1f676;
+  border-color: #e2e75d;
+}
+
+.google-download-action:hover,
+.google-download-action:focus-visible {
+  color: #212121;
+  background: #f4f4f4;
+  outline: 2px solid rgba(33, 33, 33, 0.2);
+  outline-offset: 2px;
+}
+
+.google-download-action-primary:hover,
+.google-download-action-primary:focus-visible {
+  background: #eef35f;
+}
+
+.google-download-empty {
+  grid-column: 1 / -1;
+  display: grid;
+  place-items: center;
+  gap: 0.75rem;
+  min-height: 14rem;
+  padding: 2rem;
+  color: #5f6368;
+  text-align: center;
+}
+
+.google-download-error {
+  color: #b3261e;
+  background: #fce8e6;
+}
+
+.google-sites-mode .particle-field {
+  display: none;
+}
+
+.google-sites-mode .hover-lift:hover {
+  transform: none;
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.12);
+}
+
+.google-sites-mode .hover-glow::after,
+.google-sites-mode .shimmer-on-hover::before {
+  display: none;
+}
+
+.google-sites-mode .site-search-trigger {
+  color: #5f6368;
+  background: transparent;
+}
+
+.google-sites-mode .site-search-trigger:hover,
+.google-sites-mode .site-search-trigger.is-search-active {
+  color: #174ea6 !important;
+  background: transparent;
+  font-variation-settings: 'FILL' 0, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+}
+
+.google-sites-mode .site-search-trigger:focus-visible {
+  outline-color: rgba(23, 78, 166, 0.55);
+}
+
+.google-sites-mode .site-search-form {
+  min-height: 42px;
+  padding-right: 3rem;
+  background: rgba(255, 255, 255, 0.94);
+  border-color: #dadce0;
+  border-radius: 999px;
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.12);
+}
+
+.google-sites-mode .site-search-form:focus-within {
+  border-color: #174ea6;
+  box-shadow: 0 0 0 2px rgba(23, 78, 166, 0.18);
+}
+
+.google-sites-mode .site-search-input {
+  color: #212121;
+  font: 600 0.78rem/1.2 "Open Sans", Arial, sans-serif;
+}
+
+.google-sites-mode .site-search-input::placeholder {
+  color: #5f6368;
+  font-size: 0.78rem;
+}
+
+.google-sites-mode .site-search-results {
+  max-height: min(20rem, calc(100dvh - 5rem));
+  background: #ffffff;
+  border-color: #e8eaed;
+  border-radius: 0.35rem;
+  box-shadow: 0 14px 28px rgba(60, 64, 67, 0.18);
+}
+
+.google-sites-mode .site-search-dropdown-title {
+  color: #212121;
+  background: #f4f4f4;
+  font: 700 0.9rem/1.25 "Open Sans", Arial, sans-serif;
+}
+
+.google-sites-mode .site-search-result {
+  color: #212121;
+}
+
+.google-sites-mode .site-search-result:hover,
+.google-sites-mode .site-search-result:focus-visible {
+  background: #f8f9fa;
+}
+
+.google-sites-mode .site-search-result-title {
+  color: #212121;
+  font: 700 0.95rem/1.25 "Open Sans", Arial, sans-serif;
+}
+
+.google-sites-mode .site-search-result-snippet {
+  color: #5f6368;
+  font: 400 0.78rem/1.45 "Open Sans", Arial, sans-serif;
+}
+
+.google-sites-mode .site-search-result mark {
+  color: #212121;
+  background: #f1f676;
+}
+
+@media (max-width: 920px) {
+  .google-two-column,
+  .google-card-grid,
+  .google-framework-grid,
+  .google-platform-row,
+  .google-downloads-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .google-card,
+  .google-framework-grid div {
+    min-height: 0;
+  }
+
+  .google-platform-media {
+    max-width: 26rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .google-hero {
+    min-height: 300px;
+  }
+
+  .google-hero-inner {
+    padding: 3rem 0;
+  }
+
+  .google-section {
+    padding: 2.75rem 0;
+  }
+
+  .google-platform-row {
+    gap: 1.15rem;
+  }
+
+  .google-download-actions {
+    flex-direction: column;
+  }
+
+  .google-download-action {
+    width: 100%;
+  }
+}
