@@ -2550,19 +2550,19 @@ html {
   position: fixed;
   top: 0;
   left: 0;
-  width: 58px;
+  width: clamp(104px, 9vw, 144px);
   height: auto;
   transform-origin: center;
   will-change: transform, opacity;
-  filter: drop-shadow(0 10px 14px rgba(60, 64, 67, 0.18));
+  filter: drop-shadow(0 16px 22px rgba(60, 64, 67, 0.2));
 }
 
 .site-plane-transition-trail {
   position: fixed;
   top: 0;
   left: 0;
-  width: 120px;
-  height: 2px;
+  width: clamp(190px, 16vw, 260px);
+  height: 4px;
   border-radius: 999px;
   background: linear-gradient(90deg, rgba(241, 246, 118, 0), rgba(241, 246, 118, 0.92));
   opacity: 0;
@@ -2585,10 +2585,11 @@ html.is-plane-transitioning {
 
 @media (max-width: 640px) {
   .site-plane-transition-plane {
-    width: 48px;
+    width: clamp(84px, 22vw, 104px);
   }
 
   .site-plane-transition-trail {
-    width: 88px;
+    width: clamp(148px, 38vw, 188px);
+    height: 3px;
   }
 }

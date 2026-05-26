@@ -407,6 +407,11 @@
     };
   }
 
+  function getPlaneVisualWidth(plane) {
+    const rect = plane ? plane.getBoundingClientRect() : null;
+    return rect && rect.width ? rect.width : (window.innerWidth < 640 ? 94 : 124);
+  }
+
   function animateTransitionElement(element, frames, timing) {
     if (!element || typeof element.animate !== 'function') {
       return new Promise(resolve => setTimeout(resolve, timing.duration || 0));
@@ -419,22 +424,22 @@
   function runPlaneExit() {
     const { layer, plane, trail } = createPlaneTransitionLayer();
     const start = getPlaneStartPoint();
-    const planeWidth = window.innerWidth < 640 ? 48 : 58;
-    const startX = start.x - planeWidth / 2;
-    const startY = start.y - planeWidth / 2;
-    const midX = Math.min(window.innerWidth * 0.46, startX + 280);
-    const midY = Math.max(32, startY - window.innerHeight * 0.16);
-    const endX = window.innerWidth + 96;
-    const endY = Math.max(24, startY - window.innerHeight * 0.34);
+    const planeWidth = getPlaneVisualWidth(plane);
+    const startX = start.x - planeWidth * 0.28;
+    const startY = Math.max(8, start.y - planeWidth * 0.3);
+    const midX = Math.min(window.innerWidth * 0.52, startX + Math.max(320, window.innerWidth * 0.28));
+    const midY = Math.max(32, startY - window.innerHeight * 0.14);
+    const endX = window.innerWidth + planeWidth + 64;
+    const endY = Math.max(24, startY - window.innerHeight * 0.3);
 
     layer.classList.add('is-active');
     requestAnimationFrame(() => layer.classList.add('is-exit'));
 
     const planeAnimation = animateTransitionElement(plane, [
-      { opacity: 0, transform: `translate(${startX}px, ${startY}px) scale(0.58) rotate(-12deg)` },
-      { opacity: 1, transform: `translate(${startX}px, ${startY}px) scale(0.82) rotate(-8deg)`, offset: 0.15 },
-      { opacity: 1, transform: `translate(${midX}px, ${midY}px) scale(1) rotate(5deg)`, offset: 0.68 },
-      { opacity: 0.98, transform: `translate(${endX}px, ${endY}px) scale(1.12) rotate(12deg)` }
+      { opacity: 0, transform: `translate(${startX}px, ${startY}px) scale(0.72) rotate(-12deg)` },
+      { opacity: 1, transform: `translate(${startX}px, ${startY}px) scale(0.96) rotate(-8deg)`, offset: 0.14 },
+      { opacity: 1, transform: `translate(${midX}px, ${midY}px) scale(1.12) rotate(5deg)`, offset: 0.68 },
+      { opacity: 0.98, transform: `translate(${endX}px, ${endY}px) scale(1.18) rotate(12deg)` }
     ], {
       duration: 720,
       easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
@@ -442,9 +447,9 @@
     });
 
     const trailAnimation = animateTransitionElement(trail, [
-      { opacity: 0, transform: `translate(${startX - 104}px, ${startY + 28}px) scaleX(0.2) rotate(-18deg)` },
-      { opacity: 0.85, transform: `translate(${midX - 118}px, ${midY + 35}px) scaleX(1) rotate(-18deg)`, offset: 0.52 },
-      { opacity: 0, transform: `translate(${endX - 140}px, ${endY + 39}px) scaleX(0.35) rotate(-18deg)` }
+      { opacity: 0, transform: `translate(${startX - planeWidth * 1.15}px, ${startY + planeWidth * 0.48}px) scaleX(0.22) rotate(-18deg)` },
+      { opacity: 0.85, transform: `translate(${midX - planeWidth * 1.2}px, ${midY + planeWidth * 0.5}px) scaleX(1) rotate(-18deg)`, offset: 0.52 },
+      { opacity: 0, transform: `translate(${endX - planeWidth * 1.32}px, ${endY + planeWidth * 0.52}px) scaleX(0.35) rotate(-18deg)` }
     ], {
       duration: 640,
       easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
@@ -457,17 +462,19 @@
   function runPlaneEntry() {
     const { layer, plane, trail } = createPlaneTransitionLayer();
     const end = getPlaneStartPoint();
-    const planeWidth = window.innerWidth < 640 ? 48 : 58;
-    const endX = end.x - planeWidth / 2;
-    const endY = end.y - planeWidth / 2;
-    const startX = -90;
+    const planeWidth = getPlaneVisualWidth(plane);
+    const endX = end.x - planeWidth * 0.28;
+    const endY = Math.max(8, end.y - planeWidth * 0.3);
+    const startX = -planeWidth - 44;
     const startY = Math.max(26, endY + window.innerHeight * 0.1);
+    const approachX = Math.max(18, endX - planeWidth * 1.45);
+    const approachY = Math.max(22, endY + planeWidth * 0.34);
 
     layer.classList.add('is-active');
 
     const planeAnimation = animateTransitionElement(plane, [
       { opacity: 0, transform: `translate(${startX}px, ${startY}px) scale(0.9) rotate(-4deg)` },
-      { opacity: 1, transform: `translate(${Math.max(20, endX - 120)}px, ${Math.max(22, endY + 28)}px) scale(0.84) rotate(-8deg)`, offset: 0.62 },
+      { opacity: 1, transform: `translate(${approachX}px, ${approachY}px) scale(1) rotate(-8deg)`, offset: 0.62 },
       { opacity: 0, transform: `translate(${endX}px, ${endY}px) scale(0.5) rotate(-14deg)` }
     ], {
       duration: 560,
@@ -476,9 +483,9 @@
     });
 
     const trailAnimation = animateTransitionElement(trail, [
-      { opacity: 0, transform: `translate(${startX - 90}px, ${startY + 32}px) scaleX(0.3) rotate(-12deg)` },
-      { opacity: 0.58, transform: `translate(${Math.max(20, endX - 214)}px, ${Math.max(22, endY + 62)}px) scaleX(0.72) rotate(-12deg)`, offset: 0.48 },
-      { opacity: 0, transform: `translate(${endX - 82}px, ${endY + 28}px) scaleX(0.15) rotate(-12deg)` }
+      { opacity: 0, transform: `translate(${startX - planeWidth * 0.86}px, ${startY + planeWidth * 0.34}px) scaleX(0.3) rotate(-12deg)` },
+      { opacity: 0.58, transform: `translate(${approachX - planeWidth * 1.12}px, ${approachY + planeWidth * 0.3}px) scaleX(0.72) rotate(-12deg)`, offset: 0.48 },
+      { opacity: 0, transform: `translate(${endX - planeWidth * 0.82}px, ${endY + planeWidth * 0.34}px) scaleX(0.15) rotate(-12deg)` }
     ], {
       duration: 500,
       easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
