@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Atomic Shadows | 5E Labs</title>
+  <link href="../../assets/5elabs-google-sites-mark.png" rel="icon" type="image/png" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&family=Open+Sans:wght@400;600;700&family=Oswald:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script id="tailwind-config">
+    window.tailwind = window.tailwind || {};
+    window.tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#212121",
+            "on-primary": "#ffffff",
+            "primary-container": "#f1f676",
+            "on-primary-container": "#212121",
+            secondary: "#5f6368",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#f4f4f4",
+            "on-secondary-container": "#212121",
+            background: "#ffffff",
+            "on-background": "#212121",
+            surface: "#ffffff",
+            "on-surface": "#212121",
+            "surface-variant": "#f4f4f4",
+            "on-surface-variant": "#5f6368",
+            outline: "#dadce0",
+            "outline-variant": "#e8eaed"
+          },
+          borderRadius: {
+            DEFAULT: "0.125rem",
+            lg: "0.25rem",
+            xl: "0.5rem"
+          },
+          fontFamily: {
+            headline: ["Oswald", "Arial", "sans-serif"],
+            body: ["Open Sans", "Arial", "sans-serif"],
+            label: ["Lora", "Georgia", "serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <script defer src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      vertical-align: middle;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+  <style id="google-sites-critical">
+    .google-sites-mode { margin: 0; color: #212121; background: #fff; font-family: "Open Sans", Arial, sans-serif; }
+    .google-header { position: fixed; top: 0; left: 0; z-index: 50; width: 100%; background: #fff; }
+    .google-header-nav { position: relative; display: flex; height: 56px; align-items: center; justify-content: space-between; padding: 0 64px 0 24px; }
+    .google-brand { display: flex; align-items: center; gap: 12px; color: #111; text-decoration: none; }
+    .google-brand img { width: 24px; height: 34px; object-fit: contain; }
+    .google-brand span { color: #111; font: 400 20px/1.2 "Oswald", Arial, sans-serif; white-space: nowrap; }
+    .site-desktop-nav { display: none; }
+    .site-mobile-header { display: block; background: #fff; }
+    .site-mobile-page-links { display: flex; height: 52px; align-items: center; gap: 20px; overflow-x: auto; padding: 0 16px; font: 400 14px/1.2 "Open Sans", Arial, sans-serif; scrollbar-width: none; }
+    .site-mobile-page-links::-webkit-scrollbar { display: none; }
+    .site-mobile-page-links a { flex: 0 0 auto; color: #212121; text-decoration: none; white-space: nowrap; }
+    .mobile-platform-menu summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; color: #212121; list-style: none; cursor: pointer; }
+    .mobile-platform-menu summary::-webkit-details-marker { display: none; }
+    .mobile-platform-menu summary span { display: flex; align-items: center; gap: 8px; }
+    .google-mobile-menu { display: grid; grid-template-columns: 1fr; gap: 4px; padding: 0 16px 12px; }
+    .google-mobile-menu a { color: #3c4043; text-decoration: none; font: 600 14px/1.25 "Open Sans", Arial, sans-serif; }
+    .google-main { padding-top: 160px; }
+    .google-search-button { display: inline-flex; width: 32px; height: 32px; align-items: center; justify-content: center; padding: 0; border: 0; color: #111; background: transparent; cursor: pointer; }
+    .google-search-button svg, .google-mobile-search-button svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2.1; stroke-linecap: round; }
+    .google-desktop-search-button { display: none; }
+    .google-mobile-search-button, .google-mobile-search-button.site-search-trigger { right: auto !important; left: min(342px, calc(100vw - 50px)) !important; color: #111 !important; background: transparent !important; background-image: none !important; }
+    .google-chevron-icon { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .google-apps-icon { width: 18px; height: 18px; fill: currentColor; }
+    @media (min-width: 1024px) {
+      .google-header-nav { height: 56px; padding: 0 31px; }
+      .google-brand img { width: 29px; height: 40px; }
+      .google-brand span { font-size: 22px; }
+      .site-desktop-nav { position: relative; display: flex; align-items: center; gap: 29px; margin-left: auto; margin-right: 70px; color: #111; font: 400 16px/1.2 "Open Sans", Arial, sans-serif; }
+      .site-mobile-header { display: none; }
+      .google-desktop-nav > a, .google-more-menu > summary { display: inline-flex; height: 56px; align-items: center; gap: 4px; color: #111; text-decoration: none; white-space: nowrap; }
+      .google-search-control { position: absolute; top: 12px; right: 18px; z-index: 150; display: flex; width: 32px; height: 32px; align-items: center; justify-content: center; }
+      .google-desktop-search-button { display: inline-flex; }
+      .google-mobile-search-button { display: none !important; }
+      .google-main { padding-top: 56px; }
+    }
+  </style>
+  <link rel="stylesheet" href="../../animations.css?v=google-sites-20260526m" />
+</head>
+
+<body class="google-sites-mode bg-background text-on-surface font-body overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+  <header class="google-header fixed top-0 w-full z-50 bg-white">
+    <nav class="google-header-nav mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <a class="google-brand flex items-center" href="../../index.html#top" aria-label="5E Labs home">
+        <img alt="5E Labs mark" src="../../assets/5elabs-google-sites-mark.png" />
+        <span>5E Labs</span>
+      </a>
+
+      <div class="site-desktop-nav google-desktop-nav hidden items-center gap-6 lg:flex" aria-label="Primary">
+        <a href="../../index.html#top">Home</a>
+        <details class="google-more-menu is-active">
+          <summary>
+            <span>5E Labs</span>
+            <svg class="google-chevron-icon" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M7 10l5 5 5-5"></path>
+            </svg>
+          </summary>
+          <nav aria-label="5E Labs pages">
+            <a href="../../index.html#about">About 5E Labs</a>
+            <a href="../../5e-labs/math-city-1-0/">Math City 1.0</a>
+            <a href="../../5e-labs/math-city-2-0/">Math City 2.0</a>
+            <a href="../../5e-labs/the-cardium/">The Cardium</a>
+            <a class="is-active" href="../../5e-labs/atomic-shadows/">Atomic Shadows</a>
+            <a href="../../5e-labs/virtual-school-of-teachers-training/">Virtual School of Teacher's Training</a>
+            <a href="../../downloads.html">Downloads</a>
+          </nav>
+        </details>
+        <a href="../../index.html#evidence">Peer Reviewed Evidence</a>
+        <a href="../../index.html#dissemination">Dissemination</a>
+        <a href="../../index.html#impact">Impact</a>
+        <a href="../../index.html#contact">Contact us</a>
+      </div>
+
+      <div class="google-search-control flex items-center gap-3">
+        <button class="google-search-button google-desktop-search-button" type="button" data-icon="search" aria-label="Search site">
+          <svg aria-hidden="true" viewBox="0 0 28 28">
+            <circle cx="12.1" cy="12.1" r="6.5"></circle>
+            <path d="M17.1 17.1L23 23"></path>
+          </svg>
+        </button>
+        <button class="google-mobile-search-button" type="button" data-icon="search" aria-label="Search site" style="position: fixed; top: 14px; right: 18px; z-index: 500; display: inline-flex; width: 32px; height: 32px; padding: 0; border: 0; color: #111111; background: transparent; align-items: center; justify-content: center;">
+          <svg aria-hidden="true" viewBox="0 0 28 28" style="width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2.1; stroke-linecap: round;">
+            <circle cx="12.1" cy="12.1" r="6.5"></circle>
+            <path d="M17.1 17.1L23 23"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <div class="site-mobile-header border-t border-outline-variant bg-white lg:hidden">
+      <div class="site-mobile-page-links flex items-center gap-5 overflow-x-auto px-4 py-2">
+        <a class="shrink-0" href="../../index.html#top">Home</a>
+        <a class="shrink-0" href="../../index.html#evidence">Peer Reviewed Evidence</a>
+        <a class="shrink-0" href="../../index.html#dissemination">Dissemination</a>
+        <a class="shrink-0" href="../../index.html#impact">Impact</a>
+        <a class="shrink-0" href="../../index.html#contact">Contact us</a>
+      </div>
+      <details class="mobile-platform-menu border-t border-outline-variant">
+        <summary class="flex cursor-pointer items-center justify-between gap-3 px-4 py-3">
+          <span class="flex items-center gap-2 font-headline text-sm font-medium">
+            <svg class="google-apps-icon" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M5 5h3v3H5zM10.5 5h3v3h-3zM16 5h3v3h-3zM5 10.5h3v3H5zM10.5 10.5h3v3h-3zM16 10.5h3v3h-3zM5 16h3v3H5zM10.5 16h3v3h-3zM16 16h3v3h-3z"></path>
+            </svg>
+            5E Labs
+          </span>
+          <svg class="google-chevron-icon mobile-platform-chevron" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M7 10l5 5 5-5"></path>
+          </svg>
+        </summary>
+        <nav class="google-mobile-menu grid grid-cols-1 gap-1 px-4 pb-3">
+          <a href="../../index.html#about">About 5E Labs</a>
+          <a href="../../5e-labs/math-city-1-0/">Math City 1.0</a>
+          <a href="../../5e-labs/math-city-2-0/">Math City 2.0</a>
+          <a href="../../5e-labs/the-cardium/">The Cardium</a>
+          <a class="is-active" href="../../5e-labs/atomic-shadows/">Atomic Shadows</a>
+          <a href="../../5e-labs/virtual-school-of-teachers-training/">Virtual School of Teacher's Training</a>
+          <a href="../../downloads.html">Downloads</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+
+  <main class="google-main google-platform-detail-main">
+    <section class="google-hero google-sites-subpage-hero google-platform-detail-hero">
+      <div class="google-hero-inner">
+        <p class="google-hero-kicker">5E Labs / Science</p>
+        <h1>Atomic Shadows</h1>
+        <p class="google-hero-copy">
+          An immersive science learning environment for atomic structure, radiation, scientific ethics, and narrative-driven inquiry.
+        </p>
+      </div>
+    </section>
+
+    <section class="google-section">
+      <div class="google-section-inner google-two-column">
+        <div>
+          <p class="google-section-label">Overview</p>
+          <h2>Story-based inquiry into atomic science</h2>
+        </div>
+        <div class="google-copy-stack">
+          <p>
+            Atomic Shadows: Unstable Realms uses narrative and virtual exploration to help learners investigate abstract scientific ideas that are difficult to observe directly.
+          </p>
+          <p>
+            Students examine atomic phenomena, radiation concepts, and ethical questions through a learning environment built for evidence, discussion, and reflection.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="google-section google-section-muted">
+      <div class="google-section-inner">
+        <p class="google-section-label">Learning Design</p>
+        <h2>Platform structure</h2>
+        <div class="google-platform-feature-list">
+          <article>
+            <h3>Atomic Structure</h3>
+            <p>Virtual representations help students reason about particles, structure, and scientific models.</p>
+          </article>
+          <article>
+            <h3>Radiation Concepts</h3>
+            <p>Learners investigate radiation-related ideas through contextualized scenarios rather than isolated facts.</p>
+          </article>
+          <article>
+            <h3>Scientific Ethics</h3>
+            <p>The platform connects science learning with responsible decision-making and societal consequences.</p>
+          </article>
+          <article>
+            <h3>Narrative Inquiry</h3>
+            <p>Story-driven tasks give learners a reason to question, gather evidence, and explain what they discover.</p>
+          </article>
+          <article>
+            <h3>Reflective Practice</h3>
+            <p>Students are encouraged to connect scientific evidence with personal reasoning and group discussion.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="google-section">
+      <div class="google-section-inner google-two-column google-platform-media-section">
+        <div>
+          <p class="google-section-label">Walkthrough</p>
+          <h2>Unstable Realms learning flow</h2>
+          <div class="google-copy-stack">
+            <p>
+              The page is prepared for a walkthrough video, activity map, or screenshot sequence once the client confirms the final learning materials.
+            </p>
+          </div>
+        </div>
+        <div class="google-platform-media-frame" aria-label="Atomic Shadows visual placeholder">
+          <span class="material-symbols-outlined" data-icon="science" aria-hidden="true">science</span>
+          <p>Atomic Shadows</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="google-section google-section-muted">
+      <div class="google-section-inner google-platform-cta">
+        <p class="google-section-label">Platform access</p>
+        <h2>Access details</h2>
+        <p>
+          Add the confirmed platform link, walkthrough video, or classroom instructions here when the client provides the final launch details.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="google-footer">
+    <div class="google-section-inner">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <p class="font-headline text-xl">5E Labs</p>
+        <nav class="flex flex-wrap gap-4 text-sm" aria-label="Footer">
+          <a href="../../index.html#about">About</a>
+          <a href="../../index.html#platforms">Platforms</a>
+          <a href="../../downloads.html">Downloads</a>
+          <a href="../../index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../animations.js?v=google-sites-20260526m"></script>
+</body>
+
+</html>

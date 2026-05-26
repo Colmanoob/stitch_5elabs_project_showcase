@@ -391,40 +391,40 @@
       {
         title: 'Math City 1.0',
         description: 'A virtual city for learning about properties of 3D shapes.',
-        path: 'index.html#math-city-1',
+        path: '5e-labs/math-city-1-0/',
         keywords: 'math city 1 mathematics 3d shapes virtual city geometry',
         sentences: [
           'Math City 1.0 is a virtual city for learning about properties of 3D shapes through contextualized mathematical inquiry and problem solving.',
-          'Students develop mathematical reasoning through immersive city-based learning scenarios.',
+          'Students investigate properties of 3D shapes through exploration, peer discussion, explanation, and application instead of only reading definitions.',
           'The platform promotes exploratory and collaborative problem solving.'
         ]
       },
       {
         title: 'Math City 2.0',
         description: 'A next-stage mathematics learning environment for geometric reasoning.',
-        path: 'index.html#math-city-2',
+        path: '5e-labs/math-city-2-0/',
         keywords: 'math city 2 mathematics geometric reasoning collaborative inquiry',
         sentences: [
           'Math City 2.0 is a next-stage mathematics learning environment that extends digital geometric reasoning, collaborative exploration, and inquiry-based problem solving.',
-          'The platform supports mathematical exploration through virtual learning activities.',
+          'The platform supports collaborative investigation where learners use digital space to test assumptions, communicate strategies, and refine mathematical understanding.',
           'Math City 2.0 builds on the virtual city learning model for deeper mathematics inquiry.'
         ]
       },
       {
         title: 'The Cardium',
         description: 'A high-immersion virtual museum for studying the human heart.',
-        path: 'index.html#cardium',
+        path: '5e-labs/the-cardium/',
         keywords: 'cardium heart human heart virtual museum biology science virtual reality',
         sentences: [
           'The Cardium is a high-immersion virtual museum for studying the structure of the human heart using virtual reality devices and inquiry-based scientific exploration.',
-          'Learners explore human biology through immersive scientific investigation.',
+          'Learners explore human biology through immersive scientific investigation in a virtual museum.',
           'The Cardium supports model-based reasoning and scientific inquiry around the human heart.'
         ]
       },
       {
         title: 'Atomic Shadows',
         description: 'Atomic Shadows: Unstable Realms science learning environment.',
-        path: 'index.html#atomic-shadows',
+        path: '5e-labs/atomic-shadows/',
         keywords: 'atomic shadows unstable realms atomic structure radiation science ethics',
         sentences: [
           'Atomic Shadows: Unstable Realms is an immersive science learning environment for atomic structure, radiation, scientific ethics, and narrative-driven inquiry.',
@@ -435,7 +435,7 @@
       {
         title: "Virtual School of Teacher's Training",
         description: 'Teacher education simulations for professional conduct, ethics, and classroom decision-making.',
-        path: 'index.html#vtts',
+        path: '5e-labs/virtual-school-of-teachers-training/',
         keywords: 'virtual school teacher training teachers professional conduct code ethics classroom education',
         sentences: [
           "Virtual School of Teacher's Training explores teachers' professional conduct and code of ethics through simulated teaching situations, reflection, and classroom decision-making.",
@@ -512,6 +512,9 @@
 
     function getRootPrefix() {
       const pathname = window.location.pathname.replace(/\\/g, '/');
+      if (/\/5e-labs\/[^/]+\/(?:index\.html)?$/.test(pathname)) {
+        return '../../';
+      }
       return /\/(math-city|math-city-2|cardium|atomic-shadows|vtts)\//.test(pathname) ? '../' : '';
     }
 

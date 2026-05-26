@@ -172,7 +172,7 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
             .google-main { padding-top: 56px; }
         }
     </style>
-    <link rel="stylesheet" href="animations.css?v=google-sites-20260526h" />
+    <link rel="stylesheet" href="animations.css?v=google-sites-20260526m" />
     <!-- reCAPTCHA API -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
@@ -195,16 +195,11 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
                 </summary>
                 <nav aria-label="5E Labs pages">
                     <a href="index.html#about">About 5E Labs</a>
-                    <a href="index.html#objectives">Objectives</a>
-                    <a href="index.html#framework">5E Inquiry Framework</a>
-                    <a href="index.html#skills">21st Century Skills</a>
-                    <a href="index.html#philosophy">Philosophy behind 5E Labs</a>
-                    <a href="index.html#math-city-1">Math City 1.0</a>
-                    <a href="index.html#math-city-2">Math City 2.0</a>
-                    <a href="index.html#cardium">The Cardium</a>
-                    <a href="index.html#atomic-shadows">Atomic Shadows</a>
-                    <a href="index.html#vtts">Virtual School of Teacher's Training</a>
-                    <a href="index.html#environment-warriors">Environment Warriors</a>
+                    <a href="5e-labs/math-city-1-0/">Math City 1.0</a>
+                    <a href="5e-labs/math-city-2-0/">Math City 2.0</a>
+                    <a href="5e-labs/the-cardium/">The Cardium</a>
+                    <a href="5e-labs/atomic-shadows/">Atomic Shadows</a>
+                    <a href="5e-labs/virtual-school-of-teachers-training/">Virtual School of Teacher's Training</a>
                     <a href="downloads.html">Downloads</a>
                 </nav>
             </details>
@@ -253,17 +248,12 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
                 </svg>
             </summary>
             <nav class="google-mobile-menu grid grid-cols-1 gap-1 px-4 pb-3">
-                <a href="index.html#skills">21st Century Skills</a>
-                <a href="index.html#philosophy">Philosophy behind 5E Labs</a>
-                <a href="index.html#math-city-1">Math City 1.0</a>
-                <a href="index.html#math-city-2">Math City 2.0</a>
-                <a href="index.html#cardium">The Cardium</a>
-                <a href="index.html#atomic-shadows">Atomic Shadows</a>
-                <a href="index.html#vtts">Virtual School of Teacher's Training</a>
-                <a href="index.html#environment-warriors">Environment Warriors</a>
-                <a href="index.html#evidence">Peer Reviewed Evidence</a>
-                <a href="index.html#dissemination">Dissemination</a>
-                <a href="index.html#contact">Contact us</a>
+                <a href="index.html#about">About 5E Labs</a>
+                <a href="5e-labs/math-city-1-0/">Math City 1.0</a>
+                <a href="5e-labs/math-city-2-0/">Math City 2.0</a>
+                <a href="5e-labs/the-cardium/">The Cardium</a>
+                <a href="5e-labs/atomic-shadows/">Atomic Shadows</a>
+                <a href="5e-labs/virtual-school-of-teachers-training/">Virtual School of Teacher's Training</a>
                 <a href="downloads.html">Downloads</a>
             </nav>
         </details>
@@ -388,7 +378,7 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
                     <?php if (!empty($myPendingEmail)): ?>
                     <!-- Pending email change notice -->
                     <div class="mb-3 bg-amber-50 border border-amber-200 rounded-lg p-3">
-                        <div class="text-xs text-amber-700 font-bold uppercase tracking-wider mb-1">⏳ Pending Change</div>
+                        <div class="text-xs text-amber-700 font-bold uppercase tracking-wider mb-1">??Pending Change</div>
                         <div class="text-sm text-amber-800">
                             Awaiting verification for:<br>
                             <span class="font-semibold"><?php echo htmlspecialchars($myPendingEmail); ?></span>
@@ -651,6 +641,6 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
     </div>
 </footer>
 </main>
-<script src="animations.js?v=google-sites-20260526h"></script>
+    <script src="animations.js?v=google-sites-20260526m"></script>
 </body>
 </html>
