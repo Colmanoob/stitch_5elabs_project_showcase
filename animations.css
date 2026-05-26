@@ -1455,6 +1455,8 @@ html {
 
 .google-sites-mode .google-more-menu nav {
   top: 50px;
+  left: 0;
+  right: auto;
   min-width: 270px;
   padding: 8px 0;
   border: 0;
@@ -1974,6 +1976,27 @@ html {
   color: #111111;
 }
 
+.google-sites-mode .google-more-menu.is-section-active > summary {
+  color: #111111;
+  opacity: 1;
+}
+
+.google-sites-mode .google-more-menu.is-section-active > summary > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 29px;
+  min-height: 29px;
+  padding: 0 10px;
+  color: #ffffff;
+  background: #111111;
+}
+
+.google-sites-mode .google-more-menu.is-section-active > summary:hover,
+.google-sites-mode .google-more-menu.is-section-active > summary:focus-visible {
+  opacity: 1;
+}
+
 .google-sites-mode .google-more-menu nav {
   min-width: 320px;
 }
@@ -2123,6 +2146,101 @@ html {
   outline-offset: 2px;
 }
 
+/* Google Sites-style standalone section pages */
+.google-sites-mode .google-reference-main {
+  background: #ffffff;
+}
+
+.google-sites-mode .google-reference-banner {
+  display: flex;
+  min-height: 120px;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 24px;
+  background: #f1f676;
+}
+
+.google-sites-mode .google-reference-banner h1 {
+  margin: 0;
+  color: #000000;
+  text-align: center;
+  font: 400 30pt/1.2 "Oswald", Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.google-sites-mode .google-reference-content {
+  width: min(100% - 96px, 548px);
+  margin: 0 auto;
+  padding: 31px 0 44px;
+}
+
+.google-sites-mode .google-faq-item {
+  margin: 0 0 64px;
+}
+
+.google-sites-mode .google-faq-item h2 {
+  margin: 0 0 14px;
+  color: #000000;
+  font: 400 18pt/1.3 "Open Sans", Arial, sans-serif;
+  text-transform: none;
+}
+
+.google-sites-mode .google-faq-item p {
+  margin: 0;
+  color: #333333;
+  font: 400 13pt/1.6 "Open Sans", Arial, sans-serif;
+}
+
+.google-sites-mode .google-contact-template {
+  width: min(100% - 96px, 562px);
+  margin: 0 auto;
+  padding: 35px 0 64px;
+}
+
+.google-sites-mode .google-contact-template h1 {
+  margin: 0 0 72px;
+  color: #2b2b2b;
+  font: 400 32pt/1.28 "Oswald", Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.google-sites-mode .google-contact-block {
+  margin: 0 0 60px;
+}
+
+.google-sites-mode .google-contact-block h2 {
+  margin: 0 0 22px;
+  color: #111111;
+  font: 400 18pt/1.3 "Open Sans", Arial, sans-serif;
+  text-transform: none;
+}
+
+.google-sites-mode .google-contact-block p {
+  margin: 0 0 10px;
+  color: #333333;
+  font: 400 13pt/1.6 "Open Sans", Arial, sans-serif;
+}
+
+.google-sites-mode .google-contact-figure {
+  width: 100%;
+  margin: 0 0 72px;
+}
+
+.google-sites-mode .google-contact-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.google-sites-mode .google-contact-figure figcaption {
+  margin-top: 12px;
+  color: #111111;
+  text-align: center;
+  font: 400 8pt/1.2 "Oswald", Arial, sans-serif;
+}
+
 @media (max-width: 920px) {
   .google-sites-mode .google-platform-feature-list {
     grid-template-columns: 1fr;
@@ -2143,6 +2261,21 @@ html {
   .google-sites-mode .google-platform-detail-main .google-section h2 {
     font-size: 34px;
     line-height: 1.18;
+  }
+
+  .google-sites-mode .google-reference-content,
+  .google-sites-mode .google-contact-template {
+    width: min(100% - 48px, 562px);
+  }
+
+  .google-sites-mode .google-reference-banner h1 {
+    font-size: 34px;
+  }
+
+  .google-sites-mode .google-contact-template h1 {
+    margin-bottom: 52px;
+    font-size: 38px;
+    line-height: 1.22;
   }
 
   .google-sites-mode .google-platform-detail-main .google-copy-stack {
@@ -2170,6 +2303,16 @@ html {
 
   .google-sites-mode .google-platform-media-frame p {
     font-size: 16pt;
+  }
+}
+
+@media (max-width: 1023px) {
+  .google-sites-mode .google-main {
+    padding-top: 204px;
+  }
+
+  .google-sites-home-hero {
+    min-height: calc(100vh - 204px);
   }
 }
 

@@ -324,7 +324,7 @@
       {
         title: 'About 5E Labs',
         description: 'Overview of the research-driven virtual learning platforms.',
-        path: 'index.html#about',
+        path: 'home/about-5e-labs/',
         keywords: 'about virtual learning inquiry mathematics science teacher education',
         sentences: [
           '5E Labs showcases research-driven virtual learning platforms developed to support inquiry-based learning across mathematics, science, and teacher education.',
@@ -335,7 +335,7 @@
       {
         title: 'Objectives',
         description: 'Conceptual understanding, inquiry practice, and teacher transformation goals.',
-        path: 'index.html#objectives',
+        path: 'home/objectives/',
         keywords: 'objectives conceptual understanding inquiry teacher transformation',
         sentences: [
           'The project helps learners move from abstract concepts to visible, testable, and discussable learning experiences.',
@@ -344,9 +344,9 @@
         ]
       },
       {
-        title: 'Impact',
+        title: 'Home Impact',
         description: 'Impact of virtual learning environments for science, mathematics, and teacher education.',
-        path: 'index.html#impact',
+        path: 'home/impact/',
         keywords: 'impact virtual learning science mathematics teacher education',
         sentences: [
           'The 5E Labs collection connects curriculum goals with interactive learning experiences.',
@@ -357,7 +357,7 @@
       {
         title: '5E Inquiry Framework',
         description: 'The Engage, Explore, Explain, Elaborate, and Evaluate learning cycle.',
-        path: 'index.html#framework',
+        path: 'home/5e-inquiry-framework/',
         keywords: '5e inquiry framework engage explore explain elaborate evaluate',
         sentences: [
           'Engage introduces a meaningful challenge or scenario.',
@@ -370,7 +370,7 @@
       {
         title: '21st Century Skills',
         description: 'Problem solving, collaboration, communication, digital literacy, and reflection.',
-        path: 'index.html#skills',
+        path: 'home/21st-century-skills/',
         keywords: '21st century skills problem solving collaboration communication digital literacy reflection',
         sentences: [
           'Learners practice problem solving, collaboration, communication, digital literacy, evidence-based reasoning, and self-reflection while working through immersive scenarios.',
@@ -380,12 +380,22 @@
       {
         title: 'Philosophy behind 5E Labs',
         description: 'The learning philosophy behind virtual inquiry environments.',
-        path: 'index.html#philosophy',
+        path: 'home/philosophy-behind-5e-labs/',
         keywords: 'philosophy learning doing explaining reflecting inquiry',
         sentences: [
           '5E Labs treats virtual environments as learning laboratories.',
           'Instead of only presenting content, each platform asks learners to act, test, discuss, and revise their understanding.',
           'Students learn deeply when they can experience a concept, talk about it, connect it to evidence, and apply it beyond the first task.'
+        ]
+      },
+      {
+        title: '5E Labs Platforms',
+        description: 'Overview page for the separated 5E Labs platform pages.',
+        path: '5e-labs/',
+        keywords: '5e labs platforms math city cardium atomic shadows virtual school teacher training downloads',
+        sentences: [
+          'The 5E Labs page lists the separated platform pages for Math City 1.0, Math City 2.0, The Cardium, Atomic Shadows, and Virtual School of Teacher Training.',
+          'Each platform now has its own dedicated page under the 5E Labs navigation menu.'
         ]
       },
       {
@@ -456,7 +466,7 @@
       {
         title: 'Peer Reviewed Evidence',
         description: 'Research evidence and scholarly grounding for 5E Labs.',
-        path: 'index.html#evidence',
+        path: 'peer-reviewed-evidence/',
         keywords: 'peer reviewed evidence research scholarly publications citations',
         sentences: [
           '5E Labs is positioned around research-informed design, inquiry pedagogy, and evidence-based evaluation of virtual learning environments.',
@@ -466,7 +476,7 @@
       {
         title: 'Dissemination',
         description: 'Workshops, classroom trials, presentations, publications, and updates.',
-        path: 'index.html#dissemination',
+        path: 'dissemination/',
         keywords: 'dissemination workshops classroom trials presentations publications resources',
         sentences: [
           'Dissemination activities may include workshops, classroom trials, conference presentations, journal publications, and resource sharing for educators.',
@@ -474,13 +484,23 @@
         ]
       },
       {
+        title: 'Impact',
+        description: 'Google Sites-style impact section page.',
+        path: 'impact/',
+        keywords: 'impact questions evidence frequently asked question project outcomes',
+        sentences: [
+          'The Impact page follows the Google Sites section-page structure with a highlighted heading and frequently asked question blocks.',
+          'Impact content can be replaced with final project outcomes when the client supplies approved copy.'
+        ]
+      },
+      {
         title: 'Contact us',
         description: 'Public contact section for 5E Labs.',
-        path: 'index.html#contact',
+        path: 'contact-us/',
         keywords: 'contact email organization information 5e labs',
         sentences: [
-          'Contact details can be added once the client confirms the preferred email, organization information, and public-facing contact method.',
-          'The contact section is prepared without exposing private details.'
+          'The contact page follows the Google Sites team template with a leadership section, team image, and joining information.',
+          'Contact details can be added once the client confirms the preferred email, organization information, and public-facing contact method.'
         ]
       },
       {
@@ -514,6 +534,12 @@
       const pathname = window.location.pathname.replace(/\\/g, '/');
       if (/\/5e-labs\/[^/]+\/(?:index\.html)?$/.test(pathname)) {
         return '../../';
+      }
+      if (/\/home\/[^/]+\/(?:index\.html)?$/.test(pathname)) {
+        return '../../';
+      }
+      if (/\/(?:5e-labs|peer-reviewed-evidence|dissemination|impact|contact-us)\/(?:index\.html)?$/.test(pathname)) {
+        return '../';
       }
       return /\/(math-city|math-city-2|cardium|atomic-shadows|vtts)\//.test(pathname) ? '../' : '';
     }

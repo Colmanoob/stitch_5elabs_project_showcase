@@ -172,93 +172,128 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
             .google-main { padding-top: 56px; }
         }
     </style>
-    <link rel="stylesheet" href="animations.css?v=google-sites-20260526m" />
+    <link rel="stylesheet" href="animations.css?v=google-sites-20260526n" />
     <!-- reCAPTCHA API -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body class="google-sites-mode admin-page bg-white text-on-surface font-body overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
 <header class="google-header fixed top-0 w-full z-50 bg-white">
     <nav class="google-header-nav mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a class="google-brand flex items-center" href="index.html#top" aria-label="5E Labs home">
-            <img alt="5E Labs mark" src="assets/5elabs-google-sites-mark.png" />
-            <span>5E Labs</span>
-        </a>
+      <a class="google-brand flex items-center" href="index.html#top" aria-label="5E Labs home">
+        <img alt="5E Labs mark" src="assets/5elabs-google-sites-mark.png" />
+        <span>5E Labs</span>
+      </a>
 
-        <div class="site-desktop-nav google-desktop-nav hidden items-center gap-6 lg:flex" aria-label="Primary">
+      <div class="site-desktop-nav google-desktop-nav hidden items-center gap-6 lg:flex" aria-label="Primary">
+        <details class="google-more-menu">
+          <summary>
+            <span>Home</span>
+            <svg class="google-chevron-icon" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M7 10l5 5 5-5"></path>
+            </svg>
+          </summary>
+          <nav aria-label="Home pages">
             <a href="index.html#top">Home</a>
-            <details class="google-more-menu">
-                <summary>
-                    <span>5E Labs</span>
-                    <svg class="google-chevron-icon" aria-hidden="true" viewBox="0 0 24 24">
-                        <path d="M7 10l5 5 5-5"></path>
-                    </svg>
-                </summary>
-                <nav aria-label="5E Labs pages">
-                    <a href="index.html#about">About 5E Labs</a>
-                    <a href="5e-labs/math-city-1-0/">Math City 1.0</a>
-                    <a href="5e-labs/math-city-2-0/">Math City 2.0</a>
-                    <a href="5e-labs/the-cardium/">The Cardium</a>
-                    <a href="5e-labs/atomic-shadows/">Atomic Shadows</a>
-                    <a href="5e-labs/virtual-school-of-teachers-training/">Virtual School of Teacher's Training</a>
-                    <a href="downloads.html">Downloads</a>
-                </nav>
-            </details>
-            <a href="index.html#evidence">Peer Reviewed Evidence</a>
-            <a href="index.html#dissemination">Dissemination</a>
-            <a href="index.html#impact">Impact</a>
-            <a href="index.html#contact">Contact us</a>
-            <a class="is-active" href="admin.php">Admin</a>
-        </div>
+            <a href="home/about-5e-labs/">About 5E Labs</a>
+            <a href="home/objectives/">Objectives</a>
+            <a href="home/impact/">Impact</a>
+            <a href="home/5e-inquiry-framework/">5E Inquiry Framework</a>
+            <a href="home/21st-century-skills/">21st Century Skills</a>
+            <a href="home/philosophy-behind-5e-labs/">Philosophy behind 5E Labs</a>
+          </nav>
+        </details>
+        <details class="google-more-menu">
+          <summary>
+            <span>5E Labs</span>
+            <svg class="google-chevron-icon" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M7 10l5 5 5-5"></path>
+            </svg>
+          </summary>
+          <nav aria-label="5E Labs pages">
+            <a href="5e-labs/">5E Labs</a>
+            <a href="5e-labs/math-city-1-0/">Math City 1.0</a>
+            <a href="5e-labs/math-city-2-0/">Math City 2.0</a>
+            <a href="5e-labs/the-cardium/">The Cardium</a>
+            <a href="5e-labs/atomic-shadows/">Atomic Shadows</a>
+            <a href="5e-labs/virtual-school-of-teachers-training/">Virtual School of Teacher's Training</a>
+            <a href="downloads.html">Downloads</a>
+          </nav>
+        </details>
+        <a href="peer-reviewed-evidence/">Peer Reviewed Evidence</a>
+        <a href="dissemination/">Dissemination</a>
+        <a href="impact/">Impact</a>
+        <a href="contact-us/">Contact us</a>
+      </div>
 
-        <div class="google-search-control flex items-center gap-3">
-            <button class="google-search-button google-desktop-search-button" type="button" data-icon="search" aria-label="Search site">
-                <svg aria-hidden="true" viewBox="0 0 28 28">
-                    <circle cx="12.1" cy="12.1" r="6.5"></circle>
-                    <path d="M17.1 17.1L23 23"></path>
-                </svg>
-            </button>
-            <button class="google-mobile-search-button" type="button" data-icon="search" aria-label="Search site" style="position: fixed; top: 14px; right: 18px; z-index: 500; display: inline-flex; width: 32px; height: 32px; padding: 0; border: 0; color: #111111; background: transparent; align-items: center; justify-content: center;">
-                <svg aria-hidden="true" viewBox="0 0 28 28" style="width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2.1; stroke-linecap: round;">
-                    <circle cx="12.1" cy="12.1" r="6.5"></circle>
-                    <path d="M17.1 17.1L23 23"></path>
-                </svg>
-            </button>
-        </div>
+      <div class="google-search-control flex items-center gap-3">
+        <button class="google-search-button google-desktop-search-button" type="button" data-icon="search" aria-label="Search site">
+          <svg aria-hidden="true" viewBox="0 0 28 28">
+            <circle cx="12.1" cy="12.1" r="6.5"></circle>
+            <path d="M17.1 17.1L23 23"></path>
+          </svg>
+        </button>
+        <button class="google-mobile-search-button" type="button" data-icon="search" aria-label="Search site" style="position: fixed; top: 14px; right: 18px; z-index: 500; display: inline-flex; width: 32px; height: 32px; padding: 0; border: 0; color: #111111; background: transparent; align-items: center; justify-content: center;">
+          <svg aria-hidden="true" viewBox="0 0 28 28" style="width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2.1; stroke-linecap: round;">
+            <circle cx="12.1" cy="12.1" r="6.5"></circle>
+            <path d="M17.1 17.1L23 23"></path>
+          </svg>
+        </button>
+      </div>
     </nav>
 
     <div class="site-mobile-header border-t border-outline-variant bg-white lg:hidden">
-        <div class="site-mobile-page-links flex items-center gap-5 overflow-x-auto px-4 py-2">
-            <a class="shrink-0" href="index.html#top">Home</a>
-            <a class="shrink-0" href="index.html#evidence">Peer Reviewed Evidence</a>
-            <a class="shrink-0" href="index.html#dissemination">Dissemination</a>
-            <a class="shrink-0" href="index.html#impact">Impact</a>
-            <a class="shrink-0" href="index.html#contact">Contact us</a>
-            <a class="shrink-0 border-b-2 border-blue-700 text-blue-700" href="admin.php">Admin</a>
-        </div>
-        <details class="mobile-platform-menu border-t border-outline-variant">
-            <summary class="flex cursor-pointer items-center justify-between gap-3 px-4 py-3">
-                <span class="flex items-center gap-2 font-headline text-sm font-medium">
-                    <svg class="google-apps-icon" aria-hidden="true" viewBox="0 0 24 24">
-                        <path d="M5 5h3v3H5zM10.5 5h3v3h-3zM16 5h3v3h-3zM5 10.5h3v3H5zM10.5 10.5h3v3h-3zM16 10.5h3v3h-3zM5 16h3v3H5zM10.5 16h3v3h-3zM16 16h3v3h-3z"></path>
-                    </svg>
-                    5E Labs
-                </span>
-                <svg class="google-chevron-icon mobile-platform-chevron" aria-hidden="true" viewBox="0 0 24 24">
-                    <path d="M7 10l5 5 5-5"></path>
-                </svg>
-            </summary>
-            <nav class="google-mobile-menu grid grid-cols-1 gap-1 px-4 pb-3">
-                <a href="index.html#about">About 5E Labs</a>
-                <a href="5e-labs/math-city-1-0/">Math City 1.0</a>
-                <a href="5e-labs/math-city-2-0/">Math City 2.0</a>
-                <a href="5e-labs/the-cardium/">The Cardium</a>
-                <a href="5e-labs/atomic-shadows/">Atomic Shadows</a>
-                <a href="5e-labs/virtual-school-of-teachers-training/">Virtual School of Teacher's Training</a>
-                <a href="downloads.html">Downloads</a>
-            </nav>
-        </details>
+      <div class="site-mobile-page-links flex items-center gap-5 overflow-x-auto px-4 py-2">
+        <a class="shrink-0" href="index.html#top">Home</a>
+        <a class="shrink-0" href="peer-reviewed-evidence/">Peer Reviewed Evidence</a>
+        <a class="shrink-0" href="dissemination/">Dissemination</a>
+        <a class="shrink-0" href="impact/">Impact</a>
+        <a class="shrink-0" href="contact-us/">Contact us</a>
+      </div>
+      <details class="mobile-platform-menu mobile-home-menu border-t border-outline-variant">
+        <summary class="flex cursor-pointer items-center justify-between gap-3 px-4 py-3">
+          <span class="flex items-center gap-2 font-headline text-sm font-medium">
+            <svg class="google-apps-icon" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M5 5h3v3H5zM10.5 5h3v3h-3zM16 5h3v3h-3zM5 10.5h3v3H5zM10.5 10.5h3v3h-3zM16 10.5h3v3h-3zM5 16h3v3H5zM10.5 16h3v3h-3zM16 16h3v3h-3z"></path>
+            </svg>
+            Home
+          </span>
+          <svg class="google-chevron-icon mobile-platform-chevron" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M7 10l5 5 5-5"></path>
+          </svg>
+        </summary>
+        <nav class="google-mobile-menu grid grid-cols-1 gap-1 px-4 pb-3">
+          <a href="home/about-5e-labs/">About 5E Labs</a>
+          <a href="home/objectives/">Objectives</a>
+          <a href="home/impact/">Impact</a>
+          <a href="home/5e-inquiry-framework/">5E Inquiry Framework</a>
+          <a href="home/21st-century-skills/">21st Century Skills</a>
+          <a href="home/philosophy-behind-5e-labs/">Philosophy behind 5E Labs</a>
+        </nav>
+      </details>
+      <details class="mobile-platform-menu border-t border-outline-variant">
+        <summary class="flex cursor-pointer items-center justify-between gap-3 px-4 py-3">
+          <span class="flex items-center gap-2 font-headline text-sm font-medium">
+            <svg class="google-apps-icon" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M5 5h3v3H5zM10.5 5h3v3h-3zM16 5h3v3h-3zM5 10.5h3v3H5zM10.5 10.5h3v3h-3zM16 10.5h3v3h-3zM5 16h3v3H5zM10.5 16h3v3h-3zM16 16h3v3h-3z"></path>
+            </svg>
+            5E Labs
+          </span>
+          <svg class="google-chevron-icon mobile-platform-chevron" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M7 10l5 5 5-5"></path>
+          </svg>
+        </summary>
+        <nav class="google-mobile-menu grid grid-cols-1 gap-1 px-4 pb-3">
+          <a href="5e-labs/">5E Labs</a>
+          <a href="5e-labs/math-city-1-0/">Math City 1.0</a>
+          <a href="5e-labs/math-city-2-0/">Math City 2.0</a>
+          <a href="5e-labs/the-cardium/">The Cardium</a>
+          <a href="5e-labs/atomic-shadows/">Atomic Shadows</a>
+          <a href="5e-labs/virtual-school-of-teachers-training/">Virtual School of Teacher's Training</a>
+          <a href="downloads.html">Downloads</a>
+        </nav>
+      </details>
     </div>
-</header>
+  </header>
 
 <main class="google-main admin-main">
 <div class="admin-panel-shell max-w-5xl w-full bg-white rounded-xl shadow-lg border border-gray-100 p-8">
@@ -627,20 +662,20 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
         </script>
     <?php endif; ?>
 </div>
-<footer class="google-footer admin-footer">
+<footer class="google-footer">
     <div class="google-section-inner">
-        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <p class="font-headline text-xl">5E Labs</p>
-            <nav class="flex flex-wrap gap-4 text-sm" aria-label="Footer">
-                <a href="index.html#about">About</a>
-                <a href="index.html#platforms">Platforms</a>
-                <a href="downloads.html">Downloads</a>
-                <a href="index.html#contact">Contact</a>
-            </nav>
-        </div>
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <p class="font-headline text-xl">5E Labs</p>
+        <nav class="flex flex-wrap gap-4 text-sm" aria-label="Footer">
+          <a href="home/about-5e-labs/">About</a>
+          <a href="5e-labs/">Platforms</a>
+          <a href="downloads.html">Downloads</a>
+          <a href="contact-us/">Contact</a>
+        </nav>
+      </div>
     </div>
-</footer>
+  </footer>
 </main>
-    <script src="animations.js?v=google-sites-20260526m"></script>
+    <script src="animations.js?v=google-sites-20260526n"></script>
 </body>
 </html>
