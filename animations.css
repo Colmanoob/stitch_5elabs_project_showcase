@@ -1963,8 +1963,219 @@ html {
     display: none !important;
   }
 
-  .google-sites-mode .google-mobile-search-button:hover svg,
-  .google-sites-mode .google-mobile-search-button.is-search-active svg {
-    stroke-width: 2.9;
+.google-sites-mode .google-mobile-search-button:hover svg,
+.google-sites-mode .google-mobile-search-button.is-search-active svg {
+  stroke-width: 2.9;
+}
+
+/* Google Sites-aligned admin panel */
+.admin-page .admin-main {
+  min-height: calc(100vh - 56px);
+  background: #ffffff;
+}
+
+.admin-page .admin-panel-shell {
+  width: min(100% - 96px, 1080px);
+  margin: 56px auto 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: #ffffff;
+}
+
+.admin-page .admin-panel-heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 28px;
+  align-items: flex-start;
+  margin-bottom: 34px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.admin-page .admin-panel-heading h1 {
+  margin: 0;
+  color: #111111;
+  font: 400 44px/1.12 "Oswald", Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.admin-page .admin-panel-heading > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.admin-page .admin-panel-heading span,
+.admin-page .rounded-full {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.admin-page p,
+.admin-page label,
+.admin-page td,
+.admin-page th,
+.admin-page input,
+.admin-page textarea,
+.admin-page button,
+.admin-page a {
+  letter-spacing: 0;
+}
+
+.admin-page h2 {
+  color: #000000 !important;
+  font: 700 18pt/1.3 "Lora", Georgia, serif !important;
+}
+
+.admin-page .rounded-xl,
+.admin-page .rounded-lg,
+.admin-page .rounded,
+.admin-page .shadow-lg,
+.admin-page .shadow-sm {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.admin-page .bg-gray-50 {
+  background-color: #f7f7f7 !important;
+}
+
+.admin-page .bg-white {
+  background-color: #ffffff !important;
+}
+
+.admin-page .border-gray-100,
+.admin-page .border-gray-200,
+.admin-page .border-purple-200 {
+  border-color: #e0e0e0 !important;
+}
+
+.admin-page input[type="text"],
+.admin-page input[type="email"],
+.admin-page input[type="password"],
+.admin-page input[type="file"],
+.admin-page textarea {
+  border-color: #dadce0 !important;
+  border-radius: 0 !important;
+  color: #212121;
+  background-color: #ffffff;
+  font: 400 14px/1.45 "Open Sans", Arial, sans-serif;
+}
+
+.admin-page input:focus,
+.admin-page textarea:focus {
+  border-color: #111111 !important;
+  box-shadow: 0 0 0 2px rgba(17, 17, 17, 0.14) !important;
+}
+
+.admin-page button[type="submit"],
+.admin-page .bg-blue-600,
+.admin-page .bg-gray-800 {
+  border: 1px solid #111111 !important;
+  border-radius: 0 !important;
+  background: #111111 !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+  font: 600 13px/1.25 "Open Sans", Arial, sans-serif;
+}
+
+.admin-page button[type="submit"]:hover,
+.admin-page .bg-blue-600:hover,
+.admin-page .bg-gray-800:hover {
+  background: #333333 !important;
+}
+
+.admin-page table {
+  border-collapse: collapse;
+}
+
+.admin-page thead,
+.admin-page thead.bg-purple-50,
+.admin-page thead.bg-white {
+  background: #f7f7f7 !important;
+}
+
+.admin-page th {
+  color: #111111 !important;
+  font: 700 11px/1.3 "Open Sans", Arial, sans-serif;
+}
+
+.admin-page tbody tr:hover {
+  background: #f7f7f7 !important;
+}
+
+.admin-page a {
+  color: #111111;
+}
+
+.admin-page a:hover {
+  color: #5f6368;
+}
+
+.admin-page .admin-footer {
+  margin-top: 0;
+}
+
+@media (max-width: 1023px) {
+  .admin-page .admin-panel-shell {
+    width: min(100% - 48px, 1080px);
+    margin-top: 42px;
   }
+}
+
+@media (max-width: 640px) {
+  .admin-page .admin-panel-shell {
+    width: min(100% - 32px, 1080px);
+    margin-top: 32px;
+  }
+
+  .admin-page .admin-panel-heading h1 {
+    font-size: 38px;
+  }
+}
+
+/* Downloads page icon fallbacks that do not depend on icon fonts */
+.google-inline-spinner {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border: 2px solid #dadce0;
+  border-top-color: #111111;
+  border-radius: 50%;
+  animation: google-spinner 0.8s linear infinite;
+}
+
+@keyframes google-spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.google-download-svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.google-download-icon .google-download-svg {
+  width: 34px;
+  height: 34px;
+  color: #9e9e9e;
+}
+
+.google-preview-close-icon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
 }

@@ -97,17 +97,182 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Control Panel | 5ELABS</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-    <style>body { font-family: 'Public Sans', sans-serif; }</style>
+    <title>Admin | 5E Labs</title>
+    <link href="https://lh3.googleusercontent.com/aida-public/AB6AXuBc95dqb9fPjnkpIy-AM90G3DXjU0UEj59CBjodFoRnYh6Bibr1reYRvTv4zez0CsYrd3Juy7xS_v_LlZEdtIPYF4Vdqb3HgmeqfZN8TBggRhu7TrASymYUOVuyR_yF1FU1omIqj5aSPRh8LoSMNPohTt8CniB6Qeykld2OdY8D7Ual8gg5_1M8C8K0Q4K6Js4p8ta8ZFdBHz_phnl__QRbueoqRhOZzNlCLtIxbOjEXd9e7AkBqs6vAKTqNXWIkAiPY3JI1wGPdaI" rel="icon" type="image/png" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&family=Open+Sans:wght@400;600;700&family=Oswald:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#212121",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#f1f676",
+                        "on-primary-container": "#212121",
+                        background: "#ffffff",
+                        "on-surface": "#212121",
+                        outline: "#dadce0",
+                        "outline-variant": "#e8eaed"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem"
+                    },
+                    fontFamily: {
+                        headline: ["Oswald", "Arial", "sans-serif"],
+                        body: ["Open Sans", "Arial", "sans-serif"],
+                        label: ["Lora", "Georgia", "serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <script defer src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <style id="admin-google-critical">
+        .google-sites-mode { margin: 0; color: #212121; background: #fff; font-family: "Open Sans", Arial, sans-serif; }
+        .google-header { position: fixed; top: 0; left: 0; z-index: 50; width: 100%; background: #fff; }
+        .google-header-nav { position: relative; display: flex; height: 56px; align-items: center; justify-content: space-between; padding: 0 64px 0 24px; }
+        .google-brand { display: flex; align-items: center; gap: 12px; color: #111; text-decoration: none; }
+        .google-brand img { width: 24px; height: 34px; object-fit: contain; }
+        .google-brand span { color: #111; font: 400 20px/1.2 "Oswald", Arial, sans-serif; white-space: nowrap; }
+        .site-desktop-nav { display: none; }
+        .site-mobile-header { display: block; background: #fff; }
+        .site-mobile-page-links { display: flex; height: 52px; align-items: center; gap: 20px; overflow-x: auto; padding: 0 16px; font: 400 14px/1.2 "Open Sans", Arial, sans-serif; scrollbar-width: none; }
+        .site-mobile-page-links::-webkit-scrollbar { display: none; }
+        .site-mobile-page-links a { flex: 0 0 auto; color: #212121; text-decoration: none; white-space: nowrap; }
+        .mobile-platform-menu summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; color: #212121; list-style: none; cursor: pointer; }
+        .mobile-platform-menu summary::-webkit-details-marker { display: none; }
+        .mobile-platform-menu summary span { display: flex; align-items: center; gap: 8px; }
+        .google-mobile-menu { display: grid; grid-template-columns: 1fr; gap: 4px; padding: 0 16px 12px; }
+        .google-mobile-menu a { color: #3c4043; text-decoration: none; font: 600 14px/1.25 "Open Sans", Arial, sans-serif; }
+        .google-main { padding-top: 160px; }
+        .google-search-button { display: inline-flex; width: 32px; height: 32px; align-items: center; justify-content: center; padding: 0; border: 0; color: #111; background: transparent; cursor: pointer; }
+        .google-search-button svg, .google-mobile-search-button svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2.1; stroke-linecap: round; }
+        .google-desktop-search-button { display: none; }
+        .google-mobile-search-button,
+        .google-mobile-search-button.site-search-trigger { right: auto !important; left: min(342px, calc(100vw - 50px)) !important; color: #111 !important; background: transparent !important; background-image: none !important; }
+        .google-chevron-icon { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .google-apps-icon { width: 18px; height: 18px; fill: currentColor; }
+        @media (min-width: 1024px) {
+            .google-header-nav { height: 56px; padding: 0 31px; }
+            .google-brand img { width: 29px; height: 40px; }
+            .google-brand span { font-size: 22px; }
+            .site-desktop-nav { position: relative; display: flex; align-items: center; gap: 29px; margin-left: auto; margin-right: 70px; color: #111; font: 400 16px/1.2 "Open Sans", Arial, sans-serif; }
+            .site-mobile-header { display: none; }
+            .google-desktop-nav > a, .google-more-menu > summary { display: inline-flex; height: 56px; align-items: center; gap: 4px; color: #111; text-decoration: none; white-space: nowrap; }
+            .google-desktop-nav > a.is-active { height: 29px; min-height: 29px; padding: 0 10px; color: #fff; background: #111; }
+            .google-search-control { position: absolute; top: 12px; right: 18px; z-index: 150; display: flex; width: 32px; height: 32px; align-items: center; justify-content: center; }
+            .google-desktop-search-button { display: inline-flex; }
+            .google-mobile-search-button { display: none !important; }
+            .google-main { padding-top: 56px; }
+        }
+    </style>
+    <link rel="stylesheet" href="animations.css?v=google-sites-20260526h" />
     <!-- reCAPTCHA API -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
-<body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col items-center p-4 py-8">
+<body class="google-sites-mode admin-page bg-white text-on-surface font-body overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<header class="google-header fixed top-0 w-full z-50 bg-white">
+    <nav class="google-header-nav mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <a class="google-brand flex items-center" href="index.html#top" aria-label="5E Labs home">
+            <img alt="5E Labs mark" src="assets/5elabs-google-sites-mark.png" />
+            <span>5E Labs</span>
+        </a>
 
-<div class="max-w-5xl w-full bg-white rounded-xl shadow-lg border border-gray-100 p-8">
-    <div class="flex justify-between items-center mb-6">
+        <div class="site-desktop-nav google-desktop-nav hidden items-center gap-6 lg:flex" aria-label="Primary">
+            <a href="index.html#top">Home</a>
+            <details class="google-more-menu">
+                <summary>
+                    <span>5E Labs</span>
+                    <svg class="google-chevron-icon" aria-hidden="true" viewBox="0 0 24 24">
+                        <path d="M7 10l5 5 5-5"></path>
+                    </svg>
+                </summary>
+                <nav aria-label="5E Labs pages">
+                    <a href="index.html#about">About 5E Labs</a>
+                    <a href="index.html#objectives">Objectives</a>
+                    <a href="index.html#framework">5E Inquiry Framework</a>
+                    <a href="index.html#skills">21st Century Skills</a>
+                    <a href="index.html#philosophy">Philosophy behind 5E Labs</a>
+                    <a href="index.html#math-city-1">Math City 1.0</a>
+                    <a href="index.html#math-city-2">Math City 2.0</a>
+                    <a href="index.html#cardium">The Cardium</a>
+                    <a href="index.html#atomic-shadows">Atomic Shadows</a>
+                    <a href="index.html#vtts">Virtual School of Teacher's Training</a>
+                    <a href="index.html#environment-warriors">Environment Warriors</a>
+                    <a href="downloads.html">Downloads</a>
+                </nav>
+            </details>
+            <a href="index.html#evidence">Peer Reviewed Evidence</a>
+            <a href="index.html#dissemination">Dissemination</a>
+            <a href="index.html#impact">Impact</a>
+            <a href="index.html#contact">Contact us</a>
+            <a class="is-active" href="admin.php">Admin</a>
+        </div>
+
+        <div class="google-search-control flex items-center gap-3">
+            <button class="google-search-button google-desktop-search-button" type="button" data-icon="search" aria-label="Search site">
+                <svg aria-hidden="true" viewBox="0 0 28 28">
+                    <circle cx="12.1" cy="12.1" r="6.5"></circle>
+                    <path d="M17.1 17.1L23 23"></path>
+                </svg>
+            </button>
+            <button class="google-mobile-search-button" type="button" data-icon="search" aria-label="Search site" style="position: fixed; top: 14px; right: 18px; z-index: 500; display: inline-flex; width: 32px; height: 32px; padding: 0; border: 0; color: #111111; background: transparent; align-items: center; justify-content: center;">
+                <svg aria-hidden="true" viewBox="0 0 28 28" style="width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2.1; stroke-linecap: round;">
+                    <circle cx="12.1" cy="12.1" r="6.5"></circle>
+                    <path d="M17.1 17.1L23 23"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <div class="site-mobile-header border-t border-outline-variant bg-white lg:hidden">
+        <div class="site-mobile-page-links flex items-center gap-5 overflow-x-auto px-4 py-2">
+            <a class="shrink-0" href="index.html#top">Home</a>
+            <a class="shrink-0" href="index.html#evidence">Peer Reviewed Evidence</a>
+            <a class="shrink-0" href="index.html#dissemination">Dissemination</a>
+            <a class="shrink-0" href="index.html#impact">Impact</a>
+            <a class="shrink-0" href="index.html#contact">Contact us</a>
+            <a class="shrink-0 border-b-2 border-blue-700 text-blue-700" href="admin.php">Admin</a>
+        </div>
+        <details class="mobile-platform-menu border-t border-outline-variant">
+            <summary class="flex cursor-pointer items-center justify-between gap-3 px-4 py-3">
+                <span class="flex items-center gap-2 font-headline text-sm font-medium">
+                    <svg class="google-apps-icon" aria-hidden="true" viewBox="0 0 24 24">
+                        <path d="M5 5h3v3H5zM10.5 5h3v3h-3zM16 5h3v3h-3zM5 10.5h3v3H5zM10.5 10.5h3v3h-3zM16 10.5h3v3h-3zM5 16h3v3H5zM10.5 16h3v3h-3zM16 16h3v3h-3z"></path>
+                    </svg>
+                    5E Labs
+                </span>
+                <svg class="google-chevron-icon mobile-platform-chevron" aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="M7 10l5 5 5-5"></path>
+                </svg>
+            </summary>
+            <nav class="google-mobile-menu grid grid-cols-1 gap-1 px-4 pb-3">
+                <a href="index.html#skills">21st Century Skills</a>
+                <a href="index.html#philosophy">Philosophy behind 5E Labs</a>
+                <a href="index.html#math-city-1">Math City 1.0</a>
+                <a href="index.html#math-city-2">Math City 2.0</a>
+                <a href="index.html#cardium">The Cardium</a>
+                <a href="index.html#atomic-shadows">Atomic Shadows</a>
+                <a href="index.html#vtts">Virtual School of Teacher's Training</a>
+                <a href="index.html#environment-warriors">Environment Warriors</a>
+                <a href="index.html#evidence">Peer Reviewed Evidence</a>
+                <a href="index.html#dissemination">Dissemination</a>
+                <a href="index.html#contact">Contact us</a>
+                <a href="downloads.html">Downloads</a>
+            </nav>
+        </details>
+    </div>
+</header>
+
+<main class="google-main admin-main">
+<div class="admin-panel-shell max-w-5xl w-full bg-white rounded-xl shadow-lg border border-gray-100 p-8">
+    <div class="admin-panel-heading flex justify-between items-center mb-6">
         <h1 class="text-3xl font-bold">Control Panel</h1>
         <?php if (isset($_SESSION['username'])): ?>
             <div class="flex items-center gap-2">
@@ -472,5 +637,20 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
         </script>
     <?php endif; ?>
 </div>
+<footer class="google-footer admin-footer">
+    <div class="google-section-inner">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <p class="font-headline text-xl">5E Labs</p>
+            <nav class="flex flex-wrap gap-4 text-sm" aria-label="Footer">
+                <a href="index.html#about">About</a>
+                <a href="index.html#platforms">Platforms</a>
+                <a href="downloads.html">Downloads</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+        </div>
+    </div>
+</footer>
+</main>
+<script src="animations.js?v=google-sites-20260526h"></script>
 </body>
 </html>

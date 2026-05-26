@@ -102,7 +102,7 @@
       .google-main { padding-top: 56px; }
     }
   </style>
-  <link rel="stylesheet" href="animations.css?v=google-sites-20260526f" />
+  <link rel="stylesheet" href="animations.css?v=google-sites-20260526h" />
 </head>
 
 <body class="google-sites-mode bg-background text-on-surface font-body overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
@@ -225,7 +225,7 @@
         <h2>Available files</h2>
         <div id="downloads-container" class="google-downloads-grid">
           <div class="google-download-empty">
-            <span class="material-symbols-outlined animate-spin text-[32px]" data-icon="sync">sync</span>
+            <span class="google-inline-spinner" aria-hidden="true"></span>
             <p>Fetching archives...</p>
           </div>
         </div>
@@ -265,7 +265,7 @@
       } else if (ext === 'pdf') {
         inner.innerHTML = `<iframe src="${safePreviewUrl}#toolbar=0" class="h-full w-full border-0" title="${safePreviewTitle}"></iframe>`;
       } else if (['txt', 'rtf', 'md', 'csv', 'json'].includes(ext)) {
-        inner.innerHTML = '<span class="material-symbols-outlined animate-spin text-[32px]">sync</span>';
+        inner.innerHTML = '<span class="google-inline-spinner" aria-hidden="true"></span>';
         fetch(url)
           .then(response => response.text())
           .then(text => {
@@ -303,6 +303,22 @@
         .replace(/\r?\n/g, ' ');
     }
 
+    function downloadIconSvg(type) {
+      const icons = {
+        file: '<path d="M7 3h7l5 5v13H7z"></path><path d="M14 3v6h5"></path>',
+        archive: '<path d="M6 4h12v16H6z"></path><path d="M10 4v16"></path><path d="M10 7h2M10 10h2M10 13h2"></path>',
+        pdf: '<path d="M7 3h7l5 5v13H7z"></path><path d="M14 3v6h5"></path><path d="M9 15h6M9 18h4"></path>',
+        image: '<rect x="5" y="5" width="14" height="14"></rect><path d="M8 16l3-3 2 2 3-4 3 5"></path><circle cx="10" cy="9" r="1"></circle>',
+        video: '<rect x="4" y="6" width="12" height="12"></rect><path d="M16 10l4-2v8l-4-2"></path>',
+        audio: '<path d="M9 18a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"></path><path d="M12 15V5l7-1v10"></path>',
+        preview: '<path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"></path><circle cx="12" cy="12" r="2.5"></circle>',
+        download: '<path d="M12 3v12"></path><path d="M7 10l5 5 5-5"></path><path d="M5 21h14"></path>',
+        close: '<path d="M6 6l12 12"></path><path d="M18 6L6 18"></path>'
+      };
+
+      return `<svg class="google-download-svg" aria-hidden="true" viewBox="0 0 24 24">${icons[type] || icons.file}</svg>`;
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
       fetch('api_list_archives.php')
         .then(response => {
@@ -323,12 +339,12 @@
             card.className = 'google-download-card';
             const ext = String(file.ext || '').toLowerCase();
 
-            let iconName = 'description';
-            if (ext === 'zip' || ext === 'rar' || ext === '7z') iconName = 'folder_zip';
-            if (ext === 'pdf') iconName = 'picture_as_pdf';
+            let iconName = 'file';
+            if (ext === 'zip' || ext === 'rar' || ext === '7z') iconName = 'archive';
+            if (ext === 'pdf') iconName = 'pdf';
             if (['jpg', 'jpeg', 'png', 'gif', 'svg', 'webp'].includes(ext)) iconName = 'image';
-            if (['mp4', 'mov', 'avi'].includes(ext)) iconName = 'movie';
-            if (['mp3', 'wav'].includes(ext)) iconName = 'audio_file';
+            if (['mp4', 'mov', 'avi'].includes(ext)) iconName = 'video';
+            if (['mp3', 'wav'].includes(ext)) iconName = 'audio';
 
             const description = file.description
               ? `<p class="google-download-description">${escapeHtml(file.description)}</p>`
@@ -342,13 +358,13 @@
             const escapedUrl = escapeHtml(file.url);
             const escapedExt = escapeHtml(ext);
             const previewButton = previewExts.includes(ext)
-              ? `<button onclick="openPreview('${safeUrl}', '${safeExt}', '${safeName}')" class="google-download-action google-download-action-secondary" type="button"><span class="material-symbols-outlined text-[18px]">visibility</span>Preview</button>`
+              ? `<button onclick="openPreview('${safeUrl}', '${safeExt}', '${safeName}')" class="google-download-action google-download-action-secondary" type="button">${downloadIconSvg('preview')}Preview</button>`
               : '';
 
             card.innerHTML = `
               <div class="google-download-card-main">
                 <div class="google-download-icon">
-                  <span class="material-symbols-outlined">${iconName}</span>
+                  ${downloadIconSvg(iconName)}
                 </div>
                 <div>
                   <h3 title="${escapedName}">${escapedName}</h3>
@@ -358,7 +374,7 @@
               ${description}
               <div class="google-download-actions">
                 ${previewButton}
-                <a href="${escapedUrl}" download class="google-download-action google-download-action-primary"><span class="material-symbols-outlined text-[18px]">download</span>Download</a>
+                <a href="${escapedUrl}" download class="google-download-action google-download-action-primary">${downloadIconSvg('download')}Download</a>
               </div>
             `;
 
@@ -377,13 +393,16 @@
     <div class="z-10 mx-auto mb-4 flex w-full max-w-7xl items-center justify-between text-white">
       <h3 id="previewTitle" class="truncate pr-4 font-body text-2xl font-bold text-white"></h3>
       <button onclick="closePreview()" class="rounded-full bg-white/10 p-2.5 transition-colors hover:bg-white/25 focus:outline-none focus:ring-2 focus:ring-white" type="button">
-        <span class="material-symbols-outlined text-white">close</span>
+        <svg class="google-preview-close-icon text-white" aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M6 6l12 12"></path>
+          <path d="M18 6L6 18"></path>
+        </svg>
       </button>
     </div>
     <div class="relative z-10 mx-auto flex w-full max-w-7xl flex-grow items-center justify-center overflow-hidden rounded-lg bg-white/5 shadow-2xl outline outline-1 outline-white/10" id="previewContainer"></div>
   </div>
 
-  <script src="animations.js?v=google-sites-20260526f"></script>
+  <script src="animations.js?v=google-sites-20260526h"></script>
 </body>
 
 </html>
