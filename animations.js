@@ -384,7 +384,9 @@
     const layer = document.createElement('div');
     layer.className = 'site-plane-transition';
     layer.innerHTML = `
-      <span class="site-plane-transition-trail" aria-hidden="true"></span>
+      <svg class="site-plane-transition-trail" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <path class="site-plane-transition-trail-path" d="M -8 74 C 8 72 22 66 32 56 C 44 44 38 28 26 35 C 12 43 16 61 31 64 C 49 68 55 55 64 47 C 75 37 85 33 108 27"></path>
+      </svg>
       <img class="site-plane-transition-plane" src="${getSiteRootPrefix()}assets/5elabs-paper-plane.svg" alt="" aria-hidden="true" />
     `;
     document.body.appendChild(layer);
@@ -392,7 +394,8 @@
     return {
       layer,
       plane: layer.querySelector('.site-plane-transition-plane'),
-      trail: layer.querySelector('.site-plane-transition-trail')
+      trail: layer.querySelector('.site-plane-transition-trail'),
+      trailPath: layer.querySelector('.site-plane-transition-trail-path')
     };
   }
 
@@ -425,47 +428,62 @@
     return animation.finished.catch(() => undefined);
   }
 
+  function createPlaneFrame(centerX, centerY, planeWidth, planeHeight, scale, rotate, opacity, offset) {
+    const frame = {
+      opacity,
+      transform: `translate(${centerX - planeWidth / 2}px, ${centerY - planeHeight / 2}px) scale(${scale}) rotate(${rotate}deg)`
+    };
+    if (typeof offset === 'number') frame.offset = offset;
+    return frame;
+  }
+
   function runPlaneExit() {
-    const { layer, plane, trail } = createPlaneTransitionLayer();
+    const { layer, plane, trail, trailPath } = createPlaneTransitionLayer();
     const { width: planeWidth, height: planeHeight } = getPlaneVisualSize(plane);
-    const centerY = Math.max(42, (window.innerHeight - planeHeight) * 0.53);
-    const startX = -planeWidth * 0.18;
-    const startY = centerY + planeHeight * 0.08;
-    const forwardX = Math.min(window.innerWidth * 0.24, planeWidth * 0.22);
-    const rollX = Math.min(window.innerWidth * 0.42, forwardX + planeWidth * 0.38);
-    const rollUpY = centerY - planeHeight * 0.22;
-    const rollDownY = centerY + planeHeight * 0.14;
-    const endX = window.innerWidth + planeWidth * 0.28;
-    const endY = Math.max(-planeHeight * 0.22, centerY - window.innerHeight * 0.18);
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    const x = ratio => viewportWidth * ratio;
+    const y = ratio => viewportHeight * ratio;
 
     layer.classList.add('is-active');
     requestAnimationFrame(() => layer.classList.add('is-exit'));
 
     const planeAnimation = animateTransitionElement(plane, [
-      { opacity: 0, transform: `translate(${startX}px, ${startY}px) scale(0.64) rotate(-12deg)` },
-      { opacity: 1, transform: `translate(${forwardX}px, ${centerY}px) scale(0.92) rotate(5deg)`, offset: 0.18 },
-      { opacity: 1, transform: `translate(${rollX}px, ${rollUpY}px) scale(1.04) rotate(185deg)`, offset: 0.42 },
-      { opacity: 1, transform: `translate(${rollX + planeWidth * 0.18}px, ${rollDownY}px) scale(1.04) rotate(365deg)`, offset: 0.66 },
-      { opacity: 0.98, transform: `translate(${endX}px, ${endY}px) scale(1.1) rotate(382deg)` }
+      createPlaneFrame(x(-0.12), y(0.74), planeWidth, planeHeight, 0.66, -8, 0, 0),
+      createPlaneFrame(x(0.18), y(0.66), planeWidth, planeHeight, 0.86, -12, 1, 0.16),
+      createPlaneFrame(x(0.33), y(0.54), planeWidth, planeHeight, 0.96, -76, 1, 0.3),
+      createPlaneFrame(x(0.31), y(0.36), planeWidth, planeHeight, 1.02, -178, 1, 0.45),
+      createPlaneFrame(x(0.18), y(0.44), planeWidth, planeHeight, 1.02, -278, 1, 0.58),
+      createPlaneFrame(x(0.31), y(0.62), planeWidth, planeHeight, 1, -368, 1, 0.7),
+      createPlaneFrame(x(0.52), y(0.55), planeWidth, planeHeight, 1.02, -344, 1, 0.82),
+      createPlaneFrame(x(1.12), y(0.26), planeWidth, planeHeight, 1.08, -346, 0.98, 1)
     ], {
-      duration: 1120,
+      duration: 1280,
       easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
       fill: 'forwards'
     });
 
     const trailAnimation = animateTransitionElement(trail, [
-      { opacity: 0, transform: `translate(${startX - planeWidth * 1.15}px, ${startY + planeWidth * 0.48}px) scaleX(0.22) rotate(-18deg)` },
-      { opacity: 0.84, transform: `translate(${forwardX - planeWidth * 1.05}px, ${centerY + planeHeight * 0.58}px) scaleX(0.95) rotate(-10deg)`, offset: 0.2 },
-      { opacity: 0.24, transform: `translate(${rollX - planeWidth * 0.78}px, ${rollUpY + planeHeight * 0.62}px) scaleX(0.42) rotate(-22deg)`, offset: 0.48 },
-      { opacity: 0.72, transform: `translate(${rollX - planeWidth * 0.6}px, ${rollDownY + planeHeight * 0.48}px) scaleX(0.65) rotate(-24deg)`, offset: 0.66 },
-      { opacity: 0, transform: `translate(${endX - planeWidth * 1.32}px, ${endY + planeWidth * 0.52}px) scaleX(0.35) rotate(-18deg)` }
+      { opacity: 0 },
+      { opacity: 0.96, offset: 0.16 },
+      { opacity: 0.96, offset: 0.78 },
+      { opacity: 0 }
     ], {
-      duration: 980,
-      easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+      duration: 1160,
+      easing: 'ease',
       fill: 'forwards'
     });
 
-    return Promise.all([planeAnimation, trailAnimation]);
+    const trailPathAnimation = animateTransitionElement(trailPath, [
+      { strokeDashoffset: '62' },
+      { strokeDashoffset: '0' }
+    ], {
+      duration: 1280,
+      easing: 'linear',
+      fill: 'forwards'
+    });
+
+    return Promise.all([planeAnimation, trailAnimation, trailPathAnimation]);
   }
 
   function runPlaneEntry() {
@@ -493,12 +511,11 @@
     });
 
     const trailAnimation = animateTransitionElement(trail, [
-      { opacity: 0, transform: `translate(${startX - planeWidth * 0.86}px, ${startY + planeWidth * 0.34}px) scaleX(0.3) rotate(-12deg)` },
-      { opacity: 0.58, transform: `translate(${approachX - planeWidth * 1.12}px, ${approachY + planeWidth * 0.3}px) scaleX(0.72) rotate(-12deg)`, offset: 0.48 },
-      { opacity: 0, transform: `translate(${endX - planeWidth * 0.82}px, ${endY + planeWidth * 0.34}px) scaleX(0.15) rotate(-12deg)` }
+      { opacity: 0 },
+      { opacity: 0 }
     ], {
-      duration: 620,
-      easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+      duration: 760,
+      easing: 'ease',
       fill: 'forwards'
     });
 
