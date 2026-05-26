@@ -412,7 +412,7 @@
 
   function getPlaneVisualSize(plane) {
     const rect = plane ? plane.getBoundingClientRect() : null;
-    const fallbackWidth = Math.min(window.innerWidth * 0.38, window.innerHeight * 0.52);
+    const fallbackWidth = Math.min(window.innerWidth * 0.3, window.innerHeight * 0.42);
     return {
       width: rect && rect.width ? rect.width : fallbackWidth,
       height: rect && rect.height ? rect.height : fallbackWidth * 0.75
@@ -458,7 +458,7 @@
       createPlaneFrame(x(0.52), y(0.55), planeWidth, planeHeight, 1.02, -344, 1, 0.82),
       createPlaneFrame(x(1.12), y(0.26), planeWidth, planeHeight, 1.08, -346, 0.98, 1)
     ], {
-      duration: 1850,
+      duration: 2800,
       easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
       fill: 'forwards'
     });
@@ -469,7 +469,7 @@
       { opacity: 0.96, offset: 0.78 },
       { opacity: 0 }
     ], {
-      duration: 1700,
+      duration: 2550,
       easing: 'ease',
       fill: 'forwards'
     });
@@ -478,7 +478,7 @@
       { strokeDashoffset: '62' },
       { strokeDashoffset: '0' }
     ], {
-      duration: 1850,
+      duration: 2800,
       easing: 'linear',
       fill: 'forwards'
     });
@@ -505,7 +505,7 @@
       { opacity: 1, transform: `translate(${approachX}px, ${approachY}px) scale(0.92) rotate(-8deg)`, offset: 0.5 },
       { opacity: 0, transform: `translate(${endX}px, ${endY}px) scale(0.46) rotate(-14deg)` }
     ], {
-      duration: 960,
+      duration: 1300,
       easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
       fill: 'forwards'
     });
@@ -514,7 +514,7 @@
       { opacity: 0 },
       { opacity: 0 }
     ], {
-      duration: 960,
+      duration: 1300,
       easing: 'ease',
       fill: 'forwards'
     });
