@@ -1694,8 +1694,16 @@ html {
 .google-sites-mode .google-platform-media {
   aspect-ratio: 1 / 1;
   width: 100%;
+  overflow: hidden;
   background: #f7f7f7;
   border: 0;
+}
+
+.google-sites-mode .google-platform-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .google-sites-mode .google-platform-media .material-symbols-outlined {
@@ -2110,6 +2118,13 @@ html {
   gap: 12px;
   color: #9e9e9e;
   text-align: center;
+}
+
+.google-sites-mode .google-platform-media-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .google-sites-mode .google-platform-media-frame .material-symbols-outlined {
