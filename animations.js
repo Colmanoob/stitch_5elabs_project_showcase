@@ -505,7 +505,7 @@
       { opacity: 1, transform: `translate(${approachX}px, ${approachY}px) scale(0.92) rotate(-8deg)`, offset: 0.5 },
       { opacity: 0, transform: `translate(${endX}px, ${endY}px) scale(0.46) rotate(-14deg)` }
     ], {
-      duration: 750,
+      duration: 450,
       easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
       fill: 'forwards'
     });
@@ -514,7 +514,7 @@
       { opacity: 0 },
       { opacity: 0 }
     ], {
-      duration: 750,
+      duration: 450,
       easing: 'ease',
       fill: 'forwards'
     });
@@ -522,7 +522,7 @@
     Promise.all([planeAnimation, trailAnimation]).finally(() => {
       layer.classList.remove('is-active');
       document.documentElement.classList.remove('is-plane-transitioning');
-      setTimeout(() => layer.remove(), 80);
+      setTimeout(() => layer.remove(), 40);
     });
   }
 
