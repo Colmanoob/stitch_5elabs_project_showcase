@@ -815,6 +815,11 @@ html {
   display: grid;
 }
 
+.google-more-menu:hover nav,
+.google-more-menu:focus-within nav {
+  display: grid;
+}
+
 .google-more-menu nav a,
 .google-mobile-menu a {
   color: #3c4043;

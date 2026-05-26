@@ -1216,6 +1216,50 @@
 
   // ─── Init Everything ───
   function initMobilePlatformMenus() {
+    const hoverMenus = document.querySelectorAll('details.google-more-menu');
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+    hoverMenus.forEach(menu => {
+      let closeTimer;
+
+      function closeOtherMenus() {
+        hoverMenus.forEach(otherMenu => {
+          if (otherMenu !== menu) otherMenu.open = false;
+        });
+      }
+
+      function openMenu() {
+        if (!canHover.matches) return;
+        window.clearTimeout(closeTimer);
+        closeOtherMenus();
+        menu.open = true;
+      }
+
+      function closeMenu() {
+        if (!canHover.matches) return;
+        window.clearTimeout(closeTimer);
+        closeTimer = window.setTimeout(() => {
+          if (!menu.matches(':hover') && !menu.contains(document.activeElement)) {
+            menu.open = false;
+          }
+        }, 90);
+      }
+
+      menu.addEventListener('mouseenter', openMenu);
+      menu.addEventListener('mouseleave', closeMenu);
+      menu.addEventListener('focusin', openMenu);
+      menu.addEventListener('focusout', closeMenu);
+
+      const summary = menu.querySelector('summary');
+      if (summary) {
+        summary.addEventListener('click', event => {
+          if (!canHover.matches) return;
+          event.preventDefault();
+          openMenu();
+        });
+      }
+    });
+
     document.querySelectorAll('.mobile-platform-menu a, .google-more-menu a').forEach(link => {
       link.addEventListener('click', () => {
         const menu = link.closest('details.mobile-platform-menu, details.google-more-menu');
