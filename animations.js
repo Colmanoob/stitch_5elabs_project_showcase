@@ -458,7 +458,7 @@
       createPlaneFrame(x(0.52), y(0.55), planeWidth, planeHeight, 1.02, -344, 1, 0.82),
       createPlaneFrame(x(1.12), y(0.26), planeWidth, planeHeight, 1.08, -346, 0.98, 1)
     ], {
-      duration: 2800,
+      duration: 2000,
       easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
       fill: 'forwards'
     });
@@ -469,7 +469,7 @@
       { opacity: 0.96, offset: 0.78 },
       { opacity: 0 }
     ], {
-      duration: 2550,
+      duration: 1850,
       easing: 'ease',
       fill: 'forwards'
     });
@@ -478,7 +478,7 @@
       { strokeDashoffset: '62' },
       { strokeDashoffset: '0' }
     ], {
-      duration: 2800,
+      duration: 2000,
       easing: 'linear',
       fill: 'forwards'
     });
@@ -505,7 +505,7 @@
       { opacity: 1, transform: `translate(${approachX}px, ${approachY}px) scale(0.92) rotate(-8deg)`, offset: 0.5 },
       { opacity: 0, transform: `translate(${endX}px, ${endY}px) scale(0.46) rotate(-14deg)` }
     ], {
-      duration: 1300,
+      duration: 750,
       easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
       fill: 'forwards'
     });
@@ -514,7 +514,7 @@
       { opacity: 0 },
       { opacity: 0 }
     ], {
-      duration: 1300,
+      duration: 750,
       easing: 'ease',
       fill: 'forwards'
     });
