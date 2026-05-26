@@ -319,12 +319,23 @@
   }
 
   // Paper plane page transition
-  const PLANE_EXIT_DURATION = 2000;
-  const PLANE_TRAIL_FADE_DURATION = 1850;
-  const PLANE_NAVIGATION_OVERLAP = 90;
+  const PLANE_EXIT_DURATION = 1850;
+  const PLANE_TRAIL_FADE_DURATION = 1700;
+  const PLANE_ENTRY_DURATION = 150;
+  const PLANE_NAVIGATION_OVERLAP = 50;
 
   function initPlanePageTransitions() {
     if (!document.body.classList.contains('google-sites-mode')) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let shouldRunEntry = false;
+    try {
+      shouldRunEntry = sessionStorage.getItem('sitePlaneTransition') === 'enter';
+      sessionStorage.removeItem('sitePlaneTransition');
+    } catch (error) {
+      shouldRunEntry = false;
+    }
+    if (!reduceMotion && shouldRunEntry) runPlaneEntry();
 
     document.addEventListener('click', event => {
       if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
@@ -371,6 +382,11 @@
 
     primePlaneDestination(href);
     const navigationTimer = window.setTimeout(() => {
+      try {
+        sessionStorage.setItem('sitePlaneTransition', 'enter');
+      } catch (error) {
+        // Navigation should continue even if session storage is unavailable.
+      }
       window.location.href = href;
     }, Math.max(0, PLANE_EXIT_DURATION - PLANE_NAVIGATION_OVERLAP));
 
@@ -457,6 +473,17 @@
     return frame;
   }
 
+  function getPlaneStartPoint() {
+    const brandMark = document.querySelector('.google-brand img');
+    if (!brandMark) return { x: 32, y: 24 };
+
+    const rect = brandMark.getBoundingClientRect();
+    return {
+      x: rect.left + rect.width * 0.45,
+      y: rect.top + rect.height * 0.28
+    };
+  }
+
   function runPlaneExit() {
     const { layer, plane, trail, trailPath } = createPlaneTransitionLayer();
     const { width: planeWidth, height: planeHeight } = getPlaneVisualSize(plane);
@@ -504,6 +531,42 @@
     });
 
     return Promise.all([planeAnimation, trailAnimation, trailPathAnimation]);
+  }
+
+  function runPlaneEntry() {
+    const { layer, plane, trail } = createPlaneTransitionLayer();
+    const end = getPlaneStartPoint();
+    const { width: planeWidth, height: planeHeight } = getPlaneVisualSize(plane);
+    const centerX = window.innerWidth * 0.22;
+    const centerY = window.innerHeight * 0.62;
+    const endX = end.x;
+    const endY = end.y;
+
+    layer.classList.add('is-active');
+
+    const planeAnimation = animateTransitionElement(plane, [
+      createPlaneFrame(centerX, centerY, planeWidth, planeHeight, 0.52, -12, 0.46, 0),
+      createPlaneFrame(endX, endY, planeWidth, planeHeight, 0.22, -14, 0, 1)
+    ], {
+      duration: PLANE_ENTRY_DURATION,
+      easing: 'ease-out',
+      fill: 'forwards'
+    });
+
+    const trailAnimation = animateTransitionElement(trail, [
+      { opacity: 0 },
+      { opacity: 0 }
+    ], {
+      duration: PLANE_ENTRY_DURATION,
+      easing: 'ease',
+      fill: 'forwards'
+    });
+
+    Promise.all([planeAnimation, trailAnimation]).finally(() => {
+      layer.classList.remove('is-active');
+      document.documentElement.classList.remove('is-plane-transitioning');
+      setTimeout(() => layer.remove(), 20);
+    });
   }
 
   // Site search overlay
