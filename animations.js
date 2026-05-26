@@ -319,6 +319,10 @@
   }
 
   // Paper plane page transition
+  const PLANE_EXIT_DURATION = 2000;
+  const PLANE_TRAIL_FADE_DURATION = 1850;
+  const PLANE_NAVIGATION_OVERLAP = 90;
+
   function initPlanePageTransitions() {
     if (!document.body.classList.contains('google-sites-mode')) return;
 
@@ -365,9 +369,43 @@
     if (document.documentElement.classList.contains('is-plane-transitioning')) return;
     document.documentElement.classList.add('is-plane-transitioning');
 
-    runPlaneExit().finally(() => {
+    primePlaneDestination(href);
+    const navigationTimer = window.setTimeout(() => {
       window.location.href = href;
-    });
+    }, Math.max(0, PLANE_EXIT_DURATION - PLANE_NAVIGATION_OVERLAP));
+
+    try {
+      runPlaneExit().catch(() => undefined);
+    } catch (error) {
+      window.clearTimeout(navigationTimer);
+      window.location.href = href;
+    }
+  }
+
+  function primePlaneDestination(href) {
+    try {
+      const url = new URL(href, window.location.href);
+      if (url.origin !== window.location.origin) return;
+
+      let prefetch = document.querySelector('link[data-plane-prefetch]');
+      if (!prefetch) {
+        prefetch = document.createElement('link');
+        prefetch.dataset.planePrefetch = 'true';
+        prefetch.rel = 'prefetch';
+        prefetch.setAttribute('as', 'document');
+        document.head.appendChild(prefetch);
+      }
+      prefetch.href = url.href;
+
+      if (typeof window.fetch === 'function') {
+        window.fetch(url.href, {
+          credentials: 'same-origin',
+          cache: 'force-cache'
+        }).catch(() => undefined);
+      }
+    } catch (error) {
+      // Navigation still works if a browser blocks prefetching local/static pages.
+    }
   }
 
   function createPlaneTransitionLayer() {
@@ -440,7 +478,7 @@
       createPlaneFrame(x(0.52), y(0.55), planeWidth, planeHeight, 1.02, -344, 1, 0.82),
       createPlaneFrame(x(1.12), y(0.26), planeWidth, planeHeight, 1.08, -346, 0.98, 1)
     ], {
-      duration: 2000,
+      duration: PLANE_EXIT_DURATION,
       easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
       fill: 'forwards'
     });
@@ -451,7 +489,7 @@
       { opacity: 0.96, offset: 0.78 },
       { opacity: 0 }
     ], {
-      duration: 1850,
+      duration: PLANE_TRAIL_FADE_DURATION,
       easing: 'ease',
       fill: 'forwards'
     });
@@ -460,7 +498,7 @@
       { strokeDashoffset: '62' },
       { strokeDashoffset: '0' }
     ], {
-      duration: 2000,
+      duration: PLANE_EXIT_DURATION,
       easing: 'linear',
       fill: 'forwards'
     });
