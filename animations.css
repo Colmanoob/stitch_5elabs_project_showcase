@@ -2526,3 +2526,69 @@ html {
   stroke-width: 2;
   stroke-linecap: round;
 }
+
+/* Paper plane page transition */
+.site-plane-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  background: rgba(255, 255, 255, 0);
+  transition: opacity 0.12s ease, background-color 0.34s ease;
+}
+
+.site-plane-transition.is-active {
+  opacity: 1;
+}
+
+.site-plane-transition.is-exit {
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.site-plane-transition-plane {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 58px;
+  height: auto;
+  transform-origin: center;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 10px 14px rgba(60, 64, 67, 0.18));
+}
+
+.site-plane-transition-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(241, 246, 118, 0), rgba(241, 246, 118, 0.92));
+  opacity: 0;
+  transform-origin: right center;
+  will-change: transform, opacity;
+}
+
+html.is-plane-transitioning {
+  cursor: progress;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-plane-transition,
+  .site-plane-transition-plane,
+  .site-plane-transition-trail {
+    transition: none;
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-plane-transition-plane {
+    width: 48px;
+  }
+
+  .site-plane-transition-trail {
+    width: 88px;
+  }
+}

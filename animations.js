@@ -18,6 +18,20 @@
     });
   }
 
+  function getSiteRootPrefix() {
+    const pathname = window.location.pathname.replace(/\\/g, '/');
+    if (/\/5e-labs\/[^/]+\/(?:index\.html)?$/.test(pathname)) {
+      return '../../';
+    }
+    if (/\/home\/[^/]+\/(?:index\.html)?$/.test(pathname)) {
+      return '../../';
+    }
+    if (/\/(?:5e-labs|peer-reviewed-evidence|dissemination|impact|contact-us)\/(?:index\.html)?$/.test(pathname)) {
+      return '../';
+    }
+    return /\/(math-city|math-city-2|cardium|atomic-shadows|vtts)\//.test(pathname) ? '../' : '';
+  }
+
   // ─── Auto-tag elements for scroll reveal ───
   function autoTag() {
     // Hero sections — tag the main heading, description, and buttons
@@ -304,6 +318,180 @@
     });
   }
 
+  // Paper plane page transition
+  function initPlanePageTransitions() {
+    if (!document.body.classList.contains('google-sites-mode')) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduceMotion && sessionStorage.getItem('sitePlaneTransition') === 'enter') {
+      sessionStorage.removeItem('sitePlaneTransition');
+      runPlaneEntry();
+    }
+
+    document.addEventListener('click', event => {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+      const link = event.target.closest('a[href]');
+      if (!link || !shouldAnimatePlaneLink(link)) return;
+
+      event.preventDefault();
+      navigateWithPlane(link.href);
+    }, true);
+  }
+
+  function shouldAnimatePlaneLink(link) {
+    if (link.target && link.target !== '_self') return false;
+    if (link.hasAttribute('download')) return false;
+    if (link.dataset.noPlaneTransition === 'true') return false;
+
+    const rawHref = link.getAttribute('href') || '';
+    if (!rawHref || rawHref.startsWith('#')) return false;
+    if (/^(mailto:|tel:|javascript:)/i.test(rawHref)) return false;
+
+    let url;
+    try {
+      url = new URL(rawHref, window.location.href);
+    } catch (error) {
+      return false;
+    }
+
+    if (url.origin !== window.location.origin) return false;
+    const samePath = url.pathname === window.location.pathname;
+    const onlyHashChanged = samePath && url.search === window.location.search && url.hash;
+    return !onlyHashChanged;
+  }
+
+  function navigateWithPlane(href) {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) {
+      window.location.href = href;
+      return;
+    }
+
+    if (document.documentElement.classList.contains('is-plane-transitioning')) return;
+    document.documentElement.classList.add('is-plane-transitioning');
+
+    runPlaneExit().finally(() => {
+      sessionStorage.setItem('sitePlaneTransition', 'enter');
+      window.location.href = href;
+    });
+  }
+
+  function createPlaneTransitionLayer() {
+    const existing = document.querySelector('.site-plane-transition');
+    if (existing) existing.remove();
+
+    const layer = document.createElement('div');
+    layer.className = 'site-plane-transition';
+    layer.innerHTML = `
+      <span class="site-plane-transition-trail" aria-hidden="true"></span>
+      <img class="site-plane-transition-plane" src="${getSiteRootPrefix()}assets/5elabs-paper-plane.svg" alt="" aria-hidden="true" />
+    `;
+    document.body.appendChild(layer);
+
+    return {
+      layer,
+      plane: layer.querySelector('.site-plane-transition-plane'),
+      trail: layer.querySelector('.site-plane-transition-trail')
+    };
+  }
+
+  function getPlaneStartPoint() {
+    const brandMark = document.querySelector('.google-brand img');
+    if (!brandMark) return { x: 32, y: 24 };
+
+    const rect = brandMark.getBoundingClientRect();
+    return {
+      x: rect.left + rect.width * 0.45,
+      y: rect.top + rect.height * 0.28
+    };
+  }
+
+  function animateTransitionElement(element, frames, timing) {
+    if (!element || typeof element.animate !== 'function') {
+      return new Promise(resolve => setTimeout(resolve, timing.duration || 0));
+    }
+
+    const animation = element.animate(frames, timing);
+    return animation.finished.catch(() => undefined);
+  }
+
+  function runPlaneExit() {
+    const { layer, plane, trail } = createPlaneTransitionLayer();
+    const start = getPlaneStartPoint();
+    const planeWidth = window.innerWidth < 640 ? 48 : 58;
+    const startX = start.x - planeWidth / 2;
+    const startY = start.y - planeWidth / 2;
+    const midX = Math.min(window.innerWidth * 0.46, startX + 280);
+    const midY = Math.max(32, startY - window.innerHeight * 0.16);
+    const endX = window.innerWidth + 96;
+    const endY = Math.max(24, startY - window.innerHeight * 0.34);
+
+    layer.classList.add('is-active');
+    requestAnimationFrame(() => layer.classList.add('is-exit'));
+
+    const planeAnimation = animateTransitionElement(plane, [
+      { opacity: 0, transform: `translate(${startX}px, ${startY}px) scale(0.58) rotate(-12deg)` },
+      { opacity: 1, transform: `translate(${startX}px, ${startY}px) scale(0.82) rotate(-8deg)`, offset: 0.15 },
+      { opacity: 1, transform: `translate(${midX}px, ${midY}px) scale(1) rotate(5deg)`, offset: 0.68 },
+      { opacity: 0.98, transform: `translate(${endX}px, ${endY}px) scale(1.12) rotate(12deg)` }
+    ], {
+      duration: 720,
+      easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+      fill: 'forwards'
+    });
+
+    const trailAnimation = animateTransitionElement(trail, [
+      { opacity: 0, transform: `translate(${startX - 104}px, ${startY + 28}px) scaleX(0.2) rotate(-18deg)` },
+      { opacity: 0.85, transform: `translate(${midX - 118}px, ${midY + 35}px) scaleX(1) rotate(-18deg)`, offset: 0.52 },
+      { opacity: 0, transform: `translate(${endX - 140}px, ${endY + 39}px) scaleX(0.35) rotate(-18deg)` }
+    ], {
+      duration: 640,
+      easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+      fill: 'forwards'
+    });
+
+    return Promise.all([planeAnimation, trailAnimation]);
+  }
+
+  function runPlaneEntry() {
+    const { layer, plane, trail } = createPlaneTransitionLayer();
+    const end = getPlaneStartPoint();
+    const planeWidth = window.innerWidth < 640 ? 48 : 58;
+    const endX = end.x - planeWidth / 2;
+    const endY = end.y - planeWidth / 2;
+    const startX = -90;
+    const startY = Math.max(26, endY + window.innerHeight * 0.1);
+
+    layer.classList.add('is-active');
+
+    const planeAnimation = animateTransitionElement(plane, [
+      { opacity: 0, transform: `translate(${startX}px, ${startY}px) scale(0.9) rotate(-4deg)` },
+      { opacity: 1, transform: `translate(${Math.max(20, endX - 120)}px, ${Math.max(22, endY + 28)}px) scale(0.84) rotate(-8deg)`, offset: 0.62 },
+      { opacity: 0, transform: `translate(${endX}px, ${endY}px) scale(0.5) rotate(-14deg)` }
+    ], {
+      duration: 560,
+      easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+      fill: 'forwards'
+    });
+
+    const trailAnimation = animateTransitionElement(trail, [
+      { opacity: 0, transform: `translate(${startX - 90}px, ${startY + 32}px) scaleX(0.3) rotate(-12deg)` },
+      { opacity: 0.58, transform: `translate(${Math.max(20, endX - 214)}px, ${Math.max(22, endY + 62)}px) scaleX(0.72) rotate(-12deg)`, offset: 0.48 },
+      { opacity: 0, transform: `translate(${endX - 82}px, ${endY + 28}px) scaleX(0.15) rotate(-12deg)` }
+    ], {
+      duration: 500,
+      easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+      fill: 'forwards'
+    });
+
+    Promise.all([planeAnimation, trailAnimation]).finally(() => {
+      layer.classList.remove('is-active');
+      document.documentElement.classList.remove('is-plane-transitioning');
+      setTimeout(() => layer.remove(), 80);
+    });
+  }
+
   // Site search overlay
   function initSiteSearch() {
     const triggers = document.querySelectorAll('header [data-icon="search"]');
@@ -531,17 +719,7 @@
     };
 
     function getRootPrefix() {
-      const pathname = window.location.pathname.replace(/\\/g, '/');
-      if (/\/5e-labs\/[^/]+\/(?:index\.html)?$/.test(pathname)) {
-        return '../../';
-      }
-      if (/\/home\/[^/]+\/(?:index\.html)?$/.test(pathname)) {
-        return '../../';
-      }
-      if (/\/(?:5e-labs|peer-reviewed-evidence|dissemination|impact|contact-us)\/(?:index\.html)?$/.test(pathname)) {
-        return '../';
-      }
-      return /\/(math-city|math-city-2|cardium|atomic-shadows|vtts)\//.test(pathname) ? '../' : '';
+      return getSiteRootPrefix();
     }
 
     function toHref(path) {
@@ -676,7 +854,7 @@
         if (firstResult) {
           const href = firstResult.href;
           closeSearch();
-          window.location.href = href;
+          navigateWithPlane(href);
         }
       });
       state.input.addEventListener('focus', showResults);
@@ -1115,6 +1293,7 @@
     initBadgePulse();
     initSidebarEntrance();
     initECGBars();
+    initPlanePageTransitions();
     initSiteSearch();
     initMobilePlatformMenus();
     initResearchFocusAccordions();

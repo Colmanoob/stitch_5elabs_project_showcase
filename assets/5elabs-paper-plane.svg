@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 72" role="img" aria-label="5E Labs paper plane">
+  <path d="M5 34 90 3 58 68 43 44 5 34Z" fill="#f8f8f2"/>
+  <path d="M43 44 90 3 34 38l9 6Z" fill="#ffffff"/>
+  <path d="M43 44 58 68 54 50 90 3 43 44Z" fill="#d8d8d0"/>
+  <path d="M34 38 90 3 48 45 43 44 34 38Z" fill="#f1f676"/>
+  <path d="M5 34 90 3 58 68 43 44 5 34Z" fill="none" stroke="#9aa0a6" stroke-linejoin="round" stroke-width="3"/>
+  <path d="M43 44 90 3" fill="none" stroke="#9aa0a6" stroke-linecap="round" stroke-width="2.5"/>
+</svg>
