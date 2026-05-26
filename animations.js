@@ -577,11 +577,13 @@
     const searchItems = [
       {
         title: '5E Labs',
-        description: 'Home landing page for the 5E Labs site.',
+        description: 'Home page overview of the 5E Labs virtual learning platform collection.',
         path: 'index.html#top',
-        keywords: 'home 5e labs virtual exploration spaces google sites',
+        keywords: 'home 5e labs virtual platforms inquiry learning google sites',
         sentences: [
-          '5E Labs virtual exploration spaces.'
+          '5E Labs is a collection of virtual platforms for learning science and mathematics through immersive, gamified virtual labs.',
+          'Built on the 5E inquiry-based learning framework, 5E Labs guide students through pedagogical stages for exploring abstract concepts in immersive virtual collaborative gaming environments.',
+          'The home page includes the 5E Labs introduction and platform navigation section.'
         ]
       },
       {
