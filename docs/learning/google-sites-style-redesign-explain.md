@@ -2,13 +2,15 @@
 
 ## Freshman Summary
 
-We changed the public 5E Labs website from a dashboard-like showcase into a cleaner Google Sites-style website. The new design uses a white fixed header, simple top navigation, a large image hero, centered content sections, and plain platform rows that match the client's reference more closely.
+We changed the public 5E Labs website from a dashboard-like showcase into a cleaner Google Sites-style website. The new design uses a white fixed header, simple top navigation, a large image hero, centered content sections, and plain platform rows that match the client's reference more closely. The latest pass also tightened first-viewport desktop/mobile alignment and replaced fragile icon-font controls with inline SVG icons.
 
 ## System Overview
 
 The site is still a simple static/PHP project. The main public content lives in `index.html`, downloads live in `downloads.html`, shared visual behavior lives in `animations.css`, and shared search/navigation behavior lives in `animations.js`.
 
 The admin page was not changed.
+
+The public pages now include a small critical inline style block for the first viewport. This makes the header, mobile bars, search icon, and hero render correctly even if the external stylesheet or CDN utilities are delayed.
 
 ## Mental Model
 
@@ -20,6 +22,8 @@ The old platform folders still exist only as compatibility redirects. If someone
 
 - Single-page section navigation: links like `#cardium` scroll to an element with `id="cardium"`.
 - Shared CSS: one stylesheet controls the Google Sites-style header, hero, sections, downloads cards, and search overlay.
+- Critical CSS: the public HTML includes first-viewport layout rules so the page does not flash into an unstyled or broken mobile header while external CSS loads.
+- Inline SVG icons: the header search, dropdown chevrons, and mobile app-grid icon do not depend on Material Symbols loading before they render.
 - Progressive fallback redirects: legacy platform pages use both a meta refresh and JavaScript redirect, plus a visible manual link.
 - Client-safe admin boundary: public pages were redesigned while `admin.php` remained untouched.
 
@@ -29,9 +33,9 @@ The client reference is a Google Sites page, so the simplest reliable match is a
 
 ## Files We Changed
 
-- `index.html`: rebuilt the main page around Google Sites-style sections.
-- `downloads.html`: rebuilt the downloads page to match the same header, hero, and content style.
-- `animations.css`: added the Google Sites visual system and adjusted the search overlay styling.
+- `index.html`: rebuilt the main page around Google Sites-style sections and added critical first-viewport CSS.
+- `downloads.html`: rebuilt the downloads page to match the same header, hero, and content style, including mobile-safe heading sizing.
+- `animations.css`: added the Google Sites visual system, first-viewport alignment refinements, responsive subpage hero sizing, and search overlay styling.
 - `animations.js`: updated search content, search placeholder, particle behavior, and dropdown closing behavior.
 - `math-city/index.html`, `math-city-2/index.html`, `cardium/index.html`, `atomic-shadows/index.html`, `vtts/index.html`: converted old standalone platform pages into redirects to the consolidated home page sections.
 
@@ -52,6 +56,7 @@ Manual checks:
 - Resize to mobile width and confirm the top bars plus More dropdown remain visible.
 - Click each header and More dropdown link and confirm it scrolls to the expected section.
 - Open `downloads.html` and confirm the same header/dropdown style is used.
+- Confirm the desktop home screenshot against `docs/qa/google-sites-reference.png` and the mobile captures in `docs/qa/`.
 - Search for `virtual` and confirm multiple page sections appear with matching sentence snippets.
 - Visit `math-city/index.html` and confirm it redirects to `index.html#math-city-1`.
 

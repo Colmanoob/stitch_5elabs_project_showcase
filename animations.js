@@ -8,13 +8,15 @@
   'use strict';
 
   // ─── Page Load Curtain ───
-  const curtain = document.createElement('div');
-  curtain.className = 'page-curtain';
-  document.body.prepend(curtain);
-  window.addEventListener('load', () => {
-    requestAnimationFrame(() => curtain.classList.add('done'));
-    setTimeout(() => curtain.remove(), 800);
-  });
+  if (!document.body.classList.contains('google-sites-mode')) {
+    const curtain = document.createElement('div');
+    curtain.className = 'page-curtain';
+    document.body.prepend(curtain);
+    window.addEventListener('load', () => {
+      requestAnimationFrame(() => curtain.classList.add('done'));
+      setTimeout(() => curtain.remove(), 800);
+    });
+  }
 
   // ─── Auto-tag elements for scroll reveal ───
   function autoTag() {
