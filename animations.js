@@ -784,11 +784,14 @@
         title: 'Math City 1.0',
         description: 'A virtual city for learning about properties of 3D shapes.',
         path: '5e-labs/math-city-1-0/',
-        keywords: 'math city 1 mathematics 3d shapes virtual city geometry',
+        keywords: 'math city 1 mathematics 3d shapes virtual city geometry 5e inquiry genai knowledge academy exploration lab exhibition hall amusement park walkthrough spatial',
         sentences: [
-          'Math City 1.0 is a virtual city for learning about properties of 3D shapes through contextualized mathematical inquiry and problem solving.',
-          'Students investigate properties of 3D shapes through exploration, peer discussion, explanation, and application instead of only reading definitions.',
-          'The platform promotes exploratory and collaborative problem solving.'
+          'Math City 1.0 is a classroom-ready virtual platform for learning properties of 3D shapes via collaborative inquiry.',
+          'Based on the 5E inquiry model, Math City is a virtual city where mathematics comes alive through play, exploration, and collaboration.',
+          'The different virtual spaces in Math City 1.0 are designed to align with the different stages of the 5E Inquiry model.',
+          'The Knowledge Academy, Exploration Lab, Exhibition Hall, and Amusement Park support mathematical exploration in Math City 1.0.',
+          'The Exploration Lab in Math City is designed to facilitate collaborative activity among students using embedded GenAI tools.',
+          'The Math City Walkthrough explains how to enter Math City and begin the virtual mathematics experience.'
         ]
       },
       {
@@ -806,11 +809,14 @@
         title: 'The Cardium',
         description: 'A high-immersion virtual museum for studying the human heart.',
         path: '5e-labs/the-cardium/',
-        keywords: 'cardium heart human heart virtual museum biology science virtual reality',
+        keywords: 'cardium heart human heart virtual museum biology science virtual reality pedagogical alignment entrance immersive gallery auditorium assessment souvenir spatial',
         sentences: [
-          'The Cardium is a high-immersion virtual museum for studying the structure of the human heart using virtual reality devices and inquiry-based scientific exploration.',
-          'Learners explore human biology through immersive scientific investigation in a virtual museum.',
-          'The Cardium supports model-based reasoning and scientific inquiry around the human heart.'
+          'The Cardium is a high immersion virtual museum for studying the structure of the human heart via virtual reality devices.',
+          'The Cardium is designed especially for secondary biology students focusing on STEM education.',
+          "The museum's virtual spaces align with the different stages of the 5E inquiry model and include built-in assessment tools.",
+          'The Cardium includes the Entrance, Immersive Gallery, Auditorium, and Assessment virtual spaces.',
+          'Learners interact with non-player characters in the museum, complete quest items, check their knowledge, and receive The Cardium Souvenir.',
+          'Students can enter The Cardium through the Spatial platform link.'
         ]
       },
       {

@@ -179,7 +179,7 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
             .google-main { padding-top: 56px; }
         }
     </style>
-    <link rel="stylesheet" href="animations.css?v=google-sites-20260528g" />
+    <link rel="stylesheet" href="animations.css?v=google-sites-20260528h" />
     <!-- reCAPTCHA API -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
@@ -683,6 +683,6 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
     </div>
   </footer>
 </main>
-    <script src="animations.js?v=google-sites-20260528g"></script>
+    <script src="animations.js?v=google-sites-20260528h"></script>
 </body>
 </html>
