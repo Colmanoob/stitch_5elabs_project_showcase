@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 430" role="img" aria-labelledby="title desc">
+  <title id="title">Math City 1.0 cover</title>
+  <desc id="desc">Math City 1.0 title graphic with a gold math shield and the tagline a virtual city for real knowledge.</desc>
+  <rect width="1400" height="430" fill="#fff"/>
+  <g transform="translate(168 34)">
+    <path d="M150 0c58 4 107 21 149 53v149c0 95-56 163-149 196C57 365 1 297 1 202V53C43 21 92 4 150 0z" fill="#ffd94d" stroke="#d89a00" stroke-width="8"/>
+    <path d="M150 23c47 3 87 16 122 41v128c0 78-45 133-122 162C73 325 28 270 28 192V64c35-25 75-38 122-41z" fill="#ffe577" stroke="#f2bd26" stroke-width="5"/>
+    <path d="M150 23v331C73 325 28 270 28 192V64c35-25 75-38 122-41z" fill="#fff4a3" opacity=".72"/>
+    <rect x="80" y="105" width="139" height="139" rx="28" fill="#d97a00" stroke="#9d4d00" stroke-width="7"/>
+    <g stroke="#fff3a5" stroke-width="12" stroke-linecap="round">
+      <path d="M113 152h51M138 127v51"/>
+      <path d="M187 153h45"/>
+      <path d="M111 206l45 45M156 206l-45 45"/>
+      <path d="M187 220h45"/>
+    </g>
+    <circle cx="210" cy="203" r="10" fill="#fff3a5"/>
+    <circle cx="210" cy="241" r="10" fill="#fff3a5"/>
+  </g>
+  <g transform="translate(505 74)">
+    <text x="0" y="72" font-family="Arial, Helvetica, sans-serif" font-size="76" letter-spacing="11" fill="#050505">MATH CITY 1.0</text>
+    <text x="0" y="148" font-family="Georgia, 'Times New Roman', serif" font-size="42" fill="#111">A Futuristic Math classroom for STEM skills</text>
+    <text x="54" y="260" font-family="'Comic Sans MS', 'Segoe Print', cursive" font-size="49" fill="#111" transform="rotate(-1 54 260)">a virtual city for real knowledge</text>
+    <path d="M32 229c22-23 53-31 88-21 45 13 88 4 128-27" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round" opacity=".85"/>
+  </g>
+</svg>

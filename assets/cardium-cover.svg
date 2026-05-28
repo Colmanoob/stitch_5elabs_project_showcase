@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 430" role="img" aria-labelledby="title desc">
+  <title id="title">The Cardium cover</title>
+  <desc id="desc">The Cardium title graphic with an anatomical heart motif and the virtual museum subtitle.</desc>
+  <rect width="1400" height="430" fill="#fff"/>
+  <defs>
+    <linearGradient id="cardiumWash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e9f7fb"/>
+      <stop offset=".52" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eef6f2"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#6c8795" flood-opacity=".18"/>
+    </filter>
+  </defs>
+  <rect width="1400" height="430" fill="url(#cardiumWash)"/>
+  <g transform="translate(150 54)" filter="url(#softShadow)">
+    <path d="M151 91c-20-53-95-56-123-15-33 49-7 116 123 207C281 192 307 125 274 76c-28-41-103-38-123 15z" fill="#b7363c"/>
+    <path d="M157 99c-13-39-66-42-86-12-25 38-5 86 86 151 91-65 111-113 86-151-20-30-73-27-86 12z" fill="#e06b6e"/>
+    <path d="M94 154c44 0 43-51 74-51 33 0 22 73 81 73" fill="none" stroke="#fff7f7" stroke-width="12" stroke-linecap="round"/>
+    <path d="M41 179h59l22-49 36 97 28-70h50" fill="none" stroke="#ffedf0" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M105 41c11-31 30-43 60-35M198 38c29-18 57-12 77 13" fill="none" stroke="#7f1f2a" stroke-width="14" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(505 95)">
+    <text x="0" y="88" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-weight="700" fill="#1e2b32">The Cardium</text>
+    <text x="3" y="153" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#37525f">A High Immersion Virtual Museum</text>
+    <text x="3" y="211" font-family="Arial, Helvetica, sans-serif" font-size="30" letter-spacing="2" fill="#516671">STUDY THE STRUCTURE OF THE HUMAN HEART IN VR</text>
+    <path d="M7 247h620" stroke="#9fc7d1" stroke-width="4" stroke-linecap="round"/>
+    <text x="3" y="304" font-family="'Segoe Print', 'Comic Sans MS', cursive" font-size="34" fill="#426271">Explore the wonders of the human heart</text>
+  </g>
+</svg>

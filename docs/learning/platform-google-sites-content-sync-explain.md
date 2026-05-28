@@ -16,6 +16,8 @@ Think of each platform page as a local recreation of a Google Sites page. The pa
 
 - Static HTML sections for platform-specific content.
 - Image-led page openings that use the Google Sites cover images instead of a generic black hero banner.
+- CSS background images for Google Sites cover art, because some cover images are stored as section backgrounds rather than normal `<img>` tags.
+- Local fallback artwork and image fallbacks, because Google Sites `lh3.googleusercontent.com/sitesv/...` assets can return `403 Forbidden` when hotlinked outside Google Sites.
 - Reusable CSS grid rules for image galleries.
 - Embedded media for the Math City walkthrough video.
 - External links for the Spatial platform entry buttons.
@@ -28,8 +30,9 @@ The client wants the custom website to match the Google Sites content while stil
 
 ## Files We Changed
 
-- `5e-labs/math-city-1-0/index.html`: refreshed Math City 1.0 with the latest Google Sites cover image, gallery images, Human-AI image, skills heading, video, walkthrough image, and Spatial entry link.
-- `5e-labs/the-cardium/index.html`: added The Cardium cover image, corrected the pedagogical alignment image, and kept the museum gallery, souvenir quest content, and Spatial entry link.
+- `5e-labs/math-city-1-0/index.html`: refreshed Math City 1.0 with the latest Google Sites cover background, local fallback cover, gallery images, Human-AI image, skills heading, video, walkthrough image, and Spatial entry link.
+- `5e-labs/the-cardium/index.html`: added The Cardium cover background, local fallback cover, corrected the pedagogical alignment image, and kept the museum gallery, souvenir quest content, and Spatial entry link.
+- `assets/math-city-1-cover.svg` and `assets/cardium-cover.svg`: local fallback cover artwork used when Google-hosted cover assets are blocked.
 - `5e-labs/math-city-2-0/index.html`, `5e-labs/atomic-shadows/index.html`, and `5e-labs/virtual-school-of-teachers-training/index.html`: removed the black hero banner in favor of a plain Google Sites-style title opening.
 - `animations.css`: added reusable cover/title styling, gallery styles, and step-list styles for the platform pages.
 - `animations.js`: expanded the search index so the new platform content can be found by keyword and sentence search.
@@ -54,7 +57,8 @@ The client wants the custom website to match the Google Sites content while stil
 
 ## Common Failure Points
 
-- External Googleusercontent images may fail if the source image URLs change.
+- Google Sites cover images may be CSS backgrounds in the source page. If you only scrape normal image tags, you can accidentally choose the wrong image as the cover.
+- External Googleusercontent images may fail if the source image URLs change or if Google rejects hotlink requests outside Google Sites.
 - The YouTube embed may not show if a browser blocks embedded media.
 - Search results may feel incomplete if new visible page text is added but the search index is not updated.
 - Old browser cache may keep loading previous CSS or JavaScript unless the cache-bust token changes.

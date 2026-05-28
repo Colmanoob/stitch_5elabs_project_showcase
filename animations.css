@@ -2059,8 +2059,13 @@ html {
 }
 
 .google-sites-mode .google-platform-cover-hero {
+  min-height: 500px;
   padding: 0;
   background: #ffffff;
+  background-image: var(--google-platform-cover-image), var(--google-platform-cover-fallback, none);
+  background-position: center center;
+  background-size: min(78vw, 1120px) auto;
+  background-repeat: no-repeat;
 }
 
 .google-sites-mode .google-platform-cover-inner {
@@ -2352,6 +2357,11 @@ html {
 }
 
 @media (max-width: 640px) {
+  .google-sites-mode .google-platform-cover-hero {
+    min-height: 300px;
+    background-size: min(92vw, 560px) auto;
+  }
+
   .google-sites-mode .google-platform-detail-main .google-section-inner,
   .google-sites-mode .google-platform-detail-main .google-hero-inner,
   .google-sites-mode .google-platform-cover-inner {
