@@ -26,7 +26,7 @@
     if (/\/home\/[^/]+\/(?:index\.html)?$/.test(pathname)) {
       return '../../';
     }
-    if (/\/(?:5e-labs|peer-reviewed-evidence|dissemination|impact|contact-us)\/(?:index\.html)?$/.test(pathname)) {
+    if (/\/(?:5e-labs|peer-reviewed-evidence|dissemination|community-workshopslectures|impact|contact-us)\/(?:index\.html)?$/.test(pathname)) {
       return '../';
     }
     return /\/(math-city|math-city-2|cardium|atomic-shadows|vtts)\//.test(pathname) ? '../' : '';
@@ -855,30 +855,33 @@
         title: 'Peer Reviewed Evidence',
         description: 'Research evidence and scholarly grounding for 5E Labs.',
         path: 'peer-reviewed-evidence/',
-        keywords: 'peer reviewed evidence research scholarly publications citations',
+        keywords: 'peer reviewed evidence research scholarly publications citations math city minecraft metaverse STEM education',
         sentences: [
-          '5E Labs is positioned around research-informed design, inquiry pedagogy, and evidence-based evaluation of virtual learning environments.',
-          'Peer reviewed evidence can be presented as the client provides publication links, citations, or downloadable research materials.'
+          'Singh, Sun, and Yang published Design and implementation of Math City: An inquiry-based metaverse platform for mathematics education in Computers and Education: Artificial Intelligence.',
+          'Singh and Sun published Evaluating Minecraft as a game-based metaverse platform: exploring gaming experience, social presence, and STEM outcomes in Interactive Learning Environments.',
+          "Singh, Sun, and Zheng published research on university students' learning performance in a metaverse-enabled immersive learning environment for STEM education."
         ]
       },
       {
         title: 'Dissemination',
-        description: 'Workshops, classroom trials, presentations, publications, and updates.',
+        description: 'Knowledge dissemination at international conferences.',
         path: 'dissemination/',
-        keywords: 'dissemination workshops classroom trials presentations publications resources',
+        keywords: 'dissemination international conferences GaPI ICLT MetaACES ICEF eLFA Math City Minecraft metaverse',
         sentences: [
-          'Dissemination activities may include workshops, classroom trials, conference presentations, journal publications, and resource sharing for educators.',
-          'This section can be expanded with events, media, project announcements, and partner updates.'
+          'Math City was shared at the International Conference on GenAI and Pedagogical Innovations in Higher Education at The Hong Kong Polytechnic University.',
+          'Human-AI collaboration using GenAI in virtual environments for inquiry-based mathematics learning was presented at the International Conference on Learning and Teaching 2026.',
+          'Minecraft Metaverse and metaverse classroom work were disseminated through MetaACES, ICLT, ICEF, and eLearning Forum Asia events.'
         ]
       },
       {
-        title: 'Impact',
-        description: 'Google Sites-style impact section page.',
-        path: 'impact/',
-        keywords: 'impact questions evidence frequently asked question project outcomes',
+        title: 'Community Workshops/Lectures',
+        description: 'Community workshops and lectures for STEM metaverse learning.',
+        path: 'community-workshopslectures/',
+        keywords: 'community workshops lectures HKAGE STEM metaverse Math City Cardium authentic assessments simulations',
         sentences: [
-          'The Impact page follows the Google Sites section-page structure with a highlighted heading and frequently asked question blocks.',
-          'Impact content can be replaced with final project outcomes when the client supplies approved copy.'
+          'Community workshops and lectures include Data Science and STEM Metaverse workshops with HKAGE.',
+          'The workshop series includes Revolutionising STEM Learning: RPG Adventures in the Metaverse.',
+          'The community events include Math City, The Cardium, authentic assessment in metaverse, and interactive simulation sessions.'
         ]
       },
       {

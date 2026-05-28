@@ -2273,7 +2273,6 @@ html {
   color: #000000;
   text-align: center;
   font: 400 30pt/1.2 "Oswald", Arial, sans-serif;
-  text-transform: uppercase;
 }
 
 .google-sites-mode .google-reference-content {
@@ -2297,6 +2296,35 @@ html {
   margin: 0;
   color: #333333;
   font: 400 13pt/1.6 "Open Sans", Arial, sans-serif;
+}
+
+.google-sites-mode .google-reference-list {
+  width: min(100% - 96px, 760px);
+}
+
+.google-sites-mode .google-reference-entry {
+  margin: 0 0 32px;
+}
+
+.google-sites-mode .google-reference-entry p,
+.google-sites-mode .google-reference-items {
+  margin: 0;
+  color: #333333;
+  font: 400 13pt/1.65 "Open Sans", Arial, sans-serif;
+}
+
+.google-sites-mode .google-reference-items {
+  display: grid;
+  gap: 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.google-sites-mode .google-reference-list a {
+  color: #1a73e8;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
 }
 
 .google-sites-mode .google-contact-template {

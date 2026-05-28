@@ -228,7 +228,7 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
         </details>
         <a href="peer-reviewed-evidence/">Peer Reviewed Evidence</a>
         <a href="dissemination/">Dissemination</a>
-        <a href="impact/">Impact</a>
+        <a href="community-workshopslectures/">Community Workshops/Lectures</a>
         <a href="contact-us/">Contact us</a>
       </div>
 
@@ -253,7 +253,7 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
         <a class="shrink-0" href="index.html#top">Home</a>
         <a class="shrink-0" href="peer-reviewed-evidence/">Peer Reviewed Evidence</a>
         <a class="shrink-0" href="dissemination/">Dissemination</a>
-        <a class="shrink-0" href="impact/">Impact</a>
+        <a class="shrink-0" href="community-workshopslectures/">Community Workshops/Lectures</a>
         <a class="shrink-0" href="contact-us/">Contact us</a>
       </div>
       <details class="mobile-platform-menu mobile-home-menu border-t border-outline-variant">
