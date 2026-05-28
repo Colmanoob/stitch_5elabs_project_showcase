@@ -2,7 +2,7 @@
 
 ## Freshman Summary
 
-We updated the Math City 1.0 and The Cardium pages so their local website versions include the same major sections, descriptions, media, and entry links shown on the current Google Sites pages.
+We updated the Math City 1.0 and The Cardium pages so their local website versions include the same major sections, descriptions, media, and entry links shown on the current Google Sites pages. The platform pages also moved away from the old black hero banner toward the image-led Google Sites page structure.
 
 ## System Overview
 
@@ -15,6 +15,7 @@ Think of each platform page as a local recreation of a Google Sites page. The pa
 ## Key Concepts Used
 
 - Static HTML sections for platform-specific content.
+- Image-led page openings that use the Google Sites cover images instead of a generic black hero banner.
 - Reusable CSS grid rules for image galleries.
 - Embedded media for the Math City walkthrough video.
 - External links for the Spatial platform entry buttons.
@@ -27,9 +28,10 @@ The client wants the custom website to match the Google Sites content while stil
 
 ## Files We Changed
 
-- `5e-labs/math-city-1-0/index.html`: added Math City 1.0 Google Sites content, gallery, Human-AI section, skills section, video, and Spatial entry link.
-- `5e-labs/the-cardium/index.html`: added The Cardium Google Sites content, pedagogical alignment section, gallery, souvenir quest content, and Spatial entry link.
-- `animations.css`: added reusable gallery and step-list styles for the platform pages.
+- `5e-labs/math-city-1-0/index.html`: refreshed Math City 1.0 with the latest Google Sites cover image, gallery images, Human-AI image, skills heading, video, walkthrough image, and Spatial entry link.
+- `5e-labs/the-cardium/index.html`: added The Cardium cover image, corrected the pedagogical alignment image, and kept the museum gallery, souvenir quest content, and Spatial entry link.
+- `5e-labs/math-city-2-0/index.html`, `5e-labs/atomic-shadows/index.html`, and `5e-labs/virtual-school-of-teachers-training/index.html`: removed the black hero banner in favor of a plain Google Sites-style title opening.
+- `animations.css`: added reusable cover/title styling, gallery styles, and step-list styles for the platform pages.
 - `animations.js`: expanded the search index so the new platform content can be found by keyword and sentence search.
 - Site HTML/PHP files: cache-busted shared CSS and JS references so the new assets load consistently.
 
@@ -43,8 +45,9 @@ The client wants the custom website to match the Google Sites content while stil
 
 ## How To Test It
 
-- Open `/5e-labs/math-city-1-0/` and confirm the virtual spaces, Human-AI section, skills section, walkthrough video, and Spatial entry link are present.
+- Open `/5e-labs/math-city-1-0/` and confirm the cover image, virtual spaces, Human-AI section, skills heading, walkthrough video, walkthrough image, and Spatial entry link are present.
 - Open `/5e-labs/the-cardium/` and confirm the pedagogical alignment, virtual spaces, souvenir quest, and Spatial entry link are present.
+- Open the other platform detail pages and confirm they no longer show the black hero banner.
 - Search for words like `GenAI`, `souvenir`, `Assessment`, and `walkthrough`.
 - Check the pages on mobile width to make sure galleries collapse to one column.
 - Run `node --check animations.js` and `git diff --check` before delivery.

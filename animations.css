@@ -2047,15 +2047,56 @@ html {
 }
 
 .google-sites-mode .google-platform-detail-hero {
-  background-image:
-    linear-gradient(rgba(33, 33, 33, 0.5), rgba(33, 33, 33, 0.5)),
-    url("https://ssl.gstatic.com/atari/images/impression-header.png");
-  background-position: center;
-  background-size: cover;
+  min-height: 0;
+  padding: 56px 0;
+  color: #000000;
+  background: #ffffff;
+  background-image: none;
 }
 
 .google-sites-mode .google-platform-detail-main {
   overflow-x: hidden;
+}
+
+.google-sites-mode .google-platform-cover-hero {
+  padding: 0;
+  background: #ffffff;
+}
+
+.google-sites-mode .google-platform-cover-inner {
+  width: calc(100% - 96px);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.google-sites-mode .google-platform-cover-inner img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.google-sites-mode .google-platform-title-section {
+  padding-top: 48px;
+}
+
+.google-sites-mode .google-platform-title-copy {
+  display: grid;
+  gap: 14px;
+}
+
+.google-sites-mode .google-platform-title-copy h1 {
+  margin: 0;
+  color: #000000;
+  font: 400 50pt/1.16 "Oswald", Arial, sans-serif;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.google-sites-mode .google-platform-title-copy p {
+  max-width: 760px;
+  margin: 0;
+  color: #000000;
+  font: 400 13pt/1.6 "Open Sans", Arial, sans-serif;
 }
 
 .google-sites-mode .google-platform-detail-main .google-section-inner,
@@ -2312,11 +2353,13 @@ html {
 
 @media (max-width: 640px) {
   .google-sites-mode .google-platform-detail-main .google-section-inner,
-  .google-sites-mode .google-platform-detail-main .google-hero-inner {
+  .google-sites-mode .google-platform-detail-main .google-hero-inner,
+  .google-sites-mode .google-platform-cover-inner {
     width: calc(100% - 48px);
   }
 
-  .google-sites-mode .google-platform-detail-hero h1 {
+  .google-sites-mode .google-platform-detail-hero h1,
+  .google-sites-mode .google-platform-title-copy h1 {
     font-size: 42px;
     line-height: 1.1;
   }
