@@ -2559,7 +2559,7 @@ html {
   pointer-events: none;
   overflow: hidden;
   color: #356f8f;
-  opacity: 0.34;
+  opacity: 0.68;
   mix-blend-mode: multiply;
   contain: layout paint style;
 }
@@ -2587,7 +2587,7 @@ html {
   stroke-width: 0.18;
   stroke-linecap: round;
   stroke-linejoin: round;
-  opacity: 0.16;
+  opacity: 0.28;
   vector-effect: non-scaling-stroke;
 }
 
@@ -2600,17 +2600,17 @@ html {
 .google-sites-mode.has-cpu-pulse-background .google-sites-home-hero,
 .google-sites-mode.has-cpu-pulse-background .google-section,
 .google-sites-mode.has-cpu-pulse-background .google-reference-main {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.78);
 }
 
 .google-sites-mode.has-cpu-pulse-background .google-section-muted,
 .google-sites-mode.has-cpu-pulse-background .google-footer {
-  background-color: rgba(247, 247, 247, 0.9);
+  background-color: rgba(247, 247, 247, 0.82);
 }
 
 @media (max-width: 767px) {
   .google-sites-mode.has-cpu-pulse-background .site-cpu-pulse-background {
-    opacity: 0.26;
+    opacity: 0.56;
   }
 
   .google-sites-mode.has-cpu-pulse-background .site-cpu-pulse-svg {
