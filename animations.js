@@ -104,28 +104,60 @@
         </g>
 
         <g mask="url(#site-cpu-pulse-mask-1)">
-          <circle r="7.5" fill="url(#site-cpu-pulse-blue)"><animateMotion dur="7.2s" begin="-1.2s" repeatCount="indefinite" path="M 10 20 h 79.5 q 5 0 5 5 v 30" /></circle>
+          <circle r="0" opacity="0" fill="url(#site-cpu-pulse-blue)">
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.72;1" dur="7.2s" begin="-1.2s" repeatCount="indefinite" />
+            <animate attributeName="r" values="0;7.5;7.5;0" keyTimes="0;0.12;0.72;1" dur="7.2s" begin="-1.2s" repeatCount="indefinite" />
+            <animateMotion dur="7.2s" begin="-1.2s" repeatCount="indefinite" path="M 10 20 h 79.5 q 5 0 5 5 v 30" />
+          </circle>
         </g>
         <g mask="url(#site-cpu-pulse-mask-2)">
-          <circle r="7.5" fill="url(#site-cpu-pulse-yellow)"><animateMotion dur="8.1s" begin="-3.4s" repeatCount="indefinite" path="M 180 10 h -69.7 q -5 0 -5 5 v 30" /></circle>
+          <circle r="0" opacity="0" fill="url(#site-cpu-pulse-yellow)">
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.72;1" dur="8.1s" begin="-3.4s" repeatCount="indefinite" />
+            <animate attributeName="r" values="0;7.5;7.5;0" keyTimes="0;0.12;0.72;1" dur="8.1s" begin="-3.4s" repeatCount="indefinite" />
+            <animateMotion dur="8.1s" begin="-3.4s" repeatCount="indefinite" path="M 180 10 h -69.7 q -5 0 -5 5 v 30" />
+          </circle>
         </g>
         <g mask="url(#site-cpu-pulse-mask-3)">
-          <circle r="6.5" fill="url(#site-cpu-pulse-pink)"><animateMotion dur="6.4s" begin="-2.2s" repeatCount="indefinite" path="M 130 20 v 21.8 q 0 5 -5 5 h -10" /></circle>
+          <circle r="0" opacity="0" fill="url(#site-cpu-pulse-pink)">
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.72;1" dur="6.4s" begin="-2.2s" repeatCount="indefinite" />
+            <animate attributeName="r" values="0;6.5;6.5;0" keyTimes="0;0.12;0.72;1" dur="6.4s" begin="-2.2s" repeatCount="indefinite" />
+            <animateMotion dur="6.4s" begin="-2.2s" repeatCount="indefinite" path="M 130 20 v 21.8 q 0 5 -5 5 h -10" />
+          </circle>
         </g>
         <g mask="url(#site-cpu-pulse-mask-4)">
-          <circle r="7" fill="url(#site-cpu-pulse-cyan)"><animateMotion dur="8.8s" begin="-4.7s" repeatCount="indefinite" path="M 170 80 v -21.8 q 0 -5 -5 -5 h -50" /></circle>
+          <circle r="0" opacity="0" fill="url(#site-cpu-pulse-cyan)">
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.72;1" dur="8.8s" begin="-4.7s" repeatCount="indefinite" />
+            <animate attributeName="r" values="0;7;7;0" keyTimes="0;0.12;0.72;1" dur="8.8s" begin="-4.7s" repeatCount="indefinite" />
+            <animateMotion dur="8.8s" begin="-4.7s" repeatCount="indefinite" path="M 170 80 v -21.8 q 0 -5 -5 -5 h -50" />
+          </circle>
         </g>
         <g mask="url(#site-cpu-pulse-mask-5)">
-          <circle r="7.5" fill="url(#site-cpu-pulse-green)"><animateMotion dur="9.4s" begin="-5.3s" repeatCount="indefinite" path="M 135 65 h 15 q 5 0 5 5 v 10 q 0 5 -5 5 h -39.8 q -5 0 -5 -5 v -20" /></circle>
+          <circle r="0" opacity="0" fill="url(#site-cpu-pulse-green)">
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.72;1" dur="9.4s" begin="-5.3s" repeatCount="indefinite" />
+            <animate attributeName="r" values="0;7.5;7.5;0" keyTimes="0;0.12;0.72;1" dur="9.4s" begin="-5.3s" repeatCount="indefinite" />
+            <animateMotion dur="9.4s" begin="-5.3s" repeatCount="indefinite" path="M 135 65 h 15 q 5 0 5 5 v 10 q 0 5 -5 5 h -39.8 q -5 0 -5 -5 v -20" />
+          </circle>
         </g>
         <g mask="url(#site-cpu-pulse-mask-6)">
-          <circle r="6.2" fill="url(#site-cpu-pulse-orange)"><animateMotion dur="5.8s" begin="-1.8s" repeatCount="indefinite" path="M 94.8 95 v -36" /></circle>
+          <circle r="0" opacity="0" fill="url(#site-cpu-pulse-orange)">
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.72;1" dur="5.8s" begin="-1.8s" repeatCount="indefinite" />
+            <animate attributeName="r" values="0;6.2;6.2;0" keyTimes="0;0.12;0.72;1" dur="5.8s" begin="-1.8s" repeatCount="indefinite" />
+            <animateMotion dur="5.8s" begin="-1.8s" repeatCount="indefinite" path="M 94.8 95 v -36" />
+          </circle>
         </g>
         <g mask="url(#site-cpu-pulse-mask-7)">
-          <circle r="7" fill="url(#site-cpu-pulse-blue)"><animateMotion dur="8.6s" begin="-6s" repeatCount="indefinite" path="M 88 88 v -15 q 0 -5 -5 -5 h -10 q -5 0 -5 -5 v -5 q 0 -5 5 -5 h 14" /></circle>
+          <circle r="0" opacity="0" fill="url(#site-cpu-pulse-blue)">
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.72;1" dur="8.6s" begin="-6s" repeatCount="indefinite" />
+            <animate attributeName="r" values="0;7;7;0" keyTimes="0;0.12;0.72;1" dur="8.6s" begin="-6s" repeatCount="indefinite" />
+            <animateMotion dur="8.6s" begin="-6s" repeatCount="indefinite" path="M 88 88 v -15 q 0 -5 -5 -5 h -10 q -5 0 -5 -5 v -5 q 0 -5 5 -5 h 14" />
+          </circle>
         </g>
         <g mask="url(#site-cpu-pulse-mask-8)">
-          <circle r="7" fill="url(#site-cpu-pulse-pink)"><animateMotion dur="7.9s" begin="-2.9s" repeatCount="indefinite" path="M 30 30 h 25 q 5 0 5 5 v 6.5 q 0 5 5 5 h 20" /></circle>
+          <circle r="0" opacity="0" fill="url(#site-cpu-pulse-pink)">
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.72;1" dur="7.9s" begin="-2.9s" repeatCount="indefinite" />
+            <animate attributeName="r" values="0;7;7;0" keyTimes="0;0.12;0.72;1" dur="7.9s" begin="-2.9s" repeatCount="indefinite" />
+            <animateMotion dur="7.9s" begin="-2.9s" repeatCount="indefinite" path="M 30 30 h 25 q 5 0 5 5 v 6.5 q 0 5 5 5 h 20" />
+          </circle>
         </g>
       </svg>
     `;
