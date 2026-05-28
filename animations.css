@@ -2547,6 +2547,86 @@ html {
   stroke-linecap: round;
 }
 
+/* Global CPU pulse background, using only the animated signal paths. */
+.google-sites-mode.has-cpu-pulse-background {
+  background: #ffffff;
+}
+
+.google-sites-mode.has-cpu-pulse-background .site-cpu-pulse-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  color: #356f8f;
+  opacity: 0.34;
+  mix-blend-mode: multiply;
+  contain: layout paint style;
+}
+
+.google-sites-mode.has-cpu-pulse-background .site-cpu-pulse-svg {
+  display: block;
+  width: 142vw;
+  height: 128vh;
+  min-width: 980px;
+  transform: translate(-21vw, -13vh) scale(1.04);
+  transform-origin: center;
+}
+
+.google-sites-mode.has-cpu-pulse-background .site-cpu-pulse-mask-line {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.google-sites-mode.has-cpu-pulse-background .site-cpu-pulse-route {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 0.18;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.16;
+  vector-effect: non-scaling-stroke;
+}
+
+.google-sites-mode.has-cpu-pulse-background .google-main,
+.google-sites-mode.has-cpu-pulse-background .google-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.google-sites-mode.has-cpu-pulse-background .google-sites-home-hero,
+.google-sites-mode.has-cpu-pulse-background .google-section,
+.google-sites-mode.has-cpu-pulse-background .google-reference-main {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.google-sites-mode.has-cpu-pulse-background .google-section-muted,
+.google-sites-mode.has-cpu-pulse-background .google-footer {
+  background-color: rgba(247, 247, 247, 0.9);
+}
+
+@media (max-width: 767px) {
+  .google-sites-mode.has-cpu-pulse-background .site-cpu-pulse-background {
+    opacity: 0.26;
+  }
+
+  .google-sites-mode.has-cpu-pulse-background .site-cpu-pulse-svg {
+    width: 190vw;
+    height: 124vh;
+    min-width: 720px;
+    transform: translate(-50vw, -9vh) scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .google-sites-mode.has-cpu-pulse-background .site-cpu-pulse-background {
+    display: none;
+  }
+}
+
 /* Paper plane page transition */
 .site-plane-transition {
   position: fixed;

@@ -32,6 +32,108 @@
     return /\/(math-city|math-city-2|cardium|atomic-shadows|vtts)\//.test(pathname) ? '../' : '';
   }
 
+  // Decorative circuit pulses adapted from the supplied CPU SVG, without the CPU core.
+  function initCpuPulseBackground() {
+    if (!document.body.classList.contains('google-sites-mode')) return;
+    if (document.body.classList.contains('admin-page')) return;
+    if (document.querySelector('.site-cpu-pulse-background')) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const background = document.createElement('div');
+    background.className = 'site-cpu-pulse-background';
+    background.setAttribute('aria-hidden', 'true');
+    background.innerHTML = `
+      <svg class="site-cpu-pulse-svg" viewBox="0 0 200 100" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <defs>
+          <path id="site-cpu-pulse-path-1" d="M 10 20 h 79.5 q 5 0 5 5 v 30" />
+          <path id="site-cpu-pulse-path-2" d="M 180 10 h -69.7 q -5 0 -5 5 v 30" />
+          <path id="site-cpu-pulse-path-3" d="M 130 20 v 21.8 q 0 5 -5 5 h -10" />
+          <path id="site-cpu-pulse-path-4" d="M 170 80 v -21.8 q 0 -5 -5 -5 h -50" />
+          <path id="site-cpu-pulse-path-5" d="M 135 65 h 15 q 5 0 5 5 v 10 q 0 5 -5 5 h -39.8 q -5 0 -5 -5 v -20" />
+          <path id="site-cpu-pulse-path-6" d="M 94.8 95 v -36" />
+          <path id="site-cpu-pulse-path-7" d="M 88 88 v -15 q 0 -5 -5 -5 h -10 q -5 0 -5 -5 v -5 q 0 -5 5 -5 h 14" />
+          <path id="site-cpu-pulse-path-8" d="M 30 30 h 25 q 5 0 5 5 v 6.5 q 0 5 5 5 h 20" />
+
+          <mask id="site-cpu-pulse-mask-1" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="100"><use href="#site-cpu-pulse-path-1" class="site-cpu-pulse-mask-line" /></mask>
+          <mask id="site-cpu-pulse-mask-2" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="100"><use href="#site-cpu-pulse-path-2" class="site-cpu-pulse-mask-line" /></mask>
+          <mask id="site-cpu-pulse-mask-3" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="100"><use href="#site-cpu-pulse-path-3" class="site-cpu-pulse-mask-line" /></mask>
+          <mask id="site-cpu-pulse-mask-4" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="100"><use href="#site-cpu-pulse-path-4" class="site-cpu-pulse-mask-line" /></mask>
+          <mask id="site-cpu-pulse-mask-5" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="100"><use href="#site-cpu-pulse-path-5" class="site-cpu-pulse-mask-line" /></mask>
+          <mask id="site-cpu-pulse-mask-6" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="100"><use href="#site-cpu-pulse-path-6" class="site-cpu-pulse-mask-line" /></mask>
+          <mask id="site-cpu-pulse-mask-7" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="100"><use href="#site-cpu-pulse-path-7" class="site-cpu-pulse-mask-line" /></mask>
+          <mask id="site-cpu-pulse-mask-8" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="100"><use href="#site-cpu-pulse-path-8" class="site-cpu-pulse-mask-line" /></mask>
+
+          <radialGradient id="site-cpu-pulse-blue" fx="0.35" fy="0.35">
+            <stop offset="0%" stop-color="#00e8ed" />
+            <stop offset="45%" stop-color="#1a73e8" />
+            <stop offset="100%" stop-color="transparent" />
+          </radialGradient>
+          <radialGradient id="site-cpu-pulse-yellow" fx="0.35" fy="0.35">
+            <stop offset="0%" stop-color="#ffd800" />
+            <stop offset="50%" stop-color="#f1f676" />
+            <stop offset="100%" stop-color="transparent" />
+          </radialGradient>
+          <radialGradient id="site-cpu-pulse-pink" fx="0.35" fy="0.35">
+            <stop offset="0%" stop-color="#ff4fb3" />
+            <stop offset="50%" stop-color="#d9307f" />
+            <stop offset="100%" stop-color="transparent" />
+          </radialGradient>
+          <radialGradient id="site-cpu-pulse-green" fx="0.35" fy="0.35">
+            <stop offset="0%" stop-color="#22c55e" />
+            <stop offset="100%" stop-color="transparent" />
+          </radialGradient>
+          <radialGradient id="site-cpu-pulse-cyan" fx="0.35" fy="0.35">
+            <stop offset="0%" stop-color="#06b6d4" />
+            <stop offset="100%" stop-color="transparent" />
+          </radialGradient>
+          <radialGradient id="site-cpu-pulse-orange" fx="0.35" fy="0.35">
+            <stop offset="0%" stop-color="#f97316" />
+            <stop offset="100%" stop-color="transparent" />
+          </radialGradient>
+        </defs>
+
+        <g class="site-cpu-pulse-routes" fill="none">
+          <use href="#site-cpu-pulse-path-1" class="site-cpu-pulse-route" />
+          <use href="#site-cpu-pulse-path-2" class="site-cpu-pulse-route" />
+          <use href="#site-cpu-pulse-path-3" class="site-cpu-pulse-route" />
+          <use href="#site-cpu-pulse-path-4" class="site-cpu-pulse-route" />
+          <use href="#site-cpu-pulse-path-5" class="site-cpu-pulse-route" />
+          <use href="#site-cpu-pulse-path-6" class="site-cpu-pulse-route" />
+          <use href="#site-cpu-pulse-path-7" class="site-cpu-pulse-route" />
+          <use href="#site-cpu-pulse-path-8" class="site-cpu-pulse-route" />
+        </g>
+
+        <g mask="url(#site-cpu-pulse-mask-1)">
+          <circle r="7.5" fill="url(#site-cpu-pulse-blue)"><animateMotion dur="7.2s" begin="-1.2s" repeatCount="indefinite" path="M 10 20 h 79.5 q 5 0 5 5 v 30" /></circle>
+        </g>
+        <g mask="url(#site-cpu-pulse-mask-2)">
+          <circle r="7.5" fill="url(#site-cpu-pulse-yellow)"><animateMotion dur="8.1s" begin="-3.4s" repeatCount="indefinite" path="M 180 10 h -69.7 q -5 0 -5 5 v 30" /></circle>
+        </g>
+        <g mask="url(#site-cpu-pulse-mask-3)">
+          <circle r="6.5" fill="url(#site-cpu-pulse-pink)"><animateMotion dur="6.4s" begin="-2.2s" repeatCount="indefinite" path="M 130 20 v 21.8 q 0 5 -5 5 h -10" /></circle>
+        </g>
+        <g mask="url(#site-cpu-pulse-mask-4)">
+          <circle r="7" fill="url(#site-cpu-pulse-cyan)"><animateMotion dur="8.8s" begin="-4.7s" repeatCount="indefinite" path="M 170 80 v -21.8 q 0 -5 -5 -5 h -50" /></circle>
+        </g>
+        <g mask="url(#site-cpu-pulse-mask-5)">
+          <circle r="7.5" fill="url(#site-cpu-pulse-green)"><animateMotion dur="9.4s" begin="-5.3s" repeatCount="indefinite" path="M 135 65 h 15 q 5 0 5 5 v 10 q 0 5 -5 5 h -39.8 q -5 0 -5 -5 v -20" /></circle>
+        </g>
+        <g mask="url(#site-cpu-pulse-mask-6)">
+          <circle r="6.2" fill="url(#site-cpu-pulse-orange)"><animateMotion dur="5.8s" begin="-1.8s" repeatCount="indefinite" path="M 94.8 95 v -36" /></circle>
+        </g>
+        <g mask="url(#site-cpu-pulse-mask-7)">
+          <circle r="7" fill="url(#site-cpu-pulse-blue)"><animateMotion dur="8.6s" begin="-6s" repeatCount="indefinite" path="M 88 88 v -15 q 0 -5 -5 -5 h -10 q -5 0 -5 -5 v -5 q 0 -5 5 -5 h 14" /></circle>
+        </g>
+        <g mask="url(#site-cpu-pulse-mask-8)">
+          <circle r="7" fill="url(#site-cpu-pulse-pink)"><animateMotion dur="7.9s" begin="-2.9s" repeatCount="indefinite" path="M 30 30 h 25 q 5 0 5 5 v 6.5 q 0 5 5 5 h 20" /></circle>
+        </g>
+      </svg>
+    `;
+
+    document.body.classList.add('has-cpu-pulse-background');
+    document.body.prepend(background);
+  }
+
   // ─── Auto-tag elements for scroll reveal ───
   function autoTag() {
     // Hero sections — tag the main heading, description, and buttons
@@ -1379,6 +1481,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    initCpuPulseBackground();
     autoTag();
     initRevealObserver();
     initCounters();
