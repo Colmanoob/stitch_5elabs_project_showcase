@@ -1611,6 +1611,20 @@ html {
   font: 500 12pt/1.6 "Lora", Georgia, serif;
 }
 
+.google-sites-mode #about .google-sites-centered-copy {
+  text-align: center;
+}
+
+.google-sites-mode #about .google-sites-centered-copy h2,
+.google-sites-mode #about .google-sites-centered-copy p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.google-sites-mode #about .google-sites-centered-copy p {
+  max-width: 860px;
+}
+
 .google-sites-mode .google-section-label {
   margin-bottom: 12px;
   color: #000000;
