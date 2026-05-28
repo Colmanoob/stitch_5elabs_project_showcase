@@ -457,11 +457,13 @@
   const PLANE_TRAIL_FADE_DURATION = 1700;
   const PLANE_ENTRY_DURATION = 280;
   const PLANE_NAVIGATION_OVERLAP = 0;
+  let planeAssetPreloaded = false;
 
   function initPlanePageTransitions() {
     if (!document.body.classList.contains('google-sites-mode')) return;
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    preloadPlaneAsset();
     let shouldRunEntry = false;
     try {
       shouldRunEntry = sessionStorage.getItem('sitePlaneTransition') === 'enter';
@@ -564,6 +566,22 @@
     }
   }
 
+  function preloadPlaneAsset() {
+    if (planeAssetPreloaded) return;
+    planeAssetPreloaded = true;
+
+    const planeSrc = getSiteRootPrefix() + 'assets/5elabs-paper-plane.svg';
+    const preload = document.createElement('link');
+    preload.rel = 'preload';
+    preload.as = 'image';
+    preload.href = planeSrc;
+    document.head.appendChild(preload);
+
+    const image = new Image();
+    image.decoding = 'async';
+    image.src = planeSrc;
+  }
+
   function createPlaneTransitionLayer() {
     const existing = document.querySelector('.site-plane-transition');
     if (existing) existing.remove();
@@ -574,15 +592,14 @@
       <svg class="site-plane-transition-trail" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
         <path class="site-plane-transition-trail-path" d="M -8 74 C 8 72 22 66 32 56 C 44 44 38 28 26 35 C 12 43 16 61 31 64 C 49 68 55 55 64 47 C 75 37 85 33 108 27"></path>
       </svg>
-      <img class="site-plane-transition-plane" src="${getSiteRootPrefix()}assets/5elabs-paper-plane.svg" alt="" aria-hidden="true" />
+      <img class="site-plane-transition-plane" src="${getSiteRootPrefix()}assets/5elabs-paper-plane.svg" decoding="async" alt="" aria-hidden="true" />
     `;
     document.body.appendChild(layer);
 
     return {
       layer,
       plane: layer.querySelector('.site-plane-transition-plane'),
-      trail: layer.querySelector('.site-plane-transition-trail'),
-      trailPath: layer.querySelector('.site-plane-transition-trail-path')
+      trail: layer.querySelector('.site-plane-transition-trail')
     };
   }
 
@@ -607,14 +624,14 @@
   function createPlaneFrame(centerX, centerY, planeWidth, planeHeight, scale, rotate, opacity, offset) {
     const frame = {
       opacity,
-      transform: `translate(${centerX - planeWidth / 2}px, ${centerY - planeHeight / 2}px) scale(${scale}) rotate(${rotate}deg)`
+      transform: `translate3d(${centerX - planeWidth / 2}px, ${centerY - planeHeight / 2}px, 0) rotate(${rotate}deg) scale(${scale})`
     };
     if (typeof offset === 'number') frame.offset = offset;
     return frame;
   }
 
   function runPlaneExit() {
-    const { layer, plane, trail, trailPath } = createPlaneTransitionLayer();
+    const { layer, plane, trail } = createPlaneTransitionLayer();
     const { width: planeWidth, height: planeHeight } = getPlaneVisualSize(plane);
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
@@ -650,16 +667,7 @@
       fill: 'forwards'
     });
 
-    const trailPathAnimation = animateTransitionElement(trailPath, [
-      { strokeDashoffset: '62' },
-      { strokeDashoffset: '0' }
-    ], {
-      duration: PLANE_EXIT_DURATION,
-      easing: 'linear',
-      fill: 'forwards'
-    });
-
-    return Promise.all([planeAnimation, trailAnimation, trailPathAnimation]);
+    return Promise.all([planeAnimation, trailAnimation]);
   }
 
   function runPlaneEntry() {
