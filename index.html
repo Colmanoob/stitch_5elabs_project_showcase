@@ -5,6 +5,13 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>5E Labs | Home</title>
+    <script>
+    try {
+      if (sessionStorage.getItem('sitePlaneTransition') === 'enter') {
+        document.documentElement.classList.add('is-plane-entry-cover');
+      }
+    } catch (error) {}
+  </script>
   <link href="https://lh3.googleusercontent.com/aida-public/AB6AXuBc95dqb9fPjnkpIy-AM90G3DXjU0UEj59CBjodFoRnYh6Bibr1reYRvTv4zez0CsYrd3Juy7xS_v_LlZEdtIPYF4Vdqb3HgmeqfZN8TBggRhu7TrASymYUOVuyR_yF1FU1omIqj5aSPRh8LoSMNPohTt8CniB6Qeykld2OdY8D7Ual8gg5_1M8C8K0Q4K6Js4p8ta8ZFdBHz_phnl__QRbueoqRhOZzNlCLtIxbOjEXd9e7AkBqs6vAKTqNXWIkAiPY3JI1wGPdaI" rel="icon" type="image/png" />
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
@@ -106,7 +113,7 @@
       .google-sites-hero-logo { width: min(84.7vw, 1156px); max-height: calc(100vh - 160px); transform: translate(-32px, 10px) scale(1.03); transform-origin: center; }
     }
   </style>
-  <link rel="stylesheet" href="animations.css?v=google-sites-20260526p" />
+  <link rel="stylesheet" href="animations.css?v=google-sites-20260528a" />
 </head>
 
 <body class="google-sites-mode bg-background text-on-surface font-body overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
@@ -327,7 +334,7 @@
     </div>
   </footer>
 
-  <script src="animations.js?v=google-sites-20260526p"></script>
+  <script src="animations.js?v=google-sites-20260528a"></script>
 </body>
 
 </html>

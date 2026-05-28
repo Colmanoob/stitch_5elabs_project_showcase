@@ -98,7 +98,14 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Admin | 5E Labs</title>
-    <link href="https://lh3.googleusercontent.com/aida-public/AB6AXuBc95dqb9fPjnkpIy-AM90G3DXjU0UEj59CBjodFoRnYh6Bibr1reYRvTv4zez0CsYrd3Juy7xS_v_LlZEdtIPYF4Vdqb3HgmeqfZN8TBggRhu7TrASymYUOVuyR_yF1FU1omIqj5aSPRh8LoSMNPohTt8CniB6Qeykld2OdY8D7Ual8gg5_1M8C8K0Q4K6Js4p8ta8ZFdBHz_phnl__QRbueoqRhOZzNlCLtIxbOjEXd9e7AkBqs6vAKTqNXWIkAiPY3JI1wGPdaI" rel="icon" type="image/png" />
+      <script>
+    try {
+      if (sessionStorage.getItem('sitePlaneTransition') === 'enter') {
+        document.documentElement.classList.add('is-plane-entry-cover');
+      }
+    } catch (error) {}
+  </script>
+  <link href="https://lh3.googleusercontent.com/aida-public/AB6AXuBc95dqb9fPjnkpIy-AM90G3DXjU0UEj59CBjodFoRnYh6Bibr1reYRvTv4zez0CsYrd3Juy7xS_v_LlZEdtIPYF4Vdqb3HgmeqfZN8TBggRhu7TrASymYUOVuyR_yF1FU1omIqj5aSPRh8LoSMNPohTt8CniB6Qeykld2OdY8D7Ual8gg5_1M8C8K0Q4K6Js4p8ta8ZFdBHz_phnl__QRbueoqRhOZzNlCLtIxbOjEXd9e7AkBqs6vAKTqNXWIkAiPY3JI1wGPdaI" rel="icon" type="image/png" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&family=Open+Sans:wght@400;600;700&family=Oswald:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
@@ -172,7 +179,7 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
             .google-main { padding-top: 56px; }
         }
     </style>
-    <link rel="stylesheet" href="animations.css?v=google-sites-20260526p" />
+    <link rel="stylesheet" href="animations.css?v=google-sites-20260528a" />
     <!-- reCAPTCHA API -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
@@ -676,6 +683,6 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
     </div>
   </footer>
 </main>
-    <script src="animations.js?v=google-sites-20260526p"></script>
+    <script src="animations.js?v=google-sites-20260528a"></script>
 </body>
 </html>

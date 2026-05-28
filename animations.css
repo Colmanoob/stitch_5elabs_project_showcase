@@ -2554,8 +2554,8 @@ html {
   z-index: 9999;
   pointer-events: none;
   opacity: 0;
-  background: rgba(255, 255, 255, 0);
-  transition: opacity 0.12s ease, background-color 0.34s ease;
+  background-color: rgba(255, 255, 255, 0);
+  transition: opacity 0.12s ease, background-color 0.46s ease;
 }
 
 .site-plane-transition.is-active {
@@ -2563,7 +2563,22 @@ html {
 }
 
 .site-plane-transition.is-exit {
-  background: rgba(255, 255, 255, 0.82);
+  background-color: #ffffff;
+}
+
+html.is-plane-entry-cover::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  background: #ffffff;
+  opacity: 1;
+}
+
+html.is-plane-entry-cover.is-plane-entry-revealed::before {
+  opacity: 0;
+  transition: opacity 0.28s ease;
 }
 
 .site-plane-transition-plane {

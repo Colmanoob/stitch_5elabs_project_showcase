@@ -5,6 +5,13 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Impact | 5E Labs</title>
+    <script>
+    try {
+      if (sessionStorage.getItem('sitePlaneTransition') === 'enter') {
+        document.documentElement.classList.add('is-plane-entry-cover');
+      }
+    } catch (error) {}
+  </script>
   <link href="../assets/5elabs-google-sites-mark.png" rel="icon" type="image/png" />
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
@@ -43,7 +50,7 @@
       font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
     }
   </style>
-  <link rel="stylesheet" href="../animations.css?v=google-sites-20260526p" />
+  <link rel="stylesheet" href="../animations.css?v=google-sites-20260528a" />
 </head>
 
 <body class="google-sites-mode  bg-background text-on-surface font-body overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
@@ -212,7 +219,7 @@
     </div>
   </footer>
 
-  <script src="../animations.js?v=google-sites-20260526p"></script>
+  <script src="../animations.js?v=google-sites-20260528a"></script>
 </body>
 
 </html>
