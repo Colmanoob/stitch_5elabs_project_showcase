@@ -1720,6 +1720,17 @@ html {
   object-fit: cover;
 }
 
+.google-sites-mode .google-platform-media.google-platform-media-contain {
+  display: grid;
+  place-items: center;
+  background: #f7f7f7;
+}
+
+.google-sites-mode .google-platform-media.google-platform-media-contain img {
+  height: auto;
+  object-fit: contain;
+}
+
 .google-sites-mode .google-platform-media .material-symbols-outlined {
   color: #b5b5b5;
   opacity: 0.32;
@@ -2078,6 +2089,19 @@ html {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.google-sites-mode .google-platform-cover-natural {
+  display: flex;
+  min-height: auto;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0 0;
+  background-image: none;
+}
+
+.google-sites-mode .google-atomic-cover-inner {
+  max-width: 1066px;
 }
 
 .google-sites-mode .google-platform-title-section {
@@ -2518,6 +2542,11 @@ html {
   .google-sites-mode .google-platform-cover-hero {
     min-height: 300px;
     background-size: min(92vw, 560px) auto;
+  }
+
+  .google-sites-mode .google-platform-cover-natural {
+    min-height: auto;
+    padding-top: 24px;
   }
 
   .google-sites-mode .google-platform-detail-main .google-section-inner,
