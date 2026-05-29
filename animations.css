@@ -2327,6 +2327,54 @@ html {
   text-underline-offset: 0.16em;
 }
 
+.google-sites-mode .google-sites-page-main {
+  background: #ffffff;
+}
+
+.google-sites-mode .google-sites-page-content {
+  width: min(100% - 96px, 960px);
+  margin: 0 auto;
+  padding: 50px 0 34px;
+}
+
+.google-sites-mode .google-sites-page-title {
+  margin: 0 0 36px;
+  color: #000000;
+  font: 400 24pt/1.25 "Oswald", Arial, sans-serif;
+}
+
+.google-sites-mode .google-live-copy p {
+  margin: 0 0 24px;
+  color: #333333;
+  font: 400 13pt/1.62 "Open Sans", Arial, sans-serif;
+}
+
+.google-sites-mode .google-live-copy a {
+  color: #1a73e8;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.google-sites-mode .google-community-poster-gallery {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+  width: min(100% - 96px, 1180px);
+  margin: 20px auto 72px;
+  align-items: start;
+}
+
+.google-sites-mode .google-community-poster {
+  margin: 0;
+}
+
+.google-sites-mode .google-community-poster img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .google-sites-mode .google-contact-template {
   width: min(100% - 96px, 562px);
   margin: 0 auto;
@@ -2422,6 +2470,16 @@ html {
     line-height: 1.22;
   }
 
+  .google-sites-mode .google-sites-page-content,
+  .google-sites-mode .google-community-poster-gallery {
+    width: min(100% - 48px, 960px);
+  }
+
+  .google-sites-mode .google-community-poster-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+
   .google-sites-mode .google-platform-detail-main .google-copy-stack {
     font-size: 16px;
     line-height: 1.65;
@@ -2447,6 +2505,28 @@ html {
 
   .google-sites-mode .google-platform-media-frame p {
     font-size: 16pt;
+  }
+}
+
+@media (max-width: 520px) {
+  .google-sites-mode .google-sites-page-content {
+    padding-top: 38px;
+  }
+
+  .google-sites-mode .google-sites-page-title {
+    font-size: 30px;
+    line-height: 1.22;
+  }
+
+  .google-sites-mode .google-live-copy p {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .google-sites-mode .google-community-poster-gallery {
+    grid-template-columns: 1fr;
+    width: min(100% - 48px, 560px);
+    gap: 18px;
   }
 }
 

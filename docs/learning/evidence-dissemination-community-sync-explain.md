@@ -2,7 +2,7 @@
 
 ## Freshman Summary
 
-We replaced placeholder FAQ content with the live Google Sites content for Peer Reviewed Evidence, Dissemination, and Community Workshops/Lectures. The old top-level Impact navigation entry now points to Community Workshops/Lectures, matching the updated Google Sites navigation.
+We replaced placeholder FAQ content with the live Google Sites content for Peer Reviewed Evidence, Dissemination, and Community Workshops/Lectures. The Community Workshops/Lectures page now also uses the local poster images supplied by the client and places them in a bottom gallery matching the Google Sites page structure.
 
 ## System Overview
 
@@ -25,10 +25,11 @@ The current project is already a static Google Sites-style site. Keeping the upd
 
 ## Files We Changed
 
-- `peer-reviewed-evidence/index.html`: added the three peer-reviewed publication citations.
-- `dissemination/index.html`: added the international conference dissemination entries.
-- `community-workshopslectures/index.html`: added the workshops and lectures page copied from the live Google Sites page.
-- `animations.css`: added reusable styling for reference lists and links.
+- `peer-reviewed-evidence/index.html`: added the three peer-reviewed publication citations in the same simple Google Sites text-page style.
+- `dissemination/index.html`: added the international conference dissemination entries in the same simple Google Sites text-page style.
+- `community-workshopslectures/index.html`: added the workshops and lectures page copied from the live Google Sites page, plus the bottom poster gallery.
+- `assets/community-workshops/`: stores the local community workshop poster images so the page does not depend on remote Google image URLs.
+- `animations.css`: added reusable styling for live Google Sites-style text pages and the poster gallery.
 - `animations.js`: updated route detection and search metadata.
 - Site HTML/PHP pages: updated the top-level navigation from Impact to Community Workshops/Lectures.
 
