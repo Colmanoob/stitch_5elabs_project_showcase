@@ -2327,30 +2327,46 @@ html {
   text-underline-offset: 0.16em;
 }
 
-.google-sites-mode .google-sites-page-main {
-  background: #ffffff;
-}
-
-.google-sites-mode .google-sites-page-content {
-  width: min(100% - 96px, 960px);
-  margin: 0 auto;
-  padding: 50px 0 34px;
-}
-
-.google-sites-mode .google-sites-page-title {
-  margin: 0 0 36px;
-  color: #000000;
-  font: 400 24pt/1.25 "Oswald", Arial, sans-serif;
-}
-
 .google-sites-mode .google-live-copy p {
   margin: 0 0 24px;
-  color: #333333;
-  font: 400 13pt/1.62 "Open Sans", Arial, sans-serif;
+  color: #000000;
+}
+
+.google-sites-mode .google-live-copy-peer p {
+  font: 400 14pt/1.38 "Times New Roman", Times, serif;
+}
+
+.google-sites-mode .google-live-copy-peer em {
+  font-style: italic;
+}
+
+.google-sites-mode .google-live-copy-events {
+  --google-event-indent: 71pt;
+}
+
+.google-sites-mode .google-live-copy-events p {
+  padding-left: var(--google-event-indent);
+  text-indent: calc(var(--google-event-indent) * -1);
+  text-align: justify;
+  font: 500 11pt/1.38 "Lora", Georgia, serif;
+}
+
+.google-sites-mode .google-live-copy-events strong {
+  font-weight: 700;
+}
+
+.google-sites-mode .google-live-copy-events em {
+  font-style: italic;
+}
+
+.google-sites-mode .google-live-copy-events .google-live-link-line {
+  padding-left: 0;
+  text-align: left;
+  text-indent: 0;
 }
 
 .google-sites-mode .google-live-copy a {
-  color: #1a73e8;
+  color: inherit;
   overflow-wrap: anywhere;
   text-decoration: underline;
   text-underline-offset: 0.16em;
@@ -2470,7 +2486,6 @@ html {
     line-height: 1.22;
   }
 
-  .google-sites-mode .google-sites-page-content,
   .google-sites-mode .google-community-poster-gallery {
     width: min(100% - 48px, 960px);
   }
@@ -2509,18 +2524,8 @@ html {
 }
 
 @media (max-width: 520px) {
-  .google-sites-mode .google-sites-page-content {
-    padding-top: 38px;
-  }
-
-  .google-sites-mode .google-sites-page-title {
-    font-size: 30px;
-    line-height: 1.22;
-  }
-
-  .google-sites-mode .google-live-copy p {
-    font-size: 16px;
-    line-height: 1.65;
+  .google-sites-mode .google-live-copy-events {
+    --google-event-indent: 42px;
   }
 
   .google-sites-mode .google-community-poster-gallery {
