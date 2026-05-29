@@ -2187,6 +2187,18 @@ html {
   object-fit: cover;
 }
 
+.google-sites-mode .google-platform-media-frame.google-platform-media-natural {
+  display: block;
+  aspect-ratio: auto;
+  overflow: visible;
+  background: transparent;
+}
+
+.google-sites-mode .google-platform-media-frame.google-platform-media-natural img {
+  height: auto;
+  object-fit: contain;
+}
+
 .google-sites-mode .google-platform-media-frame .material-symbols-outlined {
   color: #b5b5b5;
   opacity: 0.42;
@@ -2217,6 +2229,55 @@ html {
   color: #000000;
   text-align: center;
   font: 700 16pt/1.3 "Lora", Georgia, serif;
+}
+
+.google-sites-mode .google-atomic-story-grid,
+.google-sites-mode .google-atomic-showcase-grid {
+  display: grid;
+  gap: 22px;
+  margin-top: 38px;
+  align-items: start;
+}
+
+.google-sites-mode .google-atomic-story-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.google-sites-mode .google-atomic-showcase-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.google-sites-mode .google-atomic-story-grid figure,
+.google-sites-mode .google-atomic-showcase-grid figure,
+.google-sites-mode .google-atomic-journal-cover {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.google-sites-mode .google-atomic-story-grid img,
+.google-sites-mode .google-atomic-showcase-grid img,
+.google-sites-mode .google-atomic-alignment-image img,
+.google-sites-mode .google-atomic-journal-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.google-sites-mode .google-atomic-showcase-grid figcaption {
+  color: #000000;
+  text-align: center;
+  font: 700 14pt/1.3 "Lora", Georgia, serif;
+}
+
+.google-sites-mode .google-atomic-alignment-image {
+  display: grid;
+  align-items: center;
+}
+
+.google-sites-mode .google-atomic-journal-cover {
+  justify-self: center;
+  width: min(100%, 430px);
 }
 
 .google-sites-mode .google-platform-steps {
@@ -2446,6 +2507,11 @@ html {
   .google-sites-mode .google-platform-gallery {
     grid-template-columns: 1fr;
   }
+
+  .google-sites-mode .google-atomic-story-grid,
+  .google-sites-mode .google-atomic-showcase-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 640px) {
@@ -2507,6 +2573,12 @@ html {
   }
 
   .google-sites-mode .google-platform-detail-main .google-two-column {
+    gap: 28px;
+  }
+
+  .google-sites-mode .google-atomic-story-grid,
+  .google-sites-mode .google-atomic-showcase-grid {
+    grid-template-columns: 1fr;
     gap: 28px;
   }
 

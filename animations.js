@@ -821,13 +821,15 @@
       },
       {
         title: 'Atomic Shadows',
-        description: 'Atomic Shadows: Unstable Realms science learning environment.',
+        description: 'Atomic Shadows: Unstable Realms fantasy science learning environment.',
         path: '5e-labs/atomic-shadows/',
-        keywords: 'atomic shadows unstable realms atomic structure radiation science ethics',
+        keywords: 'atomic shadows unstable realms atomic structure radiation science ethics wizard knight spirits inquiry journal quest',
         sentences: [
-          'Atomic Shadows: Unstable Realms is an immersive science learning environment for atomic structure, radiation, scientific ethics, and narrative-driven inquiry.',
-          'Learners examine atomic phenomena through story-based scientific exploration.',
-          'The platform connects evidence-based inquiry with ethical and societal dimensions of science.'
+          'Atomic Shadows: Unstable Realms asks learners to enter a fantasy world of kingdoms, knights, and spirits to stabilise unstable atoms embodied as evil spirits.',
+          'Learners interact with NPCs such as a wise man, wizard, and knight to know more about the Evil spirits.',
+          "The Atomic Shadow's virtual spaces align with the different stages of the 5E inquiry model and include built-in assessment tools.",
+          'Atomic Shadows includes History of Atoms, Guided exploration, Assessment, and Quest virtual spaces.',
+          'Students can use the Atomic Shadows inquiry journal alongside the virtual quest.'
         ]
       },
       {
