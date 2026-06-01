@@ -794,6 +794,18 @@ html {
   list-style: none;
 }
 
+.google-menu-parent-link,
+.google-mobile-menu-parent-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.google-menu-parent-link:focus-visible,
+.google-mobile-menu-parent-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
 .google-more-menu > summary::-webkit-details-marker {
   display: none;
 }

@@ -1381,6 +1381,9 @@
       const summary = menu.querySelector('summary');
       if (summary) {
         summary.addEventListener('click', event => {
+          if (event.target instanceof Element && event.target.closest('.google-menu-parent-link')) {
+            return;
+          }
           if (!canHover.matches) return;
           event.preventDefault();
           openMenu();
