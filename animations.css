@@ -2376,7 +2376,7 @@ html {
 }
 
 .google-sites-mode .google-reference-content {
-  width: min(100% - 96px, 548px);
+  width: min(100% - 160px, 1200px);
   margin: 0 auto;
   padding: 31px 0 44px;
 }
