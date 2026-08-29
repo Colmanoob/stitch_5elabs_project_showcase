@@ -3106,9 +3106,10 @@ html.is-plane-transitioning {
 
 @media (max-width: 767px) {
   .google-sites-mode .google-sites-home-hero {
+    min-height: 0;
     align-content: center;
     align-items: center;
-    padding: 24px 0;
+    padding: 48px 0;
   }
 
   .site-footer-inner {
