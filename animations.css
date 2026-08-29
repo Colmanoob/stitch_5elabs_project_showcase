@@ -3038,6 +3038,15 @@ html.is-plane-transitioning {
 
 .google-sites-mode .google-sites-home-hero {
   min-height: 100vh;
+  min-height: 100svh;
+  padding: 0;
+  align-content: center;
+  align-items: center;
+  place-items: center;
+}
+
+.google-sites-mode .google-sites-hero-logo {
+  transform: none;
 }
 
 .google-sites-mode .google-footer {
@@ -3105,13 +3114,6 @@ html.is-plane-transitioning {
 }
 
 @media (max-width: 767px) {
-  .google-sites-mode .google-sites-home-hero {
-    min-height: 0;
-    align-content: center;
-    align-items: center;
-    padding: 48px 0;
-  }
-
   .site-footer-inner {
     width: min(100% - 40px, 1280px);
   }
