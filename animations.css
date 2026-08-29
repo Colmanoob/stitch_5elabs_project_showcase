@@ -3014,3 +3014,15 @@ html.is-plane-transitioning {
     stroke-dasharray: 8 8;
   }
 }
+
+/* Alternating home-page bands make the two main content sections distinct. */
+.google-sites-mode.home-color-bands.has-cpu-pulse-background #about,
+.google-sites-mode.home-color-bands #about {
+  background-color: rgba(255, 204, 0, 0.92);
+}
+
+.google-sites-mode.home-color-bands.has-cpu-pulse-background #platforms,
+.google-sites-mode.home-color-bands #platforms {
+  background-color: rgba(255, 163, 26, 0.92);
+  border-top: 1px solid rgba(0, 0, 0, 0.16);
+}
