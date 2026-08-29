@@ -3026,3 +3026,58 @@ html.is-plane-transitioning {
   background-color: rgba(255, 163, 26, 0.92);
   border-top: 1px solid rgba(0, 0, 0, 0.16);
 }
+
+/* Carry the home-page color system through the reusable section templates. */
+.google-sites-mode .google-main:not(.google-reference-main):not(.google-contact-main) > .google-section:nth-of-type(odd),
+.google-sites-mode.has-cpu-pulse-background .google-main:not(.google-reference-main):not(.google-contact-main) > .google-section:nth-of-type(odd) {
+  background-color: rgba(255, 204, 0, 0.92);
+}
+
+.google-sites-mode .google-main:not(.google-reference-main):not(.google-contact-main) > .google-section:nth-of-type(even),
+.google-sites-mode.has-cpu-pulse-background .google-main:not(.google-reference-main):not(.google-contact-main) > .google-section:nth-of-type(even) {
+  background-color: rgba(255, 163, 26, 0.92);
+  border-top: 1px solid rgba(0, 0, 0, 0.16);
+}
+
+/* Each platform is a distinct horizontal band, not just an item in one block. */
+.google-sites-mode.home-color-bands #platforms .google-platform-row {
+  position: relative;
+  padding: 50px 0;
+  background-color: rgba(255, 204, 0, 0.92);
+  box-shadow: 0 0 0 100vmax rgba(255, 204, 0, 0.92);
+  clip-path: inset(0 -100vmax);
+}
+
+.google-sites-mode.home-color-bands #platforms .google-platform-row:nth-child(even) {
+  background-color: rgba(255, 163, 26, 0.92);
+  box-shadow: 0 0 0 100vmax rgba(255, 163, 26, 0.92);
+}
+
+.google-sites-mode.home-color-bands #platforms .google-platform-row + .google-platform-row {
+  border-top: 1px solid rgba(0, 0, 0, 0.16);
+}
+
+/* Reference, events, community, and contact templates have the same visual rhythm. */
+.google-sites-mode .google-reference-banner {
+  background-color: rgba(255, 204, 0, 0.92);
+}
+
+.google-sites-mode .google-reference-content {
+  background-color: rgba(255, 163, 26, 0.92);
+  box-shadow: 0 0 0 100vmax rgba(255, 163, 26, 0.92);
+  clip-path: inset(0 -100vmax);
+}
+
+.google-sites-mode .google-community-poster-gallery {
+  padding-top: 36px;
+  padding-bottom: 52px;
+  background-color: rgba(255, 204, 0, 0.92);
+  box-shadow: 0 0 0 100vmax rgba(255, 204, 0, 0.92);
+  clip-path: inset(0 -100vmax);
+}
+
+.google-sites-mode .google-contact-template {
+  background-color: rgba(255, 204, 0, 0.92);
+  box-shadow: 0 0 0 100vmax rgba(255, 204, 0, 0.92);
+  clip-path: inset(0 -100vmax);
+}
