@@ -32,6 +32,68 @@
     return /\/(math-city|math-city-2|cardium|atomic-shadows|vtts)\//.test(pathname) ? '../' : '';
   }
 
+  // The site navigation lives in the footer so visitors can focus on each page's content first.
+  function initFooterNavigation() {
+    if (!document.body.classList.contains('google-sites-mode')) return;
+
+    const footer = document.querySelector('.google-footer');
+    if (!footer || footer.dataset.navigationReady === 'true') return;
+
+    const root = getSiteRootPrefix();
+    const groups = [
+      {
+        title: 'Home',
+        href: `${root}index.html#top`,
+        links: [
+          ['About 5E Labs', 'home/about-5e-labs/'],
+          ['Objectives', 'home/objectives/'],
+          ['Impact', 'home/impact/'],
+          ['5E Inquiry Framework', 'home/5e-inquiry-framework/'],
+          ['21st Century Skills', 'home/21st-century-skills/'],
+          ['Philosophy behind 5E Labs', 'home/philosophy-behind-5e-labs/']
+        ]
+      },
+      {
+        title: '5E Labs',
+        href: `${root}5e-labs/`,
+        links: [
+          ['Math City 1.0', '5e-labs/math-city-1-0/'],
+          ['Math City 2.0', '5e-labs/math-city-2-0/'],
+          ['The Cardium', '5e-labs/the-cardium/'],
+          ['Atomic Shadows', '5e-labs/atomic-shadows/'],
+          ["Virtual School of Teacher's Training", '5e-labs/virtual-school-of-teachers-training/'],
+          ['Downloads', 'downloads.html']
+        ]
+      },
+      {
+        title: 'Resources & Contact',
+        href: `${root}peer-reviewed-evidence/`,
+        links: [
+          ['Peer Reviewed Evidence', 'peer-reviewed-evidence/'],
+          ['Dissemination', 'dissemination/'],
+          ['Community Workshops/Lectures', 'community-workshopslectures/'],
+          ['Contact us', 'contact-us/']
+        ]
+      }
+    ];
+
+    const columns = groups.map(group => {
+      const children = group.links.map(([label, path]) =>
+        `<li><a href="${root}${path}">${label}</a></li>`
+      ).join('');
+      return `<section class="site-footer-nav-group"><h2><a href="${group.href}">${group.title}</a></h2>${children ? `<ul>${children}</ul>` : ''}</section>`;
+    }).join('');
+
+    footer.innerHTML = `
+      <div class="google-section-inner site-footer-inner">
+        <nav class="site-footer-nav" aria-label="Site navigation">${columns}</nav>
+        <div class="site-footer-legal">
+          <p>&copy; ${new Date().getFullYear()} 5E Labs. All rights reserved.</p>
+        </div>
+      </div>`;
+    footer.dataset.navigationReady = 'true';
+  }
+
   // Decorative circuit pulses adapted from the supplied CPU SVG, without the CPU core.
   function initCpuPulseBackground() {
     if (!document.body.classList.contains('google-sites-mode')) return;
@@ -1536,6 +1598,7 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     initCpuPulseBackground();
+    initFooterNavigation();
     autoTag();
     initRevealObserver();
     initCounters();

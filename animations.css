@@ -3027,6 +3027,102 @@ html.is-plane-transitioning {
   border-top: 1px solid rgba(0, 0, 0, 0.16);
 }
 
+/* Footer-first navigation */
+.google-sites-mode .google-header {
+  display: none !important;
+}
+
+.google-sites-mode .google-main {
+  padding-top: 0 !important;
+}
+
+.google-sites-mode .google-sites-home-hero {
+  min-height: 100vh;
+}
+
+.google-sites-mode .google-footer {
+  padding: clamp(3rem, 7vw, 5.5rem) 0 1.5rem;
+  color: #111111;
+  background: #ffffff;
+  border-top: 1px solid #e8eaed;
+}
+
+.site-footer-inner {
+  width: min(100% - 64px, 1280px);
+}
+
+.site-footer-nav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3rem 4rem;
+}
+
+.site-footer-nav-group h2,
+.site-footer-nav-group ul,
+.site-footer-legal p {
+  margin: 0;
+}
+
+.site-footer-nav-group h2 {
+  font: 700 1rem/1.4 "Open Sans", Arial, sans-serif;
+}
+
+.site-footer-nav-group h2 a {
+  color: #111111;
+}
+
+.site-footer-nav-group ul {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1.55rem;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer-nav-group li,
+.site-footer-nav-group a {
+  font: 400 1rem/1.4 "Open Sans", Arial, sans-serif;
+}
+
+.site-footer-nav-group li a {
+  color: #5f6368;
+}
+
+.site-footer-nav-group a:focus-visible {
+  outline: 2px solid #1a73e8;
+  outline-offset: 4px;
+}
+
+.site-footer-legal {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e8eaed;
+}
+
+.site-footer-legal p {
+  color: #5f6368;
+  font: 400 0.9rem/1.5 "Open Sans", Arial, sans-serif;
+}
+
+@media (max-width: 767px) {
+  .site-footer-inner {
+    width: min(100% - 40px, 1280px);
+  }
+
+  .site-footer-nav {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .site-footer-nav-group ul {
+    margin-top: 1rem;
+  }
+
+  .site-footer-legal {
+    margin-top: 2.75rem;
+  }
+}
+
 /* Carry the home-page color system through the reusable section templates. */
 .google-sites-mode .google-main:not(.google-reference-main):not(.google-contact-main) > .google-section:nth-of-type(odd),
 .google-sites-mode.has-cpu-pulse-background .google-main:not(.google-reference-main):not(.google-contact-main) > .google-section:nth-of-type(odd) {
