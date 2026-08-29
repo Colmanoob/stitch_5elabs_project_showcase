@@ -1,0 +1,5 @@
+RewriteEngine On
+
+# Keep one canonical public address so www and non-www visitors receive the same site version.
+RewriteCond %{HTTP_HOST} ^www\.5elabs\.net$ [NC]
+RewriteRule ^ https://5elabs.net%{REQUEST_URI} [R=301,L,NE]
