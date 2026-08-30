@@ -2497,6 +2497,24 @@ html {
   font: 400 8pt/1.2 "Oswald", Arial, sans-serif;
 }
 
+.google-sites-mode .google-contact-team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px 48px;
+  margin: -24px 0 72px;
+}
+
+.google-sites-mode .google-contact-team-grid p {
+  margin: 0;
+  color: #333333;
+  text-align: center;
+  font: 400 13pt/1.6 "Open Sans", Arial, sans-serif;
+}
+
+.google-sites-mode .google-contact-join-block .google-platform-button {
+  margin-top: 12px;
+}
+
 @media (max-width: 920px) {
   .google-sites-mode .google-platform-feature-list,
   .google-sites-mode .google-platform-gallery {
@@ -2551,6 +2569,11 @@ html {
     margin-bottom: 52px;
     font-size: 38px;
     line-height: 1.22;
+  }
+
+  .google-sites-mode .google-contact-team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 28px;
   }
 
   .google-sites-mode .google-community-poster-gallery {
