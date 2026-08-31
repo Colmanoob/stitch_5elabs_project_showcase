@@ -2504,6 +2504,28 @@ html {
   margin: -24px 0 72px;
 }
 
+.google-sites-mode .google-contact-team-member {
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+}
+
+.google-sites-mode .google-contact-photo-placeholder {
+  display: grid;
+  width: min(100%, 128px);
+  aspect-ratio: 1;
+  place-items: center;
+  color: #777777;
+  background: #eeeeee;
+  border: 1px solid #d6d6d6;
+  border-radius: 50%;
+}
+
+.google-sites-mode .google-contact-photo-placeholder .material-symbols-outlined {
+  font-size: 58px;
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 48;
+}
+
 .google-sites-mode .google-contact-team-grid p {
   margin: 0;
   color: #333333;
