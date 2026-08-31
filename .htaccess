@@ -3,3 +3,21 @@ RewriteEngine On
 # Keep one canonical public address so www and non-www visitors receive the same site version.
 RewriteCond %{HTTP_HOST} ^www\.5elabs\.net$ [NC]
 RewriteRule ^ https://5elabs.net%{REQUEST_URI} [R=301,L,NE]
+
+# Compress text assets when LiteSpeed/Apache compression is available.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# Cache versioned static assets. HTML remains uncached so page changes appear immediately.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>

@@ -28,6 +28,14 @@
 [data-reveal].revealed {
   opacity: 1;
   transform: translateY(0);
+  will-change: auto;
+}
+
+@supports (content-visibility: auto) {
+  .google-sites-mode .google-main > .google-section:not(:first-child) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 700px;
+  }
 }
 
 /* Directional variants */
@@ -2495,6 +2503,12 @@ html {
   color: #111111;
   text-align: center;
   font: 400 8pt/1.2 "Oswald", Arial, sans-serif;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .google-sites-mode.has-cpu-pulse-background .site-cpu-pulse-background {
+    display: none;
+  }
 }
 
 .google-sites-mode .google-contact-team-grid {

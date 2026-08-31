@@ -32,6 +32,29 @@
     return /\/(math-city|math-city-2|cardium|atomic-shadows|vtts)\//.test(pathname) ? '../' : '';
   }
 
+  function shouldReduceVisualEffects() {
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    const saveData = Boolean(connection && connection.saveData);
+    const coarsePointer = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const lowMemory = typeof navigator.deviceMemory === 'number' && navigator.deviceMemory <= 4;
+    const lowCoreCount = typeof navigator.hardwareConcurrency === 'number' && navigator.hardwareConcurrency <= 4;
+
+    return reducedMotion || saveData || coarsePointer || lowMemory || lowCoreCount;
+  }
+
+  function initImageLoadingHints() {
+    document.querySelectorAll('img').forEach(image => {
+      image.decoding = 'async';
+      if (image.matches('.google-sites-hero-logo, .google-brand img')) {
+        image.loading = 'eager';
+        image.setAttribute('fetchpriority', 'high');
+      } else if (!image.hasAttribute('loading')) {
+        image.loading = 'lazy';
+      }
+    });
+  }
+
   // The site navigation lives in the footer so visitors can focus on each page's content first.
   function initFooterNavigation() {
     if (!document.body.classList.contains('google-sites-mode')) return;
@@ -99,7 +122,7 @@
     if (!document.body.classList.contains('google-sites-mode')) return;
     if (document.body.classList.contains('admin-page')) return;
     if (document.querySelector('.site-cpu-pulse-background')) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (shouldReduceVisualEffects()) return;
 
     const background = document.createElement('div');
     background.className = 'site-cpu-pulse-background';
@@ -330,6 +353,12 @@
 
   // ─── Scroll Reveal Observer ───
   function initRevealObserver() {
+    const revealElements = document.querySelectorAll('[data-reveal]');
+    if (shouldReduceVisualEffects() || !('IntersectionObserver' in window)) {
+      revealElements.forEach(el => el.classList.add('revealed'));
+      return;
+    }
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -342,11 +371,12 @@
       rootMargin: '0px 0px -40px 0px'
     });
 
-    document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+    revealElements.forEach(el => observer.observe(el));
   }
 
   // ─── Animated Counters ───
   function initCounters() {
+    if (shouldReduceVisualEffects()) return;
     const counterEls = document.querySelectorAll('.text-4xl.font-headline, .text-4xl.font-bold');
     if (!counterEls.length) return;
 
@@ -436,6 +466,7 @@
 
   // ─── Parallax on Hero Image ───
   function initParallax() {
+    if (shouldReduceVisualEffects()) return;
     const heroImg = document.querySelector('.aspect-square img, [class*="h-96"] img');
     if (!heroImg) return;
 
@@ -470,6 +501,7 @@
 
   // ─── Magnetic Buttons ───
   function initMagneticButtons() {
+    if (shouldReduceVisualEffects()) return;
     document.querySelectorAll('button[class*="bg-primary"], a[class*="bg-primary"]').forEach(btn => {
       btn.addEventListener('mousemove', (e) => {
         const rect = btn.getBoundingClientRect();
@@ -523,6 +555,16 @@
 
   function initPlanePageTransitions() {
     if (!document.body.classList.contains('google-sites-mode')) return;
+
+    if (shouldReduceVisualEffects()) {
+      clearPlaneEntryCover(0);
+      try {
+        sessionStorage.removeItem('sitePlaneTransition');
+      } catch (error) {
+        // Direct navigation still works if session storage is unavailable.
+      }
+      return;
+    }
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     preloadPlaneAsset();
@@ -1597,6 +1639,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    initImageLoadingHints();
     initCpuPulseBackground();
     initFooterNavigation();
     autoTag();
