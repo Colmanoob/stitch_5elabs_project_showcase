@@ -2,15 +2,15 @@
 
 ## Freshman Summary
 
-The site felt slow mainly because decorative animations kept the phone's CPU and GPU busy, and internal links intentionally waited 1.85 seconds before navigating. The mobile/low-power path now skips those effects and loads non-critical images lazily.
+The site felt slow mainly because decorative animations kept the phone's CPU and GPU busy, and internal links intentionally waited 1.85 seconds before navigating. The mobile/low-power path now preserves the animations in lighter forms and loads non-critical images lazily.
 
 ## System Overview
 
-All public pages share `animations.js` and `animations.css`. Device capability checks in the shared JavaScript choose a lightweight path for touch devices, reduced-motion users, data-saver connections, and lower-power hardware. Hostinger can also compress and cache static assets through `.htaccess`.
+All public pages share `animations.js` and `animations.css`. Device capability checks in the shared JavaScript choose a lighter animation profile for touch and lower-power hardware. Reduced-motion and Data Saver preferences still disable optional effects. Hostinger can also compress and cache static assets through `.htaccess`.
 
 ## Mental Model
 
-Treat animation as an enhancement, not a requirement. Content and navigation must work immediately; capable desktop devices may add visual effects afterward.
+Treat animation as a scalable enhancement. The same visual language can remain across devices while mobile uses fewer simultaneous effects and shorter transitions.
 
 ## Key Concepts Used
 
@@ -26,7 +26,7 @@ A shared capability check fixes every public page without duplicating device rul
 
 ## Files We Changed
 
-- `animations.js`: device checks, image hints, lightweight mobile behavior, immediate mobile navigation.
+- `animations.js`: device checks, image hints, lightweight mobile behavior, and a shorter mobile plane transition.
 - `animations.css`: releases compositor layers and defers rendering of lower sections.
 - `.htaccess`: compression and static-asset cache rules.
 - Public HTML pages: updated shared-asset version strings.
@@ -36,8 +36,8 @@ A shared capability check fixes every public page without duplicating device rul
 1. The page HTML loads.
 2. Images receive decoding/loading hints.
 3. The browser capability check runs.
-4. Constrained devices skip continuous SVG, counters, reveal animations, parallax, magnetic buttons, and plane transitions.
-5. Capable desktop devices keep the existing presentation.
+4. Touch and lower-power devices render fewer simultaneous circuit pulses, lighter parallax, and a shorter plane transition.
+5. Capable desktop devices keep the full presentation.
 
 ## How To Test It
 

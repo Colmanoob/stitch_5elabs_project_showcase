@@ -35,12 +35,17 @@
   function shouldReduceVisualEffects() {
     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
     const saveData = Boolean(connection && connection.saveData);
-    const coarsePointer = window.matchMedia('(hover: none), (pointer: coarse)').matches;
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    return reducedMotion || saveData;
+  }
+
+  function isLightweightEffectsDevice() {
+    const coarsePointer = window.matchMedia('(hover: none), (pointer: coarse)').matches;
     const lowMemory = typeof navigator.deviceMemory === 'number' && navigator.deviceMemory <= 4;
     const lowCoreCount = typeof navigator.hardwareConcurrency === 'number' && navigator.hardwareConcurrency <= 4;
 
-    return reducedMotion || saveData || coarsePointer || lowMemory || lowCoreCount;
+    return coarsePointer || lowMemory || lowCoreCount;
   }
 
   function initImageLoadingHints() {
@@ -246,6 +251,13 @@
         </g>
       </svg>
     `;
+
+    if (isLightweightEffectsDevice()) {
+      const signals = background.querySelectorAll('g[mask^="url(#site-cpu-pulse-mask-"]');
+      signals.forEach((signal, index) => {
+        if (index % 2 === 1) signal.remove();
+      });
+    }
 
     document.body.classList.add('has-cpu-pulse-background');
     document.body.prepend(background);
@@ -471,12 +483,22 @@
     if (!heroImg) return;
 
     let ticking = false;
+    let isVisible = true;
+    const rateMultiplier = isLightweightEffectsDevice() ? 0.04 : 0.08;
+
+    if ('IntersectionObserver' in window) {
+      const visibilityObserver = new IntersectionObserver(entries => {
+        isVisible = Boolean(entries[0] && entries[0].isIntersecting);
+      }, { rootMargin: '120px 0px' });
+      visibilityObserver.observe(heroImg);
+    }
+
     window.addEventListener('scroll', () => {
-      if (ticking) return;
+      if (ticking || !isVisible) return;
       ticking = true;
       requestAnimationFrame(() => {
         const scrollY = window.scrollY;
-        const rate = scrollY * 0.08;
+        const rate = scrollY * rateMultiplier;
         if (rate < 80) {
           heroImg.style.transform = `translateY(${rate}px) scale(1.05)`;
         }
@@ -549,9 +571,19 @@
   // Paper plane page transition
   const PLANE_EXIT_DURATION = 1850;
   const PLANE_TRAIL_FADE_DURATION = 1700;
+  const PLANE_LIGHTWEIGHT_EXIT_DURATION = 680;
+  const PLANE_LIGHTWEIGHT_TRAIL_DURATION = 620;
   const PLANE_ENTRY_DURATION = 280;
   const PLANE_NAVIGATION_OVERLAP = 0;
   let planeAssetPreloaded = false;
+
+  function getPlaneExitDuration() {
+    return isLightweightEffectsDevice() ? PLANE_LIGHTWEIGHT_EXIT_DURATION : PLANE_EXIT_DURATION;
+  }
+
+  function getPlaneTrailDuration() {
+    return isLightweightEffectsDevice() ? PLANE_LIGHTWEIGHT_TRAIL_DURATION : PLANE_TRAIL_FADE_DURATION;
+  }
 
   function initPlanePageTransitions() {
     if (!document.body.classList.contains('google-sites-mode')) return;
@@ -634,7 +666,7 @@
         // Navigation should continue even if session storage is unavailable.
       }
       window.location.href = href;
-    }, Math.max(0, PLANE_EXIT_DURATION - PLANE_NAVIGATION_OVERLAP));
+    }, Math.max(0, getPlaneExitDuration() - PLANE_NAVIGATION_OVERLAP));
 
     try {
       runPlaneExit().catch(() => undefined);
@@ -755,7 +787,7 @@
       createPlaneFrame(x(0.52), y(0.55), planeWidth, planeHeight, 1.02, -344, 1, 0.82),
       createPlaneFrame(x(1.12), y(0.26), planeWidth, planeHeight, 1.08, -346, 0.98, 1)
     ], {
-      duration: PLANE_EXIT_DURATION,
+      duration: getPlaneExitDuration(),
       easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
       fill: 'forwards'
     });
@@ -766,7 +798,7 @@
       { opacity: 0.96, offset: 0.78 },
       { opacity: 0 }
     ], {
-      duration: PLANE_TRAIL_FADE_DURATION,
+      duration: getPlaneTrailDuration(),
       easing: 'ease',
       fill: 'forwards'
     });

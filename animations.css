@@ -2505,12 +2505,6 @@ html {
   font: 400 8pt/1.2 "Oswald", Arial, sans-serif;
 }
 
-@media (hover: none), (pointer: coarse) {
-  .google-sites-mode.has-cpu-pulse-background .site-cpu-pulse-background {
-    display: none;
-  }
-}
-
 .google-sites-mode .google-contact-team-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2962,14 +2956,14 @@ html.is-plane-transitioning .google-sites-mode.has-cpu-pulse-background .site-cp
 
 @media (max-width: 767px) {
   .google-sites-mode.has-cpu-pulse-background .site-cpu-pulse-background {
-    opacity: 0.56;
+    opacity: 0.46;
   }
 
   .google-sites-mode.has-cpu-pulse-background .site-cpu-pulse-svg {
-    width: 190vw;
-    height: 124vh;
-    min-width: 720px;
-    transform: translate(-50vw, -9vh) scale(1.06);
+    width: 138vw;
+    height: 112vh;
+    min-width: 520px;
+    transform: translate(-19vw, -6vh) scale(1.02);
   }
 }
 
