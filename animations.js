@@ -952,7 +952,7 @@
           "The museum's virtual spaces align with the different stages of the 5E inquiry model and include built-in assessment tools.",
           'The Cardium includes the Entrance, Immersive Gallery, Auditorium, and Assessment virtual spaces.',
           'Learners interact with non-player characters in the museum, complete quest items, check their knowledge, and receive The Cardium Souvenir.',
-          'Students can enter The Cardium through the Spatial platform link.'
+        'Students can enter The Cardium through its itch.io project page.'
         ]
       },
       {
@@ -1024,12 +1024,13 @@
       },
       {
         title: 'Contact us',
-        description: 'Public contact section for 5E Labs.',
+        description: 'Contact details and team profile for 5E Labs.',
         path: 'contact-us/',
-        keywords: 'contact email organization information 5e labs',
+        keywords: 'contact email phone manpreet singh eduhk lecturer artificial intelligence immersive technology 5e labs',
         sentences: [
-          'The contact page follows the Google Sites team template with a leadership section, team image, and joining information.',
-          'Contact details can be added once the client confirms the preferred email, organization information, and public-facing contact method.'
+          'Dr. Manpreet Singh is an EdTech innovator and interdisciplinary researcher specializing in artificial intelligence, human-AI interaction, immersive technologies, and virtual learning ecosystems.',
+          'Dr. Singh is Lecturer I, Programme Leader for BSc (AIEdTech) and BEd (ICT & PSci), and Subject Coordinator for BEd Secondary (ICT) at The Education University of Hong Kong.',
+          'The contact page lists Dr. Singh\'s EdUHK email, telephone number, office location, and full university profile.'
         ]
       },
       {
