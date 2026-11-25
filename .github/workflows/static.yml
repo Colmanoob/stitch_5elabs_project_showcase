@@ -1,0 +1,66 @@
+name: Deploy static 5E Labs website
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Prepare static website
+        run: |
+          mkdir -p _site
+
+          cp index.html _site/
+          cp downloads.html _site/
+          cp animations.css _site/
+          cp animations.js _site/
+
+          cp -R assets _site/
+          cp -R 5e-labs _site/
+          cp -R home _site/
+          cp -R peer-reviewed-evidence _site/
+          cp -R dissemination _site/
+          cp -R community-workshopslectures _site/
+          cp -R contact-us _site/
+
+          cp -R impact _site/
+          cp -R atomic-shadows _site/
+          cp -R cardium _site/
+          cp -R math-city _site/
+          cp -R math-city-2 _site/
+          cp -R vtts _site/
+
+          touch _site/.nojekyll
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@v4
